@@ -1,0 +1,68 @@
+.footer {
+    background-color: $bgn-color;
+
+    &-text {
+        @include font(400, 14px, 16px);
+        color: $third-color;
+
+        @media screen and (min-width: 768px) {
+            @include font(400, 16px, 19px);
+        }
+    }
+}
+
+.footer-wraper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    @media screen and (max-width: 768px) {
+        flex-wrap: wrap;       
+    }
+
+    &-heart-icon {
+        fill: $accent-color;
+        margin-right: 10px;
+        margin-left: 10px;
+
+        animation: pulse 1500ms  infinite;
+        transition: $transition;
+        @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+        
+                10% {
+                    transform: scale(1.3);
+                }
+        
+                40% {
+                    transform: scale(0.9)
+                }
+        
+                50% {
+                    transform: scale(1.3);
+                }
+            }
+    }
+
+    .footer-link {
+        @include font(400, 14px, 16px);
+        color: $third-color;
+        margin-left: 5px;
+
+        @media screen and (min-width: 768px) {
+            @include font(400, 16px, 19px);
+                
+        }
+
+        &>a{
+            text-decoration: underline;
+        }
+    }
+}
