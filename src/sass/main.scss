@@ -1,0 +1,17 @@
+// тут подключаем свои файлы стилей
+
+// base styles
+
+@import './utils/mixins';
+@import './utils/variables';
+@import './common/reset';
+@import './common/container';
+@import './utils/placeholder';
+
+// components
+@import './layouts/header';
+@import './layouts/gallery';
+@import './layouts/footer';
+
+//layouts
+@import './layouts/modal';
