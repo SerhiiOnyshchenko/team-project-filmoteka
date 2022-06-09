@@ -1,11 +1,11 @@
 {
-  "name": "parcel-project-template",
+  "name": "Team-Project-Filmoteka",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://SerhiiOnyshchenko.github.io/Team-Project-Filmoteka",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /Team-Project-Filmoteka/"
   },
   "repository": {
     "type": "git",
