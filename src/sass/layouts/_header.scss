@@ -1,9 +1,4 @@
-.header {
-    margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 60px;
-    max-height: 216px;
-  
+.header {  
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
       url('../images/home/mobile/header-bg-home-mobile.jpg');
 
@@ -42,9 +37,8 @@
     justify-content: space-between;
   }
   .header__logo {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
+    @include font(500, 30, 35);
+    // 35px, 1.16
     display: flex;
     align-items: center;
     text-align: center;
@@ -65,10 +59,8 @@
   .header__btn {
     background-color: transparent;
     border: none;
-    padding: 0;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.17;
+    @include font(500, 12, 20);
+    // 1.17, 20px
   
     text-transform: uppercase;
     position: relative;
@@ -86,22 +78,18 @@
     }
   }
   .header__div {
-    margin-bottom: 0;
     margin-top: 47px;
     display: flex;
     justify-content: center;
   }
   .input-error {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    margin-bottom: 0;
+    
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
+
+    @include font(400, 14, 16);
+    //  1.14, 16px
     align-items: center;
     text-align: center;
     color: #ff001b;
@@ -110,32 +98,29 @@
     position: relative;
   }
   .form__input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 0.5px solid #818181;
+
     width: 280px;
-    color: $secondary-color;
+    color: $secondary-color;    
+    background-color: transparent;
   
     @media screen and (min-width: 768px) {
       width: 336px;
     }
   }
   .form__input::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
+   
+    @include font(400, 14, 16);
+    // 1.14, 16px
     display: flex;
     align-items: center;
   
     color: $secondary-color;
-    background-color: transparent;
   }
   
   .form__btn {
     background-color: transparent;
     border: none;
     border-bottom: 0.5px solid #818181;
-    padding: 0;
     line-height: 0;
     position: relative;
     bottom: 0;
@@ -175,10 +160,11 @@
     }
   }
   
-  .library-btn {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
+  .library__btn {
+   
+    @include font(500, 12, 16);
+    // 1.33, 16px
+
     color: $secondary-color;
   
     width: 147px;
@@ -214,7 +200,6 @@
     height: 1px;
     overflow: hidden;
     border: 0;
-    padding: 0;
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     margin: -1px;
