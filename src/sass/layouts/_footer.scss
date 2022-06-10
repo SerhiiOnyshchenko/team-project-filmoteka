@@ -1,25 +1,22 @@
 .footer {
     background-color: $bgn-color;
-
-    &-text {
-        @include font(400, 14px, 16px);
-        color: $third-color;
-
-        @media screen and (min-width: 768px) {
-            @include font(400, 16px, 19px);
-        }
-    }
 }
 
 .footer-wraper {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100px;
     padding-top: 30px;
     padding-bottom: 30px;
+
+    @include font(400, 14px, 16px);
+        color: $third-color;
+    
+        @media screen and (min-width: 768px) {
+            @include font(400, 16px, 19px);
+        }
+    
+    
 
     @media screen and (max-width: 768px) {
         flex-wrap: wrap;       
@@ -50,10 +47,14 @@
                 }
             }
     }
-
-    .footer-link {
-        @include font(400, 14px, 16px);
-        color: $third-color;
+    .footer-text-mrbottom{
+        margin-bottom: 10px;
+        @media screen and (min-width: 469px) {
+                margin-bottom: 0;
+            }
+    }
+    .footer-text-mrleft {
+        
         margin-left: 5px;
 
         @media screen and (min-width: 768px) {
@@ -62,7 +63,13 @@
         }
 
         &>a{
+            color: $third-color;
             text-decoration: underline;
+            transition: $transition;
+            &:hover, &:focus{
+                color: $accent-color;
+                
+            }
         }
     }
 }
