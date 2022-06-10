@@ -1,0 +1,56 @@
+<header class="header">
+    <div class="container header__container">
+      <nav class="header__nav">
+        <a class="header__logo" href="">
+          <svg class="header__icon" width="24" height="24">
+            <use href="./images/symbol-defs.svg#icon-film" />
+          </svg>
+          <span class="header__filmoteka">Filmoteka</span>
+        </a>
+        <ul class="header__list">
+          <li class="header__item">
+            <button class="header__btn current ">home</button>
+          </li>
+          <li class="header__item">
+            <button class="header__btn ">my library</button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header_form-container">
+        <form class="header__form" name="form" autocomplete="off" id="form" novalidate>
+          <div class="header__div">
+            <label class="form__label">
+              <input
+                class="form__input"
+                type="text"
+                name="search"
+                placeholder="Search film"
+                id="search"
+                onclick="this.value = ''"
+              />
+            </label>
+            <button class="form__btn" type="submit">
+              <svg class="form__icon" width="12" height="12">
+                <use href="./images/symbol-defs.svg#icon-search" />
+              </svg>
+            </button>
+          </div>
+          <p id="input-error" class="input-error visually-hidden">
+            Search result not successful. Enter the correct movie name.
+          </p>
+        </form>
+      </div>
+      <div class="header__btns-container display-none">
+        <ul class="library__btns-list">
+          <li class="library__btns-item">
+            <button class="library-btn active">watched</button>
+          </li>
+          <li class="library__btns-item">
+            <button class="library-btn">queue</button>
+          </li>
+        </ul>
+      </div>
+    
+    </div>
+  </header>
