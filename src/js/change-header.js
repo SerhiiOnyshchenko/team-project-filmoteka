@@ -19,3 +19,4 @@ function openMyLibrary() {
    refs.btnMyLibrary.classList.add('current');
    refs.btnHome.classList.remove('current');
 }
+
