@@ -1,0 +1,105 @@
+// .is-hidden {
+//     visibility: hidden;
+//     transform: scale(1.5);
+// }
+
+.backdrop{
+        position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            opacity: 1;
+            z-index: 2;
+            // overflow-y: scroll;
+            background-color: rgba(0, 0, 0, 0.2);
+            transform: scale(1);
+            transition: $transition;
+}
+.is-open {
+    overflow-y: hidden;
+}
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(1.4);
+}
+.footerModal{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        width: 280px;
+        background: #fff;
+        box-shadow: 0 1px 3px #0000001f, 2px 2px 1px #00000024, 0 2px 1px #0003;
+        border-radius: 4px;
+        transform: translate(-50%, -50%);
+        transition: $transition;
+        
+}
+
+
+
+.container-text-centered{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footerModalClose{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    transform: scale(1) rotate(0deg);
+    transition: $transition;
+    &:hover,&:focus{
+        fill: $btn-color;
+        transform: scale(0.9) rotate(180deg);
+    }
+}
+.comand{
+    @include font(500, 24px, 16px);
+    margin-bottom: 20px;
+}
+// .comand-wrapper{
+    
+// }
+.comand-item{
+    position: relative;
+}
+.comand-item-wrapper{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: $secondary-color;
+    background-color: rgba(42, 43, 49, 0.8);
+    padding: 10px;
+}
+
+.comand-title{
+    @include font(500, 16px, 14px);
+    margin-bottom: 10px;
+}
+
+.comand-link-list{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px;
+}
+.comand-link-item-social{
+    display: block;
+    fill: $secondary-color;
+    transition: $transition;
+    &:hover,
+    &:focus {
+        fill: $accent-color;
+        
+    }
+}
