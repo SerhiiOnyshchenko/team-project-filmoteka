@@ -66,9 +66,14 @@
 // }
 .comand-item{
     position: relative;
+    overflow: hidden;
+    &:hover .comand-item-card-action{
+            transform: translateX(-100%);
+        }
 }
 .comand-item-wrapper{
     position: absolute;
+    z-index: 2;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -96,4 +101,23 @@
     &:focus {
         fill: $accent-color;    
     }
+}
+
+.comand-item-card-action{
+    position: absolute;
+        top: 0;
+        left: 100%;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(42, 43, 49, 0.8);
+        transform: translateX(0);
+        transition: $transition;
+             
+}
+.comand-item-card-text {
+    padding: 5px 5px 58px;
+    font-size: 14px;
+    line-height: 1.55em;
+    letter-spacing: 0.03em;
+    color: #fff;
 }
