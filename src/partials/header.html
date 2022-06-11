@@ -1,7 +1,7 @@
-<header class="header">
+<header class="header" id="header">
    <div class="container header__container">
       <nav class="header__nav">
-         <a class="header__logo" href="">
+         <a class="header__logo" id="logo__js" href="">
             <svg class="header__icon" width="24" height="24">
                <use href="./images/symbol-defs.svg#icon-film" />
             </svg>
@@ -9,15 +9,15 @@
          </a>
          <ul class="header__list">
             <li class="header__item">
-               <button class="header__btn home__js current">home</button>
+               <button class="header__btn current" id="home__js">home</button>
             </li>
             <li class="header__item">
-               <button class="header__btn my-library__js">my library</button>
+               <button class="header__btn" id="my-library__js">my library</button>
             </li>
          </ul>
       </nav>
 
-      <div class="header__form-container">
+      <div class="header__form-container" id="header__form">
          <form
             class="header__form"
             name="form"
@@ -45,7 +45,7 @@
             </p>
          </form>
       </div>
-      <div class="header__btns-container display-none">
+      <div class="header__btns-container display-none" id="header__btns">
          <ul class="library__btns-list">
             <li class="library__btns-item">
                <button class="library__btn active">watched</button>
