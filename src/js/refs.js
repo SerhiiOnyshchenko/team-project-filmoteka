@@ -2,12 +2,12 @@ const refs = {
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
-   logo: document.querySelector('.header__logo'),
-   btnHome: document.querySelector('.home__js'),
-   btnMyLibrary: document.querySelector('.my-library__js'),
-   header: document.querySelector('.header'),
-   libraryBtns: document.querySelector('.header__btns-container'),
-   headerInput: document.querySelector('.header__form-container')
+   logo: document.getElementById('logo__js'),
+   btnHome: document.getElementById('home__js'),
+   btnMyLibrary: document.getElementById('my-library__js'),
+   header: document.getElementById('header'),
+   libraryBtns: document.getElementById('header__btns'),
+   headerInput: document.getElementById('header__form'),
 };
 
 export default refs;
