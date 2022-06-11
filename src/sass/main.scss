@@ -2,17 +2,18 @@
 
 // base styles
 
-@import './utils/mixins';
-@import './utils/variables';
-@import './common/reset';
-@import './common/container';
-@import './utils/placeholder';
-@import './common/grid-container'; //grid разметка галлереи//
+@import "./utils/mixins";
+@import "./utils/variables";
+@import "./common/reset";
+@import "./common/container";
+@import "./utils/placeholder";
+@import "./common/grid-container"; //grid разметка галлереи//
 
 // components
-@import './layouts/header';
-@import './layouts/gallery';
-@import './layouts/footer';
+@import "./layouts/header";
+@import "./layouts/gallery";
+@import "./layouts/footer";
 
 //layouts
-@import './layouts/modal';
+@import "./layouts/modal";
+@import "./layouts/registerLoginForm";
