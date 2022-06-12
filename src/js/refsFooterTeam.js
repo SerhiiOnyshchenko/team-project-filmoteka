@@ -76,7 +76,7 @@
         task: 'sdghg',
         linkGit: 'https://github.com/Vova-KE',
         linkLinkdin: '#',
-        img: './images/team/dima.webp',
+        img: './images/team/vladimir.webp',
         
     },
     {
