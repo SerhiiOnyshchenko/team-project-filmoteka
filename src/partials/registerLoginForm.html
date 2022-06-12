@@ -11,23 +11,33 @@
             >
             <input
                class="register-form__input"
+               id="txtNameLogin"
                type="text"
                name="username"
                placeholder="Name"
             />
             <input
                class="register-form__input"
+               id="txtEmailLogin"
                type="email"
                name="email"
                placeholder="Email"
             />
             <input
                class="register-form__input"
+               id="txtPasswordLogin"
                type="password"
                name="password"
                placeholder="Password"
             />
-            <button class="register-form__btn" type="submit">Sign Up</button>
+            <div id="divLoginError" class="group">
+               <div id="lblLoginErrorMessage" class="errorlabel">
+                  Error message
+               </div>
+            </div>
+            <button id="btnLogin" class="register-form__btn" type="submit">
+               Sign Up
+            </button>
          </form>
       </div>
       <div class="register-form__container sign-in-container">
@@ -77,3 +87,5 @@
       </div>
    </div>
 </div>
+<h1>Welcome to My Awesome App</h1>
+<div id="firebaseui-auth-container"></div>

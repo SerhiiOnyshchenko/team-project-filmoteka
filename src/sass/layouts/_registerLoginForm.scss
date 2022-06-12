@@ -215,3 +215,22 @@
 .social__container {
 	margin: 20px 0;
 }
+
+// error box
+.group {
+	position: relative;
+	margin-bottom: 45px;
+}
+
+.errorlabel {
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	-webkit-appearance: none;
+	display: block;
+	background: #fafafa;
+	color: #ff0000;
+	width: 100%;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #ff0000;
+}
