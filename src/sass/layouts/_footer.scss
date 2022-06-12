@@ -1,57 +1,57 @@
 .footer {
-   background-color: $bgn-color;
+	background-color: $bgn-color;
 }
 
 .footer-wraper {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   padding-top: 30px;
-   padding-bottom: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 30px;
+	padding-bottom: 30px;
 
-   @include font(400, 14px, 16px);
-   color: $third-color;
+	@include font(400, 14, 16);
+	color: $third-color;
 
-   @media screen and (min-width: 768px) {
-      @include font(400, 16px, 19px);
-   }
+	@media screen and (min-width: 768px) {
+		@include font(400, 16, 19);
+	}
 
-   @media screen and (max-width: 768px) {
-      flex-wrap: wrap;
-   }
+	@media screen and (max-width: 768px) {
+		flex-wrap: wrap;
+	}
 
-   &-heart-icon {
-      fill: $accent-color;
-      margin-right: 10px;
-      margin-left: 10px;
+	&-heart-icon {
+		fill: $accent-color;
+		margin-right: 10px;
+		margin-left: 10px;
 
-      animation: pulse 1500ms infinite;
-      transition: $transition;
-      @keyframes pulse {
-         0% {
-            transform: scale(1);
-         }
+		animation: pulse 1500ms infinite;
+		transition: $transition;
+		@keyframes pulse {
+			0% {
+				transform: scale(1);
+			}
 
-         10% {
-            transform: scale(1.3);
-         }
+			10% {
+				transform: scale(1.3);
+			}
 
-         40% {
-            transform: scale(0.9);
-         }
+			40% {
+				transform: scale(0.9);
+			}
 
-         50% {
-            transform: scale(1.3);
-         }
-      }
-   }
-   .footer-text-mrbottom { 
-      @media screen and (max-width: 469px) {
-        margin-bottom: 10px;
-      }
-   }
-   .footer-text-mrleft {
-      margin-left: 5px;
+			50% {
+				transform: scale(1.3);
+			}
+		}
+	}
+	.footer-text-mrbottom {
+		@media screen and (max-width: 469px) {
+			margin-bottom: 10px;
+		}
+	}
+	.footer-text-mrleft {
+		margin-left: 5px;
 
      .footer-link {
          cursor: pointer;
@@ -64,4 +64,5 @@
          }
       }
    }
+
 }
