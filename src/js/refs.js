@@ -1,4 +1,12 @@
 const refs = {
+
+    //foter modal
+    openModalBtn: document.querySelector('.footer-link'),
+    closeModalBtn: document.querySelector('.footerModalClose'),
+    footerModal: document.querySelector('[data-footerModal]'),
+    bodyScroll: document.querySelector('body'),
+  
+   // modal
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
@@ -15,8 +23,7 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
-  
-  
+
 };
 
 export default refs;

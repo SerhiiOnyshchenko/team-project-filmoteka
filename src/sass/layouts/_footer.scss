@@ -53,14 +53,16 @@
 	.footer-text-mrleft {
 		margin-left: 5px;
 
-		.footer-link {
-			color: $third-color;
-			text-decoration: underline;
-			transition: $transition;
-			&:hover,
-			&:focus {
-				color: $accent-color;
-			}
-		}
-	}
+     .footer-link {
+         cursor: pointer;
+         color: $third-color;
+         text-decoration: underline;
+         transition: $transition;
+         &:hover,
+         &:focus {
+            color: $accent-color;
+         }
+      }
+   }
+
 }
