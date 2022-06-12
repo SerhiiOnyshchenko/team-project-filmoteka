@@ -9,9 +9,35 @@ refs.signInButton.addEventListener('click', () => {
    refs.container.classList.remove('right-panel-active');
 });
 
-export const showLoginForm = () => {
-   refs.login.style.display = 'block';
-   refs.app.style.display = 'none';
+refs.formLoginRegister.addEventListener('click', e => {
+   if (e.target === e.currentTarget) {
+      resetFform();
+      hideFormLoginRegister();
+   }
+});
+// refs.btnMyLibrary.addEventListener('click', e => {
+//    showFormLoginRegister();
+// });
+
+export const resetFform = () => {
+   refs.txtEmailLogin.value = '';
+   refs.txtPasswordLogin.value = '';
+   refs.txtEmailRegister.value = '';
+   refs.txtPasswordRegister.value = '';
+};
+
+export const showFormLoginRegister = () => {
+   refs.formLoginRegister.style.display = 'flex';
+   window.addEventListener('keydown', hideFormLoginRegisterByKey);
+};
+const hideFormLoginRegisterByKey = e => {
+   if (e.key === 'Escape') {
+      hideFormLoginRegister();
+      window.removeEventListener('keydown', hideFormLoginRegisterByKey);
+   }
+};
+export const hideFormLoginRegister = () => {
+   refs.formLoginRegister.style.display = 'none';
 };
 
 export const showApp = () => {

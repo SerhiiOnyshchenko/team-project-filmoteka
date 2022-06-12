@@ -5,6 +5,7 @@
    "homepage": "https://serhiionyshchenko.github.io/team-project-filmoteka",
    "scripts": {
       "start": "parcel src/*.html --open",
+      "startFirebase": "firebase emulators:start --only auth",
       "build": "parcel build src/*.html --public-url /team-project-filmoteka/"
    },
    "repository": {

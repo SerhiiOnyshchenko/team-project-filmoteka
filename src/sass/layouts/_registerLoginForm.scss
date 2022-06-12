@@ -1,7 +1,6 @@
 .register-form__backdrop {
-	position: relative;
 	background: rgba(0, 0, 0, 0.5);
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -219,7 +218,6 @@
 
 // error box
 .group {
-	position: relative;
 	margin-bottom: 45px;
 }
 
@@ -235,8 +233,18 @@
 	border-radius: 0;
 	border-bottom: 1px solid #ff0000;
 }
-.btnLogout {
-	position: absolute;
-	top: 10px;
-	right: 10px;
+.boxLoginLogout {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	height: 75px;
+	padding-bottom: 50px;
+	padding-right: 50px;
+}
+.btnLoginLogout {
+	margin: 0 20px;
+	padding: 10px;
+	color: $secondary-color;
+	border-radius: 20px;
+	background: $btn-color;
 }

@@ -4,13 +4,15 @@ const refs = {
    btnClose: document.querySelector('.btn-close'),
 
    // register lgi form
-   signUpButton: document.getElementById('signUp'),
-   signInButton: document.getElementById('signIn'),
+   signUpButton: document.getElementById('signUpBtn'),
+   signInButton: document.getElementById('signInBtn'),
    container: document.getElementById('container'),
 
-   btnLogin: document.getElementById('btnLogin'),
-   btnSignup: document.getElementById('btnSignup'),
+   btnLogin: document.getElementById('btnLoginBtn'),
+   btnSignup: document.getElementById('btnSignUpBtn'),
    btnLogout: document.getElementById('btnLogout'),
+
+   formLoginRegister: document.getElementById('formLoginRegister'),
 
    txtEmailLogin: document.getElementById('txtEmailLogin'),
    txtPasswordLogin: document.getElementById('txtPasswordLogin'),

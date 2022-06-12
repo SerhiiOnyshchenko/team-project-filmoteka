@@ -1,5 +1,4 @@
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import {
    getAuth,
    onAuthStateChanged,
@@ -10,10 +9,17 @@ import {
    AuthErrorCodes,
    signOut,
 } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
-import { showLoginError, hideLoginError } from '../registerLoginForm';
+import {
+   showLoginError,
+   hideLoginError,
+   resetFform,
+   hideFormLoginRegister,
+   showFormLoginRegister,
+} from '../registerLoginForm';
 import refs from '../refs';
 
+// import { getAnalytics } from 'firebase/analytics';
+// import { getFirestore } from 'firebase/firestore';
 // import * as firebase from 'firebase/app';
 // var firebaseui = require('firebaseui');
 
@@ -51,12 +57,14 @@ connectAuthEmulator(auth, 'http://localhost:9099/');
 
 // Create new account using email/password
 const createAccount = async () => {
-   const name = refs.txtNameRegister.value;
+   // const displayName = refs.txtNameRegister.value;
    const email = refs.txtEmailRegister.value;
    const password = refs.txtPasswordRegister.value;
 
    try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await createUserWithEmailAndPassword(auth, email, password, displayName);
+      resetFform();
+      hideFormLoginRegister();
    } catch (error) {
       console.log(`There was an error: ${error}`);
       showLoginError(error);
@@ -65,8 +73,8 @@ const createAccount = async () => {
 
 // Login using email/password
 const loginEmailPassword = async () => {
-   const loginEmail = refs.txtEmailLogin.value;
-   const loginPassword = refs.txtPasswordLogin.value;
+   const loginEmail = await refs.txtEmailLogin.value;
+   const loginPassword = await refs.txtPasswordLogin.value;
    try {
       const userCredential = await signInWithEmailAndPassword(
          auth,
@@ -75,9 +83,8 @@ const loginEmailPassword = async () => {
       );
       console.log(userCredential.user);
       hideLoginError();
-      // reset form
-      refs.txtEmailLogin.value = '';
-      refs.txtPasswordLogin.value = '';
+      resetFform();
+      hideFormLoginRegister();
    } catch (error) {
       console.log(error);
       showLoginError(error);
@@ -88,6 +95,7 @@ const loginEmailPassword = async () => {
 const logout = async () => {
    try {
       await signOut(auth);
+      showFormLoginRegister();
       console.log('Sign-out successful');
    } catch (error) {}
 };
@@ -98,8 +106,15 @@ const monitorAuthState = async () => {
       if (user) {
          console.log(user);
          refs.loginUser.innerHTML = `You're logged in as ${user.displayName} (email: ${user.email}) `;
+         refs.btnLogout.removeEventListener('click', showFormLoginRegister);
+         refs.btnLogout.addEventListener('click', logout);
+         refs.btnLogout.innerHTML = 'Logout';
       } else {
+         // showFormLoginRegister();
          refs.loginUser.innerHTML = `You're not logged in.`;
+         refs.btnLogout.removeEventListener('click', logout);
+         refs.btnLogout.addEventListener('click', showFormLoginRegister);
+         refs.btnLogout.innerHTML = 'Login';
       }
    });
 };
