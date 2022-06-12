@@ -1,0 +1,54 @@
+.gallery {
+   &__list {
+      padding: 20px 0;
+
+      @media screen and (min-width: 768px) {
+         padding: 60px 0;
+      }
+   }
+}
+
+.film-card {
+   width: 100%;
+   overflow: hidden;
+   border-radius: 5px;
+
+   &__img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: $transition;
+   }
+
+   &__img:hover {
+      transform: scale(1.015);
+   }
+
+   &__title {
+      font-family: $primary-font;
+      font-style: normal;
+      @include font(500, 12, 16);
+      color: $primary-color;
+      text-transform: uppercase;
+
+      margin-bottom: 5px;
+   }
+
+   &__info {
+      font-family: $primary-font;
+      font-style: normal;
+      @include font(500, 12, 16);
+      color: $accent-color;
+   }
+
+   &__rating {
+      font-family: $primary-font;
+      font-style: normal;
+      @include font(500, 12, 14);
+      color: $secondary-color;
+
+      background: $accent-color;
+      border-radius: 5px;
+      padding: 1px 6px;
+   }
+}
