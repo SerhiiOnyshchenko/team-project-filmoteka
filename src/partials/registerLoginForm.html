@@ -11,11 +11,42 @@
             >
             <input
                class="register-form__input"
-               id="txtNameLogin"
+               id="txtNameRegister"
                type="text"
                name="username"
                placeholder="Name"
             />
+            <input
+               class="register-form__input"
+               id="txtEmailRegister"
+               type="email"
+               name="email"
+               placeholder="Email"
+            />
+            <input
+               class="register-form__input"
+               id="txtPasswordRegister"
+               type="password"
+               name="password"
+               placeholder="Password"
+            />
+            <div id="divLoginError" class="group">
+               <div id="lblLoginErrorMessage" class="errorlabel">
+                  Error message
+               </div>
+            </div>
+            <button id="btnSignup" class="register-form__btn" type="submit">
+               Sign Up
+            </button>
+         </form>
+      </div>
+      <div class="register-form__container sign-in-container">
+         <form class="register-form__sign-in" action="#">
+            <h1 class="register-form__tite">Sign in</h1>
+            <div class="social__container">
+               <button type="button" class="social__btn"></button>
+            </div>
+            <span class="register-form__text">or use your account</span>
             <input
                class="register-form__input"
                id="txtEmailLogin"
@@ -30,37 +61,10 @@
                name="password"
                placeholder="Password"
             />
-            <div id="divLoginError" class="group">
-               <div id="lblLoginErrorMessage" class="errorlabel">
-                  Error message
-               </div>
-            </div>
-            <button id="btnLogin" class="register-form__btn" type="submit">
-               Sign Up
-            </button>
-         </form>
-      </div>
-      <div class="register-form__container sign-in-container">
-         <form class="register-form__sign-in" action="#">
-            <h1 class="register-form__tite">Sign in</h1>
-            <div class="social__container">
-               <button type="button" class="social__btn"></button>
-            </div>
-            <span class="register-form__text">or use your account</span>
-            <input
-               class="register-form__input"
-               type="email"
-               name="email"
-               placeholder="Email"
-            />
-            <input
-               class="register-form__input"
-               type="password"
-               name="password"
-               placeholder="Password"
-            />
             <a class="register-form__link" href="#">Forgot your password?</a>
-            <button class="register-form__btn" type="submit">Sign In</button>
+            <button id="btnLogin" class="register-form__btn" type="submit">
+               Sign In
+            </button>
          </form>
       </div>
       <div class="overlay-container">
@@ -86,6 +90,8 @@
          </div>
       </div>
    </div>
+   <div class="btnLogout">
+      <span id="loginUser">none</span>
+      <button id="btnLogout" type="button">Logout</button>
+   </div>
 </div>
-<h1>Welcome to My Awesome App</h1>
-<div id="firebaseui-auth-container"></div>

@@ -1,4 +1,5 @@
 .register-form__backdrop {
+	position: relative;
 	background: rgba(0, 0, 0, 0.5);
 	display: flex;
 	justify-content: center;
@@ -233,4 +234,9 @@
 	border: none;
 	border-radius: 0;
 	border-bottom: 1px solid #ff0000;
+}
+.btnLogout {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
