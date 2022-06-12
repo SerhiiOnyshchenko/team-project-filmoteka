@@ -10,7 +10,7 @@ import refs from './refs'
 refs.openModalBtn.addEventListener('click', openModal);
 
 function openModal() {
-  refs.modal.classList.remove('is-hidden');
+  refs.footerModal.classList.remove('is-hidden');
   refs.bodyScroll.classList.add('is-open');
   document.addEventListener('keydown', eventKeydown);
 
@@ -18,7 +18,7 @@ function openModal() {
 }
 
 function closeModal() {
-  refs.modal.classList.add('is-hidden');
+  refs.footerModal.classList.add('is-hidden');
   refs.bodyScroll.classList.remove('is-open');
 
   refs.closeModalBtn.removeEventListener('click', closeModal);
