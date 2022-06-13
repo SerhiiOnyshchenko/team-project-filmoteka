@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import './js/auth/firebaseAPP';
 import './js/footerModal'
-import './js/refsFooterTeam'
+
 import './js/modal';
-import './js/registerLoginForm';
+// import './js/registerLoginForm';
 import './js/change-header';
