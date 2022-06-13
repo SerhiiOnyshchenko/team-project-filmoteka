@@ -1,0 +1,53 @@
+.pagination {
+   &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__item {
+      margin-right: 16px;
+      &--hidden {
+         @extend .pagination__list;
+         @media screen and (max-width: 767px) {
+            display: none;
+         }
+      }
+
+      &--left {
+         margin-right: 19px;
+      }
+
+      &--right {
+         margin-right: 0;
+         margin-left: 4px;
+      }
+   }
+
+   &__btn {
+      border-radius: 5px;
+      @include font(500, 12, 16);
+      color: $primary-color;
+      background-color: transparent;
+
+      &--current {
+         width: 40px;
+         height: 40px;
+         background-color: $accent-color;
+         color: $secondary-color;
+      }
+
+      &--left {
+         @extend .pagination__list;
+         border-radius: 5px;
+         width: 40px;
+         height: 40px;
+      }
+      &--right {
+         @extend .pagination__btn--left;
+      }
+   }
+   &__icon {
+      @extend .pagination__list;
+   }
+}

@@ -10,9 +10,11 @@
 @import "./common/grid-container"; //grid разметка галлереи//
 
 // components
-@import "./layouts/header";
-@import "./layouts/gallery";
-@import "./layouts/footer";
+
+@import './layouts/header';
+@import './layouts/gallery';
+@import './layouts/pagination';
+@import './layouts/footer';
 
 //layouts
 @import './layouts/modal';
