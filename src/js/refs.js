@@ -1,12 +1,11 @@
 const refs = {
-
     //foter modal
     openModalBtn: document.querySelector('#footer-link'),
     closeModalBtn: document.querySelector('#footerModalClose'),
     footerModal: document.querySelector('#footerModal'),
     bodyScroll: document.querySelector('body'),
     backdropp: document.querySelector('.backdropp'),
-  
+
    // modal
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
@@ -20,6 +19,9 @@ const refs = {
    btnLogin: document.getElementById('btnLoginBtn'),
    btnSignup: document.getElementById('btnSignUpBtn'),
    btnLogout: document.getElementById('btnLogout'),
+
+   socialBtnGoogleLogin: document.getElementById('socialBtnGoogleLogin'),
+   socialBtnGoogleRegister: document.getElementById('socialBtnGoogleRegister'),
 
    formLoginRegister: document.getElementById('formLoginRegister'),
 
@@ -42,7 +44,6 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
-
 };
 
 export default refs;
