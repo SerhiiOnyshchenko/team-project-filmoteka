@@ -1,0 +1,30 @@
+.my-library-container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+
+    @media screen and (min-width: 768px) {
+        padding: 60px 32px;
+        
+        .cards-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -32px;
+            margin-bottom: -32px;
+        }
+        
+        .cards-list__item {
+            flex-basis: calc((100% - 2 * 32px) / 2);
+            margin-left: 32px;
+            margin-bottom: 32px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding-top: 32px;
+    
+        .cards-list__item {
+            flex-basis: calc((100% - 3 * 16px) / 3);
+        }
+    }
+}
