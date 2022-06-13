@@ -5,7 +5,7 @@
       align-items: center;
    }
 
-   &__items {
+   &__item {
       margin-right: 16px;
       &--hidden {
          @extend .pagination__list;
