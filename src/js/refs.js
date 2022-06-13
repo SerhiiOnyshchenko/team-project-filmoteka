@@ -1,9 +1,10 @@
 const refs = {
-   //foter modal
-   openModalBtn: document.querySelector('.footer-link'),
-   closeModalBtn: document.querySelector('.footerModalClose'),
-   footerModal: document.querySelector('[data-footerModal]'),
-   bodyScroll: document.querySelector('body'),
+    //foter modal
+    openModalBtn: document.querySelector('#footer-link'),
+    closeModalBtn: document.querySelector('#footerModalClose'),
+    footerModal: document.querySelector('#footerModal'),
+    bodyScroll: document.querySelector('body'),
+    backdropp: document.querySelector('.backdropp'),
 
    // modal
    modal: document.querySelector('.modal-content'),

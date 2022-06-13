@@ -1,5 +1,5 @@
 
-.backdrop{
+.backdropp{
     position: fixed;
     top: 0;
     left: 0;
@@ -13,10 +13,10 @@
     transform: scale(1);
     transition: $transition;
 }
-.is-open {
+.is-openn {
     overflow-y: hidden;
 }
-.backdrop.is-hidden {
+.backdropp.is-hiddenn {
     opacity: 0;
     pointer-events: none;
     transform: scale(1.4);
@@ -72,7 +72,7 @@
     }
 }
 .comand{
-    @include font(500, 24px, 16px);
+    @include font(500, 24, 16);
     margin-bottom: 20px;
 }
 .comand-list{
@@ -133,7 +133,7 @@
 }
 
 .comand-title{
-    @include font(500, 16px, 14px);
+    @include font(500, 16, 14);
     margin-bottom: 10px;
 }
 
