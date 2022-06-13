@@ -18,9 +18,6 @@ function closeModal() {
   refs.footerModal.classList.add('is-hiddenn');
   refs.bodyScroll.classList.remove('is-openn');
 
-  refs.closeModalBtn.removeEventListener('click', closeModal);
-  document.removeEventListener('keydown', eventKeydown);
-  document.removeEventListener('click' , backdropp)
 }
 
 function eventKeydown(event) {
@@ -34,6 +31,5 @@ function backdropp(evt) {
    if (evt.currentTarget === evt.target) {
       closeModal();
   }
-  return;
 }
 
