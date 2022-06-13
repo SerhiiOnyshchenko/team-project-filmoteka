@@ -5,33 +5,30 @@
 //   bodyScroll: document.querySelector('body'),
 
 // };
-import refs from './refs'
+import refs from './refs';
 
 refs.openModalBtn.addEventListener('click', openModal);
 
 function openModal() {
-  refs.modal.classList.remove('is-hidden');
-  refs.bodyScroll.classList.add('is-open');
-  document.addEventListener('keydown', eventKeydown);
+   refs.modal.classList.remove('is-hidden');
+   refs.bodyScroll.classList.add('is-open');
+   document.addEventListener('keydown', eventKeydown);
 
-  refs.closeModalBtn.addEventListener('click', closeModal);
+   refs.closeModalBtn.addEventListener('click', closeModal);
 }
 
 function closeModal() {
-  refs.modal.classList.add('is-hidden');
-  refs.bodyScroll.classList.remove('is-open');
+   refs.modal.classList.add('is-hidden');
+   refs.bodyScroll.classList.remove('is-open');
 
-  refs.closeModalBtn.removeEventListener('click', closeModal);
-  document.removeEventListener('keydown', eventKeydown);
+   refs.closeModalBtn.removeEventListener('click', closeModal);
+   document.removeEventListener('keydown', eventKeydown);
 }
 
 function eventKeydown(event) {
-  console.log(event.code);
-  if (event.code === 'Escape') {
-    closeModal();
-  }
-  return;
+   console.log(event.code);
+   if (event.code === 'Escape') {
+      closeModal();
+   }
+   return;
 }
-
-
-

@@ -1,10 +1,13 @@
 import refs from './refs';
+import { onAuthStateChanged } from 'firebase/auth';
+import { showFormLoginRegister } from './registerLoginForm';
+import { auth } from './auth/firebaseAPP';
 
 refs.logo.addEventListener('click', openHomePage);
 refs.btnHome.addEventListener('click', openHomePage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
-function openHomePage() {
+export function openHomePage() {
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');
@@ -13,10 +16,16 @@ function openHomePage() {
 }
 
 function openMyLibrary() {
-   refs.header.classList.add('library__background');
-   refs.libraryBtns.classList.remove('display-none');
-   refs.headerInput.classList.add('display-none');
-   refs.btnMyLibrary.classList.add('current');
-   refs.btnHome.classList.remove('current');
+   onAuthStateChanged(auth, user => {
+      if (user) {
+         refs.header.classList.add('library__background');
+         refs.libraryBtns.classList.remove('display-none');
+         refs.headerInput.classList.add('display-none');
+         refs.btnMyLibrary.classList.add('current');
+         refs.btnHome.classList.remove('current');
+         return;
+      } else {
+         showFormLoginRegister();
+      }
+   });
 }
-

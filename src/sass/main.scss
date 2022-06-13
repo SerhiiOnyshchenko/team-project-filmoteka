@@ -4,9 +4,10 @@
 
 @import "./utils/mixins";
 @import "./utils/variables";
+@import "./utils/placeholder";
 @import "./common/reset";
 @import "./common/container";
-@import "./utils/placeholder";
+@import "./common/general";
 @import "./common/grid-container"; //grid разметка галлереи//
 
 // components
@@ -15,6 +16,6 @@
 @import "./layouts/footer";
 
 //layouts
-@import './layouts/modal';
-@import './layouts/footerModal';
+@import "./layouts/modal";
+@import "./layouts/footerModal";
 @import "./layouts/registerLoginForm";

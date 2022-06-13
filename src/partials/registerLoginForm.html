@@ -4,18 +4,22 @@
          <form class="register-form__sign-up" action="#">
             <h1 class="register-form__tite">Create Account</h1>
             <div class="social__container">
-               <button type="button" class="social__btn"></button>
+               <button
+                  id="socialBtnGoogleRegister"
+                  type="button"
+                  class="social__btn social__btn--google"
+               ></button>
             </div>
             <span class="register-form__text"
                >or use your email for registration</span
             >
-            <!-- <input
+            <input
                class="register-form__input"
                id="txtNameRegister"
                type="text"
                name="name"
                placeholder="Name"
-            /> -->
+            />
             <input
                class="register-form__input"
                id="txtEmailRegister"
@@ -44,7 +48,11 @@
          <form class="register-form__sign-in" autocomplete="on">
             <h1 class="register-form__tite">Sign in</h1>
             <div class="social__container">
-               <button type="button" class="social__btn"></button>
+               <button
+                  id="socialBtnGoogleLogin"
+                  type="button"
+                  class="social__btn social__btn--google"
+               ></button>
             </div>
             <span class="register-form__text">or use your account</span>
             <input
@@ -90,8 +98,4 @@
          </div>
       </div>
    </div>
-</div>
-<div class="boxLoginLogout">
-   <span id="loginUser">none</span>
-   <button id="btnLogout" class="btnLoginLogout" type="button">Login</button>
 </div>
