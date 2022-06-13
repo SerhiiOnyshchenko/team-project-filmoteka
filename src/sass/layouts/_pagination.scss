@@ -1,49 +1,53 @@
-.pagination__container {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-.pagination__btn {
-   border-radius: 5px;
-   @include font(500, 12, 16);
-   color: $primary-color;
-   background-color: transparent;
-   margin-right: 16px;
-   &.pagination__btn--current {
-      width: 40px;
-      height: 40px;
-      background-color: $accent-color;
-      color: $secondary-color;
-   }
-   &.pagination__btn--hidden {
+.pagination {
+   &__list {
       display: flex;
       justify-content: center;
       align-items: center;
-      @media screen and (max-width: 767px) {
-         display: none;
+   }
+
+   &__items {
+      margin-right: 16px;
+      &--hidden {
+         @extend .pagination__list;
+         @media screen and (max-width: 767px) {
+            display: none;
+         }
+      }
+
+      &--left {
+         margin-right: 19px;
+      }
+
+      &--right {
+         margin-right: 0;
+         margin-left: 4px;
       }
    }
-}
 
-.pagination__btn--left {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   border-radius: 5px;
-   width: 40px;
-   height: 40px;
-   margin-right: 19px;
-}
+   &__btn {
+      border-radius: 5px;
+      @include font(500, 12, 16);
+      color: $primary-color;
+      background-color: transparent;
 
-.pagination__btn--right {
-   @extend .pagination__btn--left;
-   margin-right: 0;
-   margin-left: 4px;
-}
+      &--current {
+         width: 40px;
+         height: 40px;
+         background-color: $accent-color;
+         color: $secondary-color;
+      }
 
-.pagination__icon {
-   display: flex;
-   align-items: center;
-   justify-content: center;
+      &--left {
+         @extend .pagination__list;
+         border-radius: 5px;
+         width: 40px;
+         height: 40px;
+      }
+      &--right {
+         @extend .pagination__btn--left;
+      }
+   }
+   &__icon {
+      @extend .pagination__list;
+   }
 }

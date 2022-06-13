@@ -1,27 +1,49 @@
 <section class="pagination">
-   <div class="container pagination__container">
-      <button class="pagination__btn--left">
-         <svg class="pagination__icon" width="16" height="16">
-            <use href="/src/images/symbol-defs.svg#icon-arrow-left"></use>
-         </svg>
-      </button>
-
-      <button class="pagination__btn pagination__btn--hidden">1</button
-      ><button class="pagination__btn pagination__btn--hidden">...</button>
-
-      <button class="pagination__btn">13</button
-      ><button class="pagination__btn">14</button
-      ><button class="pagination__btn pagination__btn--current">15</button
-      ><button class="pagination__btn">16</button
-      ><button class="pagination__btn">17</button>
-
-      <button class="pagination__btn pagination__btn--hidden">...</button
-      ><button class="pagination__btn pagination__btn--hidden">20</button>
-
-      <button class="pagination__btn--right">
-         <svg class="pagination__icon" width="16" height="16">
-            <use href="/src/images/symbol-defs.svg#icon-arrow-right"></use>
-         </svg>
-      </button>
+   <div class="container">
+      <ul class="pagination__list">
+         <li class="pagination__items pagination__items--left">
+            <button class="pagination__btn--left">
+               <svg class="pagination__icon" width="16" height="16">
+                  <use href="/src/images/symbol-defs.svg#icon-arrow-left"></use>
+               </svg>
+            </button>
+         </li>
+         <li class="pagination__items pagination__items--hidden">
+            <button class="pagination__btn">1</button>
+         </li>
+         <li class="pagination__items pagination__items--hidden">
+            <button class="pagination__btn">...</button>
+         </li>
+         <li class="pagination__items">
+            <button class="pagination__btn">13</button>
+         </li>
+         <li class="pagination__items">
+            <button class="pagination__btn">14</button>
+         </li>
+         <li class="pagination__items">
+            <button class="pagination__btn pagination__btn--current">15</button>
+         </li>
+         <li class="pagination__items">
+            <button class="pagination__btn">16</button>
+         </li>
+         <li class="pagination__items">
+            <button class="pagination__btn">17</button>
+         </li>
+         <li class="pagination__items pagination__items--hidden">
+            <button class="pagination__btn">...</button>
+         </li>
+         <li class="pagination__items pagination__items--hidden">
+            <button class="pagination__btn">20</button>
+         </li>
+         <li class="pagination__items pagination__items--right">
+            <button class="pagination__btn--right">
+               <svg class="pagination__icon" width="16" height="16">
+                  <use
+                     href="/src/images/symbol-defs.svg#icon-arrow-right"
+                  ></use>
+               </svg>
+            </button>
+         </li>
+      </ul>
    </div>
 </section>
