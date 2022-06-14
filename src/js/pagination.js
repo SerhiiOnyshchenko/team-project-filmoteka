@@ -1,50 +1,40 @@
-const films = [
-   { number: '1' },
-   { number: '2' },
-   { number: '3' },
-   { number: '4' },
-   { number: '5' },
-   { number: '6' },
-   { number: '7' },
-   { number: '8' },
-   { number: '9' },
-   { number: '10' },
-   { number: '11' },
-   { number: '12' },
-   { number: '13' },
-   { number: '14' },
-   { number: '15' },
-   { number: '16' },
-   { number: '17' },
-   { number: '17' },
-   { number: '17' },
-   { number: '17' },
-];
+import refs from './refs';
 
-const refs = {
-   list: document.querySelector('#js-pagination__list'),
-   btn: document.querySelector('.pagination__btn--current'),
-};
+const totalPages = 15;
 
-function renderBtn(array) {
+function renderBtn(total) {
    let emptyrArray = [];
-   for (let i = 1; i <= array.length; i += 1) {
+   for (let i = 1; i <= total; i += 1) {
       emptyrArray.push(
-         `<li class="pagination__item" data-id="${i}"><button class="pagination__btn">${i}</button></li>`
+         `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
       );
    }
    const readyArray = emptyrArray.join('');
-   refs.list.insertAdjacentHTML('afterbegin', readyArray);
+   refs.paginationList.innerHTML = '';
+   refs.paginationList.insertAdjacentHTML('afterbegin', readyArray);
+   addCurrentFirstPage();
 }
-renderBtn(films);
+renderBtn(totalPages);
 
-refs.list.addEventListener('click', onBtnClick);
+refs.paginationList.addEventListener('click', onBtnClick);
 
 function onBtnClick(e) {
    const currentBtn = e.target;
-   if (e.target.nodeName === 'BUTTON') {
+   if (currentBtn.nodeName === 'BUTTON') {
+      removeClassList();
+      console.log(currentBtn.dataset.id);
       currentBtn.classList.add('pagination__btn--current');
    }
 }
 
-// перебрать все кнопки если есть класс current значит удалить перед тем как ставить новый
+function addCurrentFirstPage() {
+   const allBtn = document.querySelectorAll('.pagination__btn');
+   allBtn[0].classList.add('pagination__btn--current');
+}
+
+function removeClassList() {
+   const current = document.querySelector('.pagination__btn--current');
+   if (current) {
+      current.classList.remove('pagination__btn--current');
+   }
+}
