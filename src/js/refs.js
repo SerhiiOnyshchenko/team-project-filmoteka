@@ -44,6 +44,8 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
+   searchBtn: document.querySelector('.form__btn'),
+   galleryList: document.getElementById('gallery-list'),
 };
 
 export default refs;

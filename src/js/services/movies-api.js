@@ -10,3 +10,9 @@ async function fetchWithErrorHandling(url = '', config = {}) {
       ? await response.json()
       : Promise.reject(new Error('Not found'));
 }
+
+// FT-10
+export async function fetchFilmsByName(queryStr, page=1) {
+    const url = `${BASE_URL}search/movie?api_key=${MY_KEY}&query=${queryStr}`;
+    return fetchWithErrorHandling(url)
+}
