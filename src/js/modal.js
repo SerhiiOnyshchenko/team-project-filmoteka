@@ -3,7 +3,7 @@ import refs from './refs';
 refs.galleryList.addEventListener('click', toggleModal);
 
 function toggleModal(evt) {
-   if (!evt.target.parentNode.classList.contains('gallery__list')) {
+   if (!evt.target.parentNode.classList.contains('card')) {
       return;
    }
 
