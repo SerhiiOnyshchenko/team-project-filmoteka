@@ -1,4 +1,4 @@
-import URL_IMG from './services/movies-api';
+import { URL_IMG } from './services/movies-api';
 
 export default function createFilmCardMarkup(filmData) {
    const {
