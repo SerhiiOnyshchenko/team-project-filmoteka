@@ -1,0 +1,19 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    fill: $third-color;
+    background-color: inherit;
+
+    cursor: pointer;
+    visibility: visible;
+    transition: $transition;
+    &:hover{
+        fill: #ff6b01;
+    }
+    
+}
+
+.scroll-to-top--hidden {
+    visibility: hidden;
+}
