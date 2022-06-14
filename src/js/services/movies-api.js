@@ -1,6 +1,5 @@
-import createFilmCardMarkup from '../createFilmCardMarkup'
-
-
+import createFilmCardMarkup from '../createFilmCardMarkup';
+import refs from '../refs';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const MY_KEY = '5cd994cc5e25e67f2597f5db7027d486';
@@ -14,31 +13,15 @@ async function fetchWithErrorHandling(url = '', config = {}) {
       : Promise.reject(new Error('Not found'));
 }
 
-// async function fetchForPopularMoviesDownload(){
-//    const response = await fetch(`${BASE_URL}trending/movie/week?api_key=${MY_KEY}`);
-//    return response
-//    ? console.log(response.json())
-//    : console.log(response.message);
-// } 
-
-// fetchForPopularMoviesDownload();
-
 function PopularMoviesDownload(){
- 
-   fetchWithErrorHandling(`${BASE_URL}trending/movie/week?api_key=${MY_KEY}`).then(data =>  {
-      // console.log(data);
-      // console.log(data.results);
+   fetchWithErrorHandling(`${BASE_URL}trending/movie/week?api_key=${MY_KEY}`).then(data => {
       let dataArray = data.results;
-   //   const arrayMarkup = 
-   //   arrayMarkup.map(() => {
-
+      const markup = dataArray.map((film) => {
+        const arrayMarkup = createFilmCardMarkup(film);
+        return arrayMarkup;
+      }).join("");
+      refs.gallary.insertAdjacentHTML('beforeend', markup);
      }
-
      )
-
    }
-
-
-
 PopularMoviesDownload();
-createFilmCardMarkup(dataArray);
