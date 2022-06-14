@@ -7,6 +7,7 @@ const refs = {
    backdropp: document.querySelector('.backdropp'),
 
    // modal
+   galleryList: document.getElementById('gallery-list'),
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
@@ -48,7 +49,6 @@ const refs = {
    // pagination
    paginationList: document.querySelector('#js-pagination__list'),
    //    paginationBtn: document.querySelector('.pagination__list'),
-
 };
 
 export default refs;
