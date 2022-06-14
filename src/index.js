@@ -7,4 +7,4 @@ import './js/modal';
 import './js/change-header';
 
 import './js/pagination';
-import './js/services/movies-api';
+import './js/searchTrendFilms';

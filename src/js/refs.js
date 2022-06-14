@@ -42,10 +42,9 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
+ // gallery
 
-   // gallery
-
-   gallary: document.getElementById('gallery-list'),
+galleryList: document.getElementById('gallery-list'),
 
 };
 
