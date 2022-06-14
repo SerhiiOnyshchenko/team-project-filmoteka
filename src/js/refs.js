@@ -45,10 +45,16 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
-
+  
+   //  feature/FT-10
+   searchForm: document.getElementById('form'),
+   searchBtn: document.querySelector('.form__btn'),
+   galleryList: document.getElementById('gallery-list'),
+  
    // pagination
    paginationList: document.querySelector('#js-pagination__list'),
    //    paginationBtn: document.querySelector('.pagination__list'),
+
 };
 
 export default refs;
