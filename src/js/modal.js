@@ -1,6 +1,6 @@
 import refs from './refs';
 
-// window.addEventListener('click', toggleModal);
+window.addEventListener('click', toggleModal);
 
 function toggleModal(evt) {
    evt.preventDefault();
