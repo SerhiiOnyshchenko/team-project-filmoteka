@@ -2,7 +2,7 @@ import refs from './refs';
 import createFilmCardMarkup from './createFilmCardMarkup';
 import { fetchFilmsByName } from './services/movies-api';
 
-refs.searchBtn.addEventListener('click', async e => {
+refs.searchForm.addEventListener('click', async e => {
    e.preventDefault();
    const queryStr = refs.searchForm.search.value;
    const { results } = await fetchFilmsByName(queryStr);

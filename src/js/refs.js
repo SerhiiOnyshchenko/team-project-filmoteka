@@ -44,6 +44,7 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
+   searchForm: document.getElementById('form'),
    searchBtn: document.querySelector('.form__btn'),
    galleryList: document.getElementById('gallery-list'),
 };
