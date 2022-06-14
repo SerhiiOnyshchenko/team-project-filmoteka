@@ -12,7 +12,7 @@ async function fetchWithErrorHandling(url = '', config = {}) {
 }
 
 // FT-10
-export async function fetchFilmsByName(queryStr, page=1) {
+export function fetchFilmsByName(queryStr, page=1) {
     const url = `${BASE_URL}search/movie?api_key=${MY_KEY}&language=en-US&query=${queryStr}&page=${page}&include_adult=false` ;
     // 
     return fetchWithErrorHandling(url)
