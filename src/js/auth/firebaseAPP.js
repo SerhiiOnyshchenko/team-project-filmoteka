@@ -119,8 +119,8 @@ refs.registerFormSignUp.addEventListener('submit', e => {
    createAccount(displayName, email, password);
 });
 refs.btnLogout.addEventListener('click', logout);
-refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
-refs.socialBtnGoogleRegister.addEventListener('click', loginWithGoogle);
+// refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
+// refs.socialBtnGoogleRegister.addEventListener('click', loginWithGoogle);
 
 monitorAuthState();
 
