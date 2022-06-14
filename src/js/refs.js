@@ -17,21 +17,14 @@ const refs = {
    signInButton: document.getElementById('signInBtn'),
    container: document.getElementById('container'),
 
-   btnLogin: document.getElementById('btnLoginBtn'),
-   btnSignup: document.getElementById('btnSignUpBtn'),
+   registerFormSignIn: document.getElementById('registerFormSignIn'),
+   registerFormSignUp: document.getElementById('registerFormSignUp'),
    btnLogout: document.getElementById('btnLogout'),
 
    socialBtnGoogleLogin: document.getElementById('socialBtnGoogleLogin'),
    socialBtnGoogleRegister: document.getElementById('socialBtnGoogleRegister'),
 
    formLoginRegister: document.getElementById('formLoginRegister'),
-
-   txtEmailLogin: document.getElementById('txtEmailLogin'),
-   txtPasswordLogin: document.getElementById('txtPasswordLogin'),
-
-   txtNameRegister: document.getElementById('txtNameRegister'),
-   txtEmailRegister: document.getElementById('txtEmailRegister'),
-   txtPasswordRegister: document.getElementById('txtPasswordRegister'),
 
    loginUser: document.getElementById('loginUser'),
 

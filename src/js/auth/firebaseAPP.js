@@ -46,10 +46,7 @@ const loginWithGoogle = async () => {
 };
 
 // Create new account using email/password
-const createAccount = async () => {
-   const displayName = refs.txtNameRegister.value;
-   const email = refs.txtEmailRegister.value;
-   const password = refs.txtPasswordRegister.value;
+const createAccount = async (displayName, email, password) => {
    try {
       await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(auth.currentUser, {
@@ -64,16 +61,13 @@ const createAccount = async () => {
 };
 
 // Login using email/password
-const loginEmailPassword = async () => {
-   const loginEmail = await refs.txtEmailLogin.value;
-   const loginPassword = await refs.txtPasswordLogin.value;
+const loginEmailPassword = async (email, password) => {
    try {
       const userCredential = await signInWithEmailAndPassword(
          auth,
-         loginEmail,
-         loginPassword
+         email,
+         password
       );
-      console.log(userCredential.user);
       hideLoginError();
       resetFform();
       hideFormLoginRegister();
@@ -111,11 +105,22 @@ const monitorAuthState = async () => {
    });
 };
 
-refs.btnLogin.addEventListener('click', loginEmailPassword);
-refs.btnSignup.addEventListener('click', createAccount);
+refs.registerFormSignIn.addEventListener('submit', e => {
+   e.preventDefault();
+   const email = e.target.email.value;
+   const password = e.target.password.value;
+   loginEmailPassword(email, password);
+});
+refs.registerFormSignUp.addEventListener('submit', e => {
+   e.preventDefault();
+   const displayName = e.target.name.value;
+   const email = e.target.email.value;
+   const password = e.target.password.value;
+   createAccount(displayName, email, password);
+});
 refs.btnLogout.addEventListener('click', logout);
-refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
-refs.socialBtnGoogleRegister.addEventListener('click', loginWithGoogle);
+// refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
+// refs.socialBtnGoogleRegister.addEventListener('click', loginWithGoogle);
 
 monitorAuthState();
 
