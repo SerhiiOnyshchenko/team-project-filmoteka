@@ -1,5 +1,4 @@
-
-import refs from './refs'
+import refs from './refs';
 
 refs.openModalBtn.addEventListener('click', openModal);
 
@@ -24,7 +23,6 @@ function eventKeydown(event) {
   if (event.code === 'Escape') {
     closeModal();
   }
-  return;
 }
 
 function backdropp(evt) {

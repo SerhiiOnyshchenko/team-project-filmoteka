@@ -5,9 +5,9 @@ import {
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
    GoogleAuthProvider,
-   connectAuthEmulator,
-   AuthErrorCodes,
    signOut,
+   updateProfile,
+   signInWithRedirect,
 } from 'firebase/auth';
 import {
    showLoginError,
@@ -17,14 +17,10 @@ import {
    showFormLoginRegister,
 } from '../registerLoginForm';
 import refs from '../refs';
+import { getDatabase, ref, set } from 'firebase/database';
+import { openHomePage } from './../change-header';
 
-// import { getAnalytics } from 'firebase/analytics';
-// import { getFirestore } from 'firebase/firestore';
-// import * as firebase from 'firebase/app';
-// var firebaseui = require('firebaseui');
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// standart config
 const firebaseConfig = {
    apiKey: 'AIzaSyDJl3YEGzyNFJZUYRjpN5Y1fjyAFUITL0A',
    authDomain: 'team-project-filmoteka-ec82b.firebaseapp.com',
@@ -37,32 +33,25 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-connectAuthEmulator(auth, 'http://localhost:9099/');
-// const provider = new GoogleAuthProvider();
+export const auth = getAuth(app);
 
-// Initialize the FirebaseUI Widget using Firebase.
-// const ui = new firebaseui.auth.AuthUI(firebase.auth());
+const provider = new GoogleAuthProvider();
 
-// ui.start('#firebaseui-auth-container', {
-//    signInOptions: [
-//       firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//       // List of OAuth providers supported.
-//       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//       // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//       // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-//       // firebase.auth.GithubAuthProvider.PROVIDER_ID,
-//    ],
-// });
+const loginWithGoogle = async () => {
+   try {
+      await signInWithRedirect(auth, provider);
+   } catch (error) {
+      console.log(`There was an error: ${error}`);
+   }
+};
 
 // Create new account using email/password
-const createAccount = async () => {
-   // const displayName = refs.txtNameRegister.value;
-   const email = refs.txtEmailRegister.value;
-   const password = refs.txtPasswordRegister.value;
-
+const createAccount = async (displayName, email, password) => {
    try {
-      await createUserWithEmailAndPassword(auth, email, password, displayName);
+      await createUserWithEmailAndPassword(auth, email, password);
+      await updateProfile(auth.currentUser, {
+         displayName,
+      });
       resetFform();
       hideFormLoginRegister();
    } catch (error) {
@@ -72,16 +61,13 @@ const createAccount = async () => {
 };
 
 // Login using email/password
-const loginEmailPassword = async () => {
-   const loginEmail = await refs.txtEmailLogin.value;
-   const loginPassword = await refs.txtPasswordLogin.value;
+const loginEmailPassword = async (email, password) => {
    try {
       const userCredential = await signInWithEmailAndPassword(
          auth,
-         loginEmail,
-         loginPassword
+         email,
+         password
       );
-      console.log(userCredential.user);
       hideLoginError();
       resetFform();
       hideFormLoginRegister();
@@ -96,7 +82,7 @@ const logout = async () => {
    try {
       await signOut(auth);
       showFormLoginRegister();
-      console.log('Sign-out successful');
+      openHomePage();
    } catch (error) {}
 };
 
@@ -105,7 +91,7 @@ const monitorAuthState = async () => {
    onAuthStateChanged(auth, user => {
       if (user) {
          console.log(user);
-         refs.loginUser.innerHTML = `You're logged in as ${user.displayName} (email: ${user.email}) `;
+         refs.loginUser.innerHTML = `(email: ${user.email}) `;
          refs.btnLogout.removeEventListener('click', showFormLoginRegister);
          refs.btnLogout.addEventListener('click', logout);
          refs.btnLogout.innerHTML = 'Logout';
@@ -119,34 +105,34 @@ const monitorAuthState = async () => {
    });
 };
 
-refs.btnLogin.addEventListener('click', loginEmailPassword);
-refs.btnSignup.addEventListener('click', createAccount);
+refs.registerFormSignIn.addEventListener('submit', e => {
+   e.preventDefault();
+   const email = e.target.email.value;
+   const password = e.target.password.value;
+   loginEmailPassword(email, password);
+});
+refs.registerFormSignUp.addEventListener('submit', e => {
+   e.preventDefault();
+   const displayName = e.target.name.value;
+   const email = e.target.email.value;
+   const password = e.target.password.value;
+   createAccount(displayName, email, password);
+});
 refs.btnLogout.addEventListener('click', logout);
+// refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
+// refs.socialBtnGoogleRegister.addEventListener('click', loginWithGoogle);
 
 monitorAuthState();
 
-// const db = getFirestore(app);
+// test db
 
-// signInWithPopup(auth, provider)
-//    .then(result => {
-//       // This gives you a Google Access Token. You can use it to access the Google API.
-//       const credential = GoogleAuthProvider.credentialFromResult(result);
-//       const token = credential.accessToken;
-//       // The signed-in user info.
-//       const user = result.user;
-//       console.log(user);
-//       // ...
-//    })
-//    .catch(error => {
-//       // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       console.log(errorCode, errorMessage);
-//       // The email of the user's account used.
-//       const email = error.customData.email;
-//       // The AuthCredential type that was used.
-//       const credential = GoogleAuthProvider.credentialFromError(error);
-//       // ...
-//    });
-
-// signInWithRedirect(auth, provider);
+refs.btnMyLibrary.addEventListener('click', () => {
+   onAuthStateChanged(auth, user => {
+      if (user) {
+         console.log('open my labary');
+         return;
+      } else {
+         showFormLoginRegister();
+      }
+   });
+});

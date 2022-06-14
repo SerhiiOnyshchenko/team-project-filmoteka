@@ -1,11 +1,14 @@
 .register-form__backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
 	background: rgba(0, 0, 0, 0.5);
 	display: none;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	height: 100vh;
-	margin: -20px 0 50px;
 }
 
 .register-form__tite {
@@ -209,42 +212,21 @@
 	height: 40px;
 	width: 40px;
 	padding: 0;
-	background: url(../images/google-icon.svg) no-repeat center;
 	background-size: 60%;
+	&--google {
+		background: url(../images/google-icon.svg) no-repeat center;
+	}
 }
+
 .social__container {
 	margin: 20px 0;
 }
 
 // error box
-.group {
-	margin-bottom: 45px;
-}
 
 .errorlabel {
-	font-size: 18px;
-	padding: 10px 10px 10px 5px;
-	-webkit-appearance: none;
 	display: block;
-	background: #fafafa;
 	color: #ff0000;
 	width: 100%;
-	border: none;
-	border-radius: 0;
-	border-bottom: 1px solid #ff0000;
-}
-.boxLoginLogout {
-	display: flex;
-	justify-content: end;
-	align-items: center;
-	height: 75px;
-	padding-bottom: 50px;
-	padding-right: 50px;
-}
-.btnLoginLogout {
-	margin: 0 20px;
-	padding: 10px;
-	color: $secondary-color;
-	border-radius: 20px;
-	background: $btn-color;
+	text-decoration: underline;
 }

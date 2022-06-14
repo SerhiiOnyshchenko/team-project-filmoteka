@@ -1,13 +1,13 @@
 const refs = {
+   //foter modal
+   openModalBtn: document.querySelector('#footer-link'),
+   closeModalBtn: document.querySelector('#footerModalClose'),
+   footerModal: document.querySelector('#footerModal'),
+   bodyScroll: document.querySelector('body'),
+   backdropp: document.querySelector('.backdropp'),
 
-    //foter modal
-    openModalBtn: document.querySelector('#footer-link'),
-    closeModalBtn: document.querySelector('#footerModalClose'),
-    footerModal: document.querySelector('#footerModal'),
-    bodyScroll: document.querySelector('body'),
-    backdropp: document.querySelector('.backdropp'),
-  
    // modal
+   galleryList: document.getElementById('gallery-list'),
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
@@ -17,18 +17,14 @@ const refs = {
    signInButton: document.getElementById('signInBtn'),
    container: document.getElementById('container'),
 
-   btnLogin: document.getElementById('btnLoginBtn'),
-   btnSignup: document.getElementById('btnSignUpBtn'),
+   registerFormSignIn: document.getElementById('registerFormSignIn'),
+   registerFormSignUp: document.getElementById('registerFormSignUp'),
    btnLogout: document.getElementById('btnLogout'),
 
+   socialBtnGoogleLogin: document.getElementById('socialBtnGoogleLogin'),
+   socialBtnGoogleRegister: document.getElementById('socialBtnGoogleRegister'),
+
    formLoginRegister: document.getElementById('formLoginRegister'),
-
-   txtEmailLogin: document.getElementById('txtEmailLogin'),
-   txtPasswordLogin: document.getElementById('txtPasswordLogin'),
-
-   txtNameRegister: document.getElementById('txtNameRegister'),
-   txtEmailRegister: document.getElementById('txtEmailRegister'),
-   txtPasswordRegister: document.getElementById('txtPasswordRegister'),
 
    loginUser: document.getElementById('loginUser'),
 
@@ -42,9 +38,15 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
- // gallery
 
-galleryList: document.getElementById('gallery-list'),
+   //  feature/FT-10
+   searchForm: document.getElementById('form'),
+   searchBtn: document.querySelector('.form__btn'),
+   galleryList: document.getElementById('gallery-list'),
+  
+   // pagination
+   paginationList: document.querySelector('#js-pagination__list'),
+   //    paginationBtn: document.querySelector('.pagination__list'),
 
 };
 
