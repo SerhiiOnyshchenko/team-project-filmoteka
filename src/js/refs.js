@@ -1,10 +1,10 @@
 const refs = {
-    //foter modal
-    openModalBtn: document.querySelector('#footer-link'),
-    closeModalBtn: document.querySelector('#footerModalClose'),
-    footerModal: document.querySelector('#footerModal'),
-    bodyScroll: document.querySelector('body'),
-    backdropp: document.querySelector('.backdropp'),
+   //foter modal
+   openModalBtn: document.querySelector('#footer-link'),
+   closeModalBtn: document.querySelector('#footerModalClose'),
+   footerModal: document.querySelector('#footerModal'),
+   bodyScroll: document.querySelector('body'),
+   backdropp: document.querySelector('.backdropp'),
 
    // modal
    modal: document.querySelector('.modal-content'),
@@ -44,6 +44,11 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
+
+   // pagination
+   paginationList: document.querySelector('#js-pagination__list'),
+   //    paginationBtn: document.querySelector('.pagination__list'),
+
 };
 
 export default refs;
