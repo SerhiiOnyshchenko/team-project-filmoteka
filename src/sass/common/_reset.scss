@@ -4,12 +4,6 @@
 	border: 0;
 }
 
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-}
-
 :focus,
 :active {
 	outline: none;
@@ -65,7 +59,7 @@ button::-moz-focus-inner {
 
 a,
 a:visited {
-  color: inherit;
+	color: inherit;
 	text-decoration: none;
 }
 

@@ -1,8 +1,13 @@
 <div class="register-form__backdrop" id="formLoginRegister">
    <div class="register-form__box" id="container">
       <div class="register-form__container sign-up-container">
-         <form class="register-form__sign-up" action="#">
-            <h1 class="register-form__tite">Create Account</h1>
+         <form
+            class="register-form__sign-up"
+            name="form"
+            id="registerFormSignUp"
+            action="#"
+         >
+            <h2 class="register-form__tite">Create Account</h2>
             <div class="social__container">
                <button
                   id="socialBtnGoogleRegister"
@@ -19,6 +24,7 @@
                type="text"
                name="name"
                placeholder="Name"
+               required
             />
             <input
                class="register-form__input"
@@ -26,6 +32,7 @@
                type="email"
                name="email"
                placeholder="Email"
+               required
             />
             <input
                class="register-form__input"
@@ -33,20 +40,20 @@
                type="password"
                name="password"
                placeholder="Password"
+               required
             />
-            <div id="divLoginError" class="group">
-               <div id="lblLoginErrorMessage" class="errorlabel">
-                  Error message
-               </div>
-            </div>
             <button id="btnSignUpBtn" class="register-form__btn" type="submit">
                Sign Up
             </button>
          </form>
       </div>
       <div class="register-form__container sign-in-container">
-         <form class="register-form__sign-in" autocomplete="on">
-            <h1 class="register-form__tite">Sign in</h1>
+         <form
+            class="register-form__sign-in"
+            name="form"
+            id="registerFormSignIn"
+         >
+            <h2 class="register-form__tite">Sign in</h2>
             <div class="social__container">
                <button
                   id="socialBtnGoogleLogin"
@@ -61,14 +68,18 @@
                type="email"
                name="email"
                placeholder="Email"
+               required
             />
+            <label for=""></label>
             <input
                class="register-form__input"
                id="txtPasswordLogin"
                type="password"
                name="password"
                placeholder="Password"
+               required
             />
+            <div id="divLoginError" class="errorlabel">Error message</div>
             <a class="register-form__link" href="#">Forgot your password?</a>
             <button id="btnLoginBtn" class="register-form__btn" type="submit">
                Sign In

@@ -20,10 +20,8 @@ refs.formLoginRegister.addEventListener('click', e => {
 // });
 
 export const resetFform = () => {
-   refs.txtEmailLogin.value = '';
-   refs.txtPasswordLogin.value = '';
-   refs.txtEmailRegister.value = '';
-   refs.txtPasswordRegister.value = '';
+   refs.registerFormSignIn.reset();
+   refs.registerFormSignUp.reset();
 };
 
 export const showFormLoginRegister = () => {
@@ -47,15 +45,15 @@ export const showApp = () => {
 
 export const hideLoginError = () => {
    refs.divLoginError.style.display = 'none';
-   refs.lblLoginErrorMessage.innerHTML = '';
+   refs.divLoginError.innerHTML = '';
 };
 
 export const showLoginError = error => {
    refs.divLoginError.style.display = 'block';
    if (error.code == AuthErrorCodes.INVALID_PASSWORD) {
-      refs.lblLoginErrorMessage.innerHTML = `Wrong password. Try again.`;
+      refs.divLoginError.innerHTML = `Wrong password. Try again.`;
    } else {
-      refs.lblLoginErrorMessage.innerHTML = `Error: ${error.message}`;
+      refs.divLoginError.innerHTML = `Error: ${error.message}`;
    }
 };
 
