@@ -6,5 +6,6 @@ import './js/modal';
 import './js/registerLoginForm';
 import './js/change-header';
 import './js/pagination';
+import './js/btnScrollUp';
 import './js/searchTrendFilms';
 import './js/searchFilmByName';

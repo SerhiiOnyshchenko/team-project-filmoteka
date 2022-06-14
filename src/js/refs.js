@@ -48,6 +48,8 @@ const refs = {
    paginationList: document.querySelector('#js-pagination__list'),
    //    paginationBtn: document.querySelector('.pagination__list'),
 
+   //btnScrollUp
+   scrollToTopEl: document.querySelector('#scroll-to-top'),
 };
 
 export default refs;
