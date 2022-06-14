@@ -1,5 +1,5 @@
-import throttle from 'lodash.throttle';
-import { refs } from './refs';
+import  throttle  from 'lodash.throttle';
+import  refs  from './refs';
 
 refs.scrollToTopEl.addEventListener('click', OnScrollElToTopClick);
 window.addEventListener('scroll', throttle(onWindowScroll, 300));

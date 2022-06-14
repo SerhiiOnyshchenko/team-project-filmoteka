@@ -49,7 +49,7 @@ const refs = {
    //    paginationBtn: document.querySelector('.pagination__list'),
 
    //btnScrollUp
-   scrollToTopEl: document.querySelector('.scroll-to-top'),
+   scrollToTopEl: document.querySelector('#scroll-to-top'),
 };
 
 export default refs;
