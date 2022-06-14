@@ -1,11 +1,9 @@
 import refs from './refs';
 
-window.addEventListener('click', toggleModal);
+refs.galleryList.addEventListener('click', toggleModal);
 
 function toggleModal(evt) {
-   evt.preventDefault();
-
-   if (!evt.target.classList.contains('card')) {
+   if (!evt.target.parentNode.classList.contains('gallery__list')) {
       return;
    }
 
