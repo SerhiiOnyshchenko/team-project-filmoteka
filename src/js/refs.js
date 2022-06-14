@@ -20,6 +20,9 @@ const refs = {
    btnSignup: document.getElementById('btnSignUpBtn'),
    btnLogout: document.getElementById('btnLogout'),
 
+   socialBtnGoogleLogin: document.getElementById('socialBtnGoogleLogin'),
+   socialBtnGoogleRegister: document.getElementById('socialBtnGoogleRegister'),
+
    formLoginRegister: document.getElementById('formLoginRegister'),
 
    txtEmailLogin: document.getElementById('txtEmailLogin'),
@@ -45,6 +48,7 @@ const refs = {
    // pagination
    paginationList: document.querySelector('#js-pagination__list'),
    //    paginationBtn: document.querySelector('.pagination__list'),
+
 };
 
 export default refs;
