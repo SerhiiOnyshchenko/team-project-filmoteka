@@ -1,5 +1,5 @@
 import './sass/main.scss';
-import './js/globalConst';
+import './js/services/movies-api';
 import './js/auth/firebaseAPP';
 import './js/footerModal';
 import './js/modal';
