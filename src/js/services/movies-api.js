@@ -1,6 +1,6 @@
 import fs from 'fs';
-export const BASE_URL = 'https://api.themoviedb.org/3/';
-export const MY_KEY = '5cd994cc5e25e67f2597f5db7027d486';
+const BASE_URL = 'https://api.themoviedb.org/3/';
+const MY_KEY = '5cd994cc5e25e67f2597f5db7027d486';
 
 export const URL_IMG = 'https://image.tmdb.org/t/p/w500';
 
@@ -15,5 +15,11 @@ async function fetchWithErrorHandling(url = '', config = {}) {
 export function fetchFilmsByName(queryStr, page = 1) {
    const url = `${BASE_URL}search/movie?api_key=${MY_KEY}&language=en-US&query=${queryStr}&page=${page}&include_adult=false`;
    //
+   return fetchWithErrorHandling(url);
+}
+
+export function fetchLoadMoreFilm(movie_id) {
+   const url = `${BASE_URL}movie/${movie_id}?api_key=${MY_KEY}`;
+
    return fetchWithErrorHandling(url);
 }

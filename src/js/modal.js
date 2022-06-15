@@ -1,5 +1,5 @@
 import refs from './refs';
-import { fetchLoadMoreFilm } from './services/get-movies-details';
+import { fetchLoadMoreFilm } from './services/movies-api';
 
 refs.galleryList.addEventListener('click', toggleModal);
 
@@ -32,5 +32,29 @@ function backdropClick(evt) {
 }
 
 function loadMoreInfoByModal(evt) {
-   fetchLoadMoreFilm(evt.target.parentNode.dataset.id);
+   fetchLoadMoreFilm(evt.target.parentNode.dataset.id).then(
+      ({
+         title,
+         id,
+         vote_average,
+         vote_count,
+         popularity,
+         original_title,
+         genres,
+         overview,
+         poster_path,
+      }) => {
+         console.log({
+            title,
+            id,
+            vote_average,
+            vote_count,
+            popularity,
+            original_title,
+            genres,
+            overview,
+            poster_path,
+         });
+      }
+   );
 }
