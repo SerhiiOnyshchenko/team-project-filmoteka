@@ -8,6 +8,8 @@ import {
    signOut,
    updateProfile,
    signInWithRedirect,
+   linkWithRedirect,
+   getRedirectResult,
 } from 'firebase/auth';
 import {
    showLoginError,
@@ -35,15 +37,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-const provider = new GoogleAuthProvider();
+// const googleProvider = new GoogleAuthProvider();
 
-const loginWithGoogle = async () => {
-   try {
-      await signInWithRedirect(auth, provider);
-   } catch (error) {
-      console.log(`There was an error: ${error}`);
-   }
-};
+// const addWithGoogle = async () => {
+//    try {
+//       await linkWithRedirect(auth.currentUser, googleProvider);
+//    } catch (error) {
+//       console.log(`There was an error: ${error}`);
+//    }
+// };
+// const loginWithGoogle = async () => {
+//    try {
+//       await signInWithRedirect(auth, googleProvider);
+//    } catch (error) {
+//       console.log(`There was an error: ${error}`);
+//    }
+// };
 
 // Create new account using email/password
 const createAccount = async (displayName, email, password) => {
@@ -91,12 +100,11 @@ const monitorAuthState = async () => {
    onAuthStateChanged(auth, user => {
       if (user) {
          console.log(user);
-         refs.loginUser.innerHTML = `(email: ${user.email}) `;
+         refs.loginUser.innerHTML = user.displayName.toUpperCase();
          refs.btnLogout.removeEventListener('click', showFormLoginRegister);
          refs.btnLogout.addEventListener('click', logout);
          refs.btnLogout.innerHTML = 'Logout';
       } else {
-         // showFormLoginRegister();
          refs.loginUser.innerHTML = `You're not logged in.`;
          refs.btnLogout.removeEventListener('click', logout);
          refs.btnLogout.addEventListener('click', showFormLoginRegister);
@@ -111,6 +119,7 @@ refs.registerFormSignIn.addEventListener('submit', e => {
    const password = e.target.password.value;
    loginEmailPassword(email, password);
 });
+
 refs.registerFormSignUp.addEventListener('submit', e => {
    e.preventDefault();
    const displayName = e.target.name.value;
@@ -118,9 +127,10 @@ refs.registerFormSignUp.addEventListener('submit', e => {
    const password = e.target.password.value;
    createAccount(displayName, email, password);
 });
+
 refs.btnLogout.addEventListener('click', logout);
 // refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
-// refs.socialBtnGoogleRegister.addEventListener('click', loginWithGoogle);
+// refs.socialBtnGoogleRegister.addEventListener('click', addWithGoogle);
 
 monitorAuthState();
 

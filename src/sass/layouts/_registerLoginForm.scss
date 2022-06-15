@@ -39,7 +39,6 @@
 	background-color: $btn-color;
 	color: #ffffff;
 	@include font(500, 12, 14);
-
 	padding: 12px 45px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
@@ -66,9 +65,15 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 50px;
 	height: 100%;
 	text-align: center;
+	padding: 0 20px;
+	@media screen and (min-width: 768px) {
+		padding: 0 30px;
+	}
+	@media screen and (min-width: 1024px) {
+		padding: 0 50px;
+	}
 }
 
 .register-form__input {
@@ -86,9 +91,21 @@
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 	position: relative;
 	overflow: hidden;
-	width: 768px;
+	width: 320px;
 	max-width: 100%;
-	min-height: 480px;
+	min-height: 700px;
+	@media screen and (min-width: 425px) {
+		width: 405px;
+	}
+
+	@media screen and (min-width: 768px) {
+		width: 688px;
+		min-height: 480px;
+	}
+
+	@media screen and (min-width: 1024px) {
+		width: 768px;
+	}
 }
 
 .register-form__container {
@@ -99,27 +116,45 @@
 }
 
 .sign-in-container {
-	left: 0;
-	width: 50%;
+	top: 0;
+	width: 100%;
+	height: 50%;
 	z-index: 2;
+	@media screen and (min-width: 768px) {
+		left: 0;
+		width: 50%;
+		height: 100%;
+	}
 }
 
 .register-form__box.right-panel-active .sign-in-container {
-	transform: translateX(100%);
+	transform: translateY(100%);
+	@media screen and (min-width: 768px) {
+		transform: translateX(100%);
+	}
 }
 
 .sign-up-container {
-	left: 0;
-	width: 50%;
+	top: 0;
+	height: 50%;
+	width: 100%;
 	opacity: 0;
 	z-index: 1;
+	@media screen and (min-width: 768px) {
+		left: 0;
+		height: 100%;
+		width: 50%;
+	}
 }
 
 .register-form__box.right-panel-active .sign-up-container {
-	transform: translateX(100%);
+	transform: translateY(100%);
 	opacity: 1;
 	z-index: 5;
 	animation: show 0.6s;
+	@media screen and (min-width: 768px) {
+		transform: translateX(100%);
+	}
 }
 
 @keyframes show {
@@ -138,37 +173,56 @@
 
 .overlay-container {
 	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 50%;
-	height: 100%;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
 	overflow: hidden;
 	transition: transform 0.6s ease-in-out;
 	z-index: 100;
+	@media screen and (min-width: 768px) {
+		top: 0;
+		left: 50%;
+		width: 50%;
+		height: 100%;
+	}
 }
 
 .register-form__box.right-panel-active .overlay-container {
-	transform: translateX(-100%);
+	transform: translateY(-100%);
+	@media screen and (min-width: 768px) {
+		transform: translateX(-100%);
+	}
 }
 
 .overlay {
 	background: #ff416c;
-	background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
-	background: linear-gradient(to right, #ff4b2b, #ff416c);
+	background: -webkit-linear-gradient(to top, #ff4b2b, #ff416c);
+	background: linear-gradient(to top, #ff4b2b, #ff416c);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
 	color: #ffffff;
 	position: relative;
-	left: -100%;
-	height: 100%;
-	width: 200%;
-	transform: translateX(0);
+	height: 200%;
+	width: 100%;
 	transition: transform 0.6s ease-in-out;
+	transform: translateY(-50%);
+	@media screen and (min-width: 768px) {
+		left: -100%;
+		height: 100%;
+		width: 200%;
+		background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
+		background: linear-gradient(to right, #ff4b2b, #ff416c);
+		transform: translateX(0);
+	}
 }
 
 .register-form__box.right-panel-active .overlay {
-	transform: translateX(50%);
+	transform: translateY(0);
+	@media screen and (min-width: 768px) {
+		transform: translateX(50%);
+	}
 }
 
 .overlay-panel {
@@ -180,27 +234,44 @@
 	padding: 0 40px;
 	text-align: center;
 	top: 0;
-	height: 100%;
-	width: 50%;
-	transform: translateX(0);
 	transition: transform 0.6s ease-in-out;
+	height: 50%;
+	width: 100%;
+	transform: translateY(50%);
+	@media screen and (min-width: 768px) {
+		height: 100%;
+		width: 50%;
+		transform: translateX(0);
+	}
 }
 
 .overlay-left {
-	transform: translateX(-20%);
+	transform: translateY(-20%);
+	@media screen and (min-width: 768px) {
+		transform: translateX(-20%);
+	}
 }
 
 .register-form__box.right-panel-active .overlay-left {
-	transform: translateX(0);
+	transform: translateY(0);
+	@media screen and (min-width: 768px) {
+		transform: translateX(0);
+	}
 }
 
 .overlay-right {
-	right: 0;
-	transform: translateX(0);
+	transform: translateY(100%);
+	@media screen and (min-width: 768px) {
+		right: 0;
+		transform: translateX(0);
+	}
 }
 
 .register-form__box.right-panel-active .overlay-right {
-	transform: translateX(20%);
+	transform: translateY(120%);
+	@media screen and (min-width: 768px) {
+		transform: translateX(20%);
+	}
 }
 .social__btn {
 	border: 1px solid #dddddd;
