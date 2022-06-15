@@ -12,21 +12,30 @@
 
 
 <div class="backdrop">
-
    <div class="modal-content">
-
       <button type="button" class="btn-close" data-modal-close>
-         
-
          <svg class="modal__close-icon ">
-
          <use xlink:href='./images/symbol-defs.svg#icon-close' width="125%" height="125%"></use>
          </svg>
       </button>
- 
-
+      <div class="image-container"></div>
+      <picture>
+         <source
+             srcset="../src/images/modalFilm/Rectangle.jpg,
+                     ../src/images/modalFilm/Rectangle2.jpg"
+             media="(min-width: 1024px)">
+         <source
+             srcset="../src/images/modalFilm/Rectangle-tab.jpg  1x, 
+                     ../src/images/modalFilm/Rectangle-tab2.jpg  2x"
+             media="(min-width: 768px)">
+         <source
+             srcset="../src/images/modalFilm/Rectangle-mob.jpg  1x, 
+         ../src/images/modalFilm/Rectangle-mob2.jpg 2x"
+             media="(min-width: 320px)">
+         <img src="../src/images/modalFilm/Rectangle2.jpg 2x" 
+         alt="https://www.reelviews.net/resources/img/default_poster.jpg" />
+     </picture>
    </div>
-
 </div>
 
 
