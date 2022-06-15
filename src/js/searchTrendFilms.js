@@ -12,4 +12,4 @@ refs.galleryList.innerHTML = data.results.map(createFilmCardMarkup).join('');
 
 document.addEventListener('DOMContentLoaded', () => {
     searchTrendFilms();
-} )
+})
