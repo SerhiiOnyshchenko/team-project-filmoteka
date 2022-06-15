@@ -1,12 +1,23 @@
 .pagination {
+   padding-bottom: 40px;
+   @media screen and (min-width: 768px) {
+      padding-bottom: 60px;
+   }
+   &__hidden {
+      display: none;
+   }
    &__list {
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-right: -8px;
+      margin-left: -8px;
    }
 
    &__item {
-      margin-right: 16px;
+      margin-right: 8px;
+      margin-left: 8px;
+
       &--hidden {
          @extend .pagination__list;
          @media screen and (max-width: 767px) {
@@ -15,12 +26,15 @@
       }
 
       &--left {
-         margin-right: 19px;
+         margin-right: 20px;
       }
 
       &--right {
-         margin-right: 0;
-         margin-left: 4px;
+         margin-left: 20px;
+      }
+      &--current {
+         width: 40px;
+         height: 40px;
       }
    }
 
