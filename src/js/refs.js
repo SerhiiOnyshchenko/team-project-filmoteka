@@ -43,7 +43,7 @@ const refs = {
    searchForm: document.getElementById('form'),
    searchBtn: document.querySelector('.form__btn'),
    galleryList: document.getElementById('gallery-list'),
-  
+
    // pagination
    paginationList: document.querySelector('#js-pagination__list'),
    //    paginationBtn: document.querySelector('.pagination__list'),
