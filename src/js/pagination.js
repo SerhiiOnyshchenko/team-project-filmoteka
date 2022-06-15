@@ -1,6 +1,7 @@
 import refs from './refs';
 import { searchTrendFilms } from './searchTrendFilms';
 import { searchFilmByName } from './searchFilmByName';
+import gloalVar from './globalConst';
 
 const iconArrowRight = '&#129130';
 const iconArrowLeft = '&#129128';
@@ -39,10 +40,10 @@ function onBtnClick(e) {
       onArrowClick(currentBtn);
    }
 
-   if (whichTypeMovieSearch === 'trend') {
+   if (gloalVar.whichTypeMovieSearch === 'trend') {
       searchTrendFilms(clickPages);
-   } else if (whichTypeMovieSearch === 'search') {
-      searchFilmByName(searchText, clickPages);
+   } else if (gloalVar.whichTypeMovieSearch === 'search') {
+      searchFilmByName(gloalVar.searchText, clickPages);
    }
 }
 
