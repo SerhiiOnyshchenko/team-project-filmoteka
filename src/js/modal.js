@@ -1,4 +1,5 @@
 import refs from './refs';
+import { fetchLoadMoreFilm } from './services/get-movies-details';
 
 refs.galleryList.addEventListener('click', toggleModal);
 
@@ -6,7 +7,7 @@ function toggleModal(evt) {
    if (!evt.target.parentNode.classList.contains('card')) {
       return;
    }
-
+   loadMoreInfoByModal(evt);
    refs.backdrop.classList.add('is-hidden');
    window.addEventListener('keydown', closeModalEscKey);
    refs.btnClose.addEventListener('click', closeModal);
@@ -28,4 +29,8 @@ function backdropClick(evt) {
    if (evt.currentTarget === evt.target) {
       closeModal();
    }
+}
+
+function loadMoreInfoByModal(evt) {
+   fetchLoadMoreFilm(evt.target.parentNode.dataset.id);
 }
