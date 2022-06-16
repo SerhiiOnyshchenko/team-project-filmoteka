@@ -1,0 +1,13 @@
+.trailer__play-btn{
+    background-color: inherit;
+}
+.trailer__svg{
+    width: 40px;
+    height: 30px;
+    fill: rgba(248, 0, 0, 0.7);
+    transition: $transition;
+    &:hover,
+    &:focus{
+        fill: #f00;
+    }
+}
