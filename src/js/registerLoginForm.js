@@ -8,6 +8,9 @@ refs.signUpButton.addEventListener('click', () => {
 refs.signInButton.addEventListener('click', () => {
    refs.container.classList.remove('right-panel-active');
 });
+refs.registerFormCloseBtn.addEventListener('click', () => {
+   hideFormLoginRegister();
+});
 
 refs.formLoginRegister.addEventListener('click', e => {
    if (e.target === e.currentTarget) {

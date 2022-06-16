@@ -29,6 +29,7 @@ const refs = {
 
    divLoginError: document.getElementById('divLoginError'),
    lblLoginErrorMessage: document.getElementById('lblLoginErrorMessage'),
+   registerFormCloseBtn: document.getElementById('registerFormCloseBtn'),
 
    // header toggle
    logo: document.getElementById('logo__js'),
