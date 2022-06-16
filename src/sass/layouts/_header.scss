@@ -151,8 +151,13 @@
 		background-color: $accent-color;
 	}
 }
-.header__div {
+
+.header__form {
 	margin-top: 47px;
+	margin-bottom: 18px;
+}
+.header__div {
+	
 	display: flex;
 	justify-content: center;
 }
@@ -251,13 +256,16 @@
 
 	border: 1px solid $secondary-color;
 	border-radius: 5px;
+
+	transition: 200ms;
 }
 
-.library__btn.active {
+.library__btn:active {
 	background: #ff6b01;
-	border: #ff6b01;
+	border-color: #ff6b01;
 	box-shadow: $box-shadow;
 }
+
 .display-none {
 	display: none;
 }
