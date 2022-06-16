@@ -1,4 +1,5 @@
 .gallery {
+   min-height: 70vh;
    &__list {
       padding: 20px 0;
 
@@ -9,14 +10,35 @@
 }
 
 .film-card {
-   width: 100%;
+   min-width: 100%;
    overflow: hidden;
    border-radius: 5px;
 
-   &__img {
+   &__img-wrap {
       width: 100%;
-      border-radius: 5px;
       margin-bottom: 10px;
+
+      @media screen and (min-width: 320px) {
+         height: 402px;
+      }
+
+      @media screen and (min-width: 480px) {
+         height: 520px;
+      }
+
+      @media screen and (min-width: 768px) {
+         height: 455px;
+      }
+
+      @media screen and (min-width: 1024px) {
+         height: 449px;
+      }
+   }
+
+   &__img {
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
       transition: $transition;
    }
 
@@ -28,8 +50,10 @@
       @include font(500, 12, 16);
       color: $primary-color;
       text-transform: uppercase;
-
       margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
    }
 
    &__info {
