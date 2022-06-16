@@ -7,7 +7,8 @@
 	overflow: auto;
 	top: 50%;
 	left: 50%;
-	max-height: calc(100vh - 24px);
+	// max-height: calc(100vh - 24px);
+	height: 500px;
 	width: 300px;
 	padding: 20px;
 	background: #fff;
@@ -16,15 +17,16 @@
 
 	transform: translate(-50%, -50%);
 	transition: $transition;
-
+	@media screen and (min-width: 480px){
+	height: 460px;
+	}
 	@media screen and (min-width: 768px) {
 		width: 640px;
-		max-height: calc(100vh - 40px);
 	}
 
 	@media screen and (min-width: 1024px) {
 		width: 960px;
-		max-height: calc(100vh - 60px);
+		height: 530px;
 	}
 }
 
