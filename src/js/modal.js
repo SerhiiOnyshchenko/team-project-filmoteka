@@ -8,14 +8,14 @@ function toggleModal(evt) {
       return;
    }
    loadMoreInfoByModal(evt);
-   refs.backdrop.classList.add('is-hidden');
+   refs.backdrop.classList.remove('is-hidden');
    window.addEventListener('keydown', closeModalEscKey);
    refs.btnClose.addEventListener('click', closeModal);
    refs.backdrop.addEventListener('click', backdropClick);
 }
 
 function closeModal() {
-   refs.backdrop.classList.remove('is-hidden');
+   refs.backdrop.classList.add('is-hidden');
 }
 
 function closeModalEscKey(evt) {

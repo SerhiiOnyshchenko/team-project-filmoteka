@@ -4,7 +4,6 @@ const refs = {
    closeModalBtn: document.querySelector('#footerModalClose'),
    footerModal: document.querySelector('#footerModal'),
    bodyScroll: document.querySelector('body'),
-   backdropp: document.querySelector('.backdropp'),
 
    // modal
    galleryList: document.getElementById('gallery-list'),
