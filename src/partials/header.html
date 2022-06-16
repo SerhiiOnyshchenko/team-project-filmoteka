@@ -1,10 +1,41 @@
 <header class="header" id="header">
    <div class="container header__container">
       <nav class="header__nav">
-         <a class="header__logo" id="logo__js" href="">
-            <svg class="header__icon" width="24" height="24">
-               <use href="./images/symbol-defs.svg#icon-film" />
-            </svg>
+         <a class="header__logo" id="logo__js" href="#">
+            <div class="cub_wrapper">
+               <div class="cube">
+                  <div class="side front">
+                     <svg class="header__icon" width="24" height="24">
+                        <use href="./images/symbol-defs.svg#icon-film" />
+                     </svg>
+                  </div>
+                  <div class="side back">
+                     <svg class="header__icon" width="24" height="24">
+                        <use href="./images/symbol-defs.svg#icon-film" />
+                     </svg>
+                  </div>
+                  <div class="side left">
+                     <svg class="header__icon" width="24" height="24">
+                        <use href="./images/symbol-defs.svg#icon-film" />
+                     </svg>
+                  </div>
+                  <div class="side right">
+                     <svg class="header__icon" width="24" height="24">
+                        <use href="./images/symbol-defs.svg#icon-film" />
+                     </svg>
+                  </div>
+                  <div class="side top">
+                     <svg class="header__icon" width="24" height="24">
+                        <use href="./images/symbol-defs.svg#icon-film" />
+                     </svg>
+                  </div>
+                  <div class="side bottom">
+                     <svg class="header__icon" width="24" height="24">
+                        <use href="./images/symbol-defs.svg#icon-film" />
+                     </svg>
+                  </div>
+               </div>
+            </div>
             <span class="header__filmoteka">Filmoteka</span>
          </a>
          <ul class="header__list">
@@ -17,12 +48,6 @@
                </button>
             </li>
          </ul>
-         <div class="boxLoginLogout">
-            <span id="loginUser"></span>
-            <button id="btnLogout" class="btnLoginLogout" type="button">
-               Login
-            </button>
-         </div>
       </nav>
 
       <div class="header__form-container" id="header__form">
@@ -56,12 +81,40 @@
       <div class="header__btns-container display-none" id="header__btns">
          <ul class="library__btns-list">
             <li class="library__btns-item">
-               <button class="library__btn active">watched</button>
+               <button class="library__btn">watched</button>
             </li>
             <li class="library__btns-item">
                <button class="library__btn">queue</button>
             </li>
          </ul>
+      </div>
+      <div class="header__box-login-logout">
+         <span id="loginUser"></span>
+         <button id="btnLoginHeader" class="header__btn-login" type="button">
+            Login
+         </button>
+         <div class="user-menu" id="userMenu">
+            <span id="firstLetter" class="user-menu__first-letter"></span>
+            <div class="user-menu__box">
+               <p class="user-menu__title-hover">Portfolio and setting</p>
+               <div class="user-menu__hiden">
+                  <ul class="user-menu__list">
+                     <li class="user-menu__item" id="userMenuName"></li>
+                     <li class="user-menu__item">Change password</li>
+                     <li class="user-menu__item">Setting</li>
+                     <li class="user-menu__item user-menu__item--btn">
+                        <button
+                           id="btnLogoutHeader"
+                           class="user-menu__btn-logout"
+                           type="button"
+                        >
+                           Logout
+                        </button>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
       </div>
    </div>
 </header>
