@@ -26,11 +26,13 @@
 }
 
 .modal-content {
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
 position: relative;
 padding: 16px;
 border-radius: 4px;
 background-color: $secondary-color;
-margin: auto;
 transform: scale(1.2);
 transition: $transition;
 @media screen and (min-width: 320px) {
@@ -58,17 +60,21 @@ margin: 0 auto;
 top:0px;
 left: 0px;
 background-color: transparent;
+transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-close{
 display: block;
 position: absolute;
 background-color:transparent;
-width: 18px;
-height: 18px;
+width: 23px;
+height: 23px;
 top: 16px;
 right: 16px;
 }
+.btn-close:hover > .modal__close-icon {
+   fill: #FF6B01;
+ }
 
   .image-container {
    position: absolute;
@@ -94,17 +100,23 @@ right: 16px;
 
 .container-context{
    position: absolute;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    @media screen and (min-width: 320px) {
+      min-height: 500px;
       width: 240px;
       top: 425px;
       right: 20px;
    }
    @media screen and (min-width: 768px) {
+      min-height: 472px;
       top: 40px;
       width: 264px;
       right: 72px;
    }
    @media screen and (min-width: 1024px) {
+      min-height: 407px;
       top: 40px;
       right: 16px;
       padding-left: 16px;
@@ -113,9 +125,6 @@ right: 16px;
 }
 
 .modal-title{
-   font-family: 'Roboto';
-   font-style: normal;
-   font-weight: 500;
    font-size: 20px;
    line-height: 23px;
 @media screen and (min-width: 320px) {   
@@ -139,9 +148,6 @@ margin-top: 20px;
 
 .properties-film{
 height: 100%;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
 font-size: 12px;
 line-height: 16px;
 color: #8C8C8C;
@@ -150,9 +156,6 @@ color: #8C8C8C;
 .values-film{
 height: 100%;
 margin-left: 83px;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
 font-size: 12px;
 line-height: 14px;
 align-items: center;
@@ -173,9 +176,6 @@ line-height: 16px;
 color: #8C8C8C;
 display: inline-block;
 height: 16px;
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
 font-size: 12px;
 margin-left: 3px;
 
@@ -211,9 +211,6 @@ padding-bottom: 1px;
 }
 
 .title-modal{
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
 font-size: 12px;
 line-height: 16px;
 text-transform: uppercase;
@@ -223,26 +220,20 @@ margin-top: 20px;
 
 .text-modal{
 margin-top: 8px;  
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
 font-size: 12px;
 line-height: 20px;
 color: #000000;
 }
+
 
 .btn-container{
    display: flex;
 }
 
 .btn-modal{
-font-family: 'Roboto';
 display: inline-block;
 height: 44px;
-margin-top:20px;
 border-radius: 5px;
-font-style: normal;
-font-weight: 500;
 font-size: 12px;
 line-height: 16px;
 display: flex;
