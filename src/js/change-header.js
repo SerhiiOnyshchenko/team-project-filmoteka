@@ -2,6 +2,7 @@ import refs from './refs';
 import { onAuthStateChanged } from 'firebase/auth';
 import { showFormLoginRegister } from './registerLoginForm';
 import { auth } from './auth/firebaseAPP';
+import { searchTrendFilms } from './searchTrendFilms';
 
 refs.logo.addEventListener('click', openHomePage);
 refs.btnHome.addEventListener('click', openHomePage);
@@ -13,9 +14,12 @@ export function openHomePage() {
    refs.btnMyLibrary.classList.remove('current');
    refs.btnHome.classList.add('current');
    refs.header.classList.remove('library__background');
+
+   searchTrendFilms((page = 1));
 }
 
 function openMyLibrary() {
+   refs.galleryList.innerHTML = '';
    onAuthStateChanged(auth, user => {
       if (user) {
          refs.header.classList.add('library__background');
