@@ -100,14 +100,6 @@
 .comand-item-img {
 	height: 100%;
 	object-fit: cover;
-	
-	@media screen and(min-width: 768px) {
-		width: 260px;
-	}
-	
-	@media screen and(min-width: 1024px) {
-		width: 170px;
-	}
 }
 .comand-item-wrapper {
 	position: absolute;
