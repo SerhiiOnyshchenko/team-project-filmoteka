@@ -288,3 +288,28 @@
 	width: 100%;
 	text-decoration: underline;
 }
+.register-form__close-btn {
+	position: absolute;
+	display: block;
+	top: 10px;
+	right: 10px;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 1px solid #000;
+	z-index: 1000;
+	transition: $transition;
+	@include displayFlex();
+	&:hover,
+	&:focus {
+		background-color: $btn-color;
+		transform: scale(1.05);
+		cursor: pointer;
+	}
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+.register-form__box.right-panel-active .register-form__close-btn {
+	border: 1px solid #fff;
+}

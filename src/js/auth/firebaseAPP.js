@@ -100,15 +100,16 @@ const monitorAuthState = async () => {
    onAuthStateChanged(auth, user => {
       if (user) {
          console.log(user);
-         refs.loginUser.innerHTML = user.displayName.toUpperCase();
-         refs.btnLogout.removeEventListener('click', showFormLoginRegister);
-         refs.btnLogout.addEventListener('click', logout);
-         refs.btnLogout.innerHTML = 'Logout';
+         refs.loginUser.innerHTML = '';
+         refs.btnLoginHeader.style.display = 'none';
+         refs.userMenu.style.display = 'flex';
+         refs.firstLetter.innerHTML = user.displayName.slice(0, 1);
+         refs.userMenuName.innerHTML = user.displayName.toUpperCase();
       } else {
          refs.loginUser.innerHTML = `You're not logged in.`;
-         refs.btnLogout.removeEventListener('click', logout);
-         refs.btnLogout.addEventListener('click', showFormLoginRegister);
-         refs.btnLogout.innerHTML = 'Login';
+         refs.btnLoginHeader.style.display = 'block';
+         refs.userMenu.style.display = 'none';
+         refs.userMenu.classList.remove('active-user-menu');
       }
    });
 };
@@ -128,9 +129,8 @@ refs.registerFormSignUp.addEventListener('submit', e => {
    createAccount(displayName, email, password);
 });
 
-refs.btnLogout.addEventListener('click', logout);
-// refs.socialBtnGoogleLogin.addEventListener('click', loginWithGoogle);
-// refs.socialBtnGoogleRegister.addEventListener('click', addWithGoogle);
+refs.btnLogoutHeader.addEventListener('click', logout);
+refs.btnLoginHeader.addEventListener('click', showFormLoginRegister);
 
 monitorAuthState();
 

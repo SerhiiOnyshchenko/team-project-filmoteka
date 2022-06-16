@@ -29,3 +29,9 @@ function openMyLibrary() {
       }
    });
 }
+refs.firstLetter.addEventListener('click', toggleMenu);
+function toggleMenu(e) {
+   if (e.target === e.currentTarget) {
+      refs.userMenu.classList.toggle('active-user-menu');
+   }
+}

@@ -18,7 +18,11 @@ const refs = {
 
    registerFormSignIn: document.getElementById('registerFormSignIn'),
    registerFormSignUp: document.getElementById('registerFormSignUp'),
-   btnLogout: document.getElementById('btnLogout'),
+   btnLoginHeader: document.getElementById('btnLoginHeader'),
+   btnLogoutHeader: document.getElementById('btnLogoutHeader'),
+   userMenu: document.getElementById('userMenu'),
+   firstLetter: document.getElementById('firstLetter'),
+   userMenuName: document.getElementById('userMenuName'),
 
    socialBtnGoogleLogin: document.getElementById('socialBtnGoogleLogin'),
    socialBtnGoogleRegister: document.getElementById('socialBtnGoogleRegister'),
@@ -29,6 +33,7 @@ const refs = {
 
    divLoginError: document.getElementById('divLoginError'),
    lblLoginErrorMessage: document.getElementById('lblLoginErrorMessage'),
+   registerFormCloseBtn: document.getElementById('registerFormCloseBtn'),
 
    // header toggle
    logo: document.getElementById('logo__js'),
