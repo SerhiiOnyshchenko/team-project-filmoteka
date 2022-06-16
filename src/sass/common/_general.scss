@@ -19,8 +19,18 @@
 	width: 100vw;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.6);
-	pointer-events: none;
 	opacity: 1;
-	visibility: hidden;
+	visibility: visible;
+	pointer-events: initial;
+	transform: scale(1.1);
 	transition: $transition;
+}
+
+.is-hidden {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+.backdrop.is-hidden {
+	transform: scale(1);
 }

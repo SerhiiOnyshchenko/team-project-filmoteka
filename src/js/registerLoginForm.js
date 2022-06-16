@@ -8,6 +8,9 @@ refs.signUpButton.addEventListener('click', () => {
 refs.signInButton.addEventListener('click', () => {
    refs.container.classList.remove('right-panel-active');
 });
+refs.registerFormCloseBtn.addEventListener('click', () => {
+   hideFormLoginRegister();
+});
 
 refs.formLoginRegister.addEventListener('click', e => {
    if (e.target === e.currentTarget) {
@@ -15,9 +18,6 @@ refs.formLoginRegister.addEventListener('click', e => {
       hideFormLoginRegister();
    }
 });
-// refs.btnMyLibrary.addEventListener('click', e => {
-//    showFormLoginRegister();
-// });
 
 export const resetFform = () => {
    refs.registerFormSignIn.reset();
@@ -25,7 +25,7 @@ export const resetFform = () => {
 };
 
 export const showFormLoginRegister = () => {
-   refs.formLoginRegister.style.display = 'flex';
+   refs.formLoginRegister.classList.remove('is-hidden');
    window.addEventListener('keydown', hideFormLoginRegisterByKey);
 };
 const hideFormLoginRegisterByKey = e => {
@@ -35,7 +35,7 @@ const hideFormLoginRegisterByKey = e => {
    }
 };
 export const hideFormLoginRegister = () => {
-   refs.formLoginRegister.style.display = 'none';
+   refs.formLoginRegister.classList.add('is-hidden');
 };
 
 export const showApp = () => {

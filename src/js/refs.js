@@ -4,7 +4,6 @@ const refs = {
    closeModalBtn: document.querySelector('#footerModalClose'),
    footerModal: document.querySelector('#footerModal'),
    bodyScroll: document.querySelector('body'),
-   backdropp: document.querySelector('.backdropp'),
 
    // modal
    galleryList: document.getElementById('gallery-list'),
@@ -19,7 +18,11 @@ const refs = {
 
    registerFormSignIn: document.getElementById('registerFormSignIn'),
    registerFormSignUp: document.getElementById('registerFormSignUp'),
-   btnLogout: document.getElementById('btnLogout'),
+   btnLoginHeader: document.getElementById('btnLoginHeader'),
+   btnLogoutHeader: document.getElementById('btnLogoutHeader'),
+   userMenu: document.getElementById('userMenu'),
+   firstLetter: document.getElementById('firstLetter'),
+   userMenuName: document.getElementById('userMenuName'),
 
    socialBtnGoogleLogin: document.getElementById('socialBtnGoogleLogin'),
    socialBtnGoogleRegister: document.getElementById('socialBtnGoogleRegister'),
@@ -30,6 +33,7 @@ const refs = {
 
    divLoginError: document.getElementById('divLoginError'),
    lblLoginErrorMessage: document.getElementById('lblLoginErrorMessage'),
+   registerFormCloseBtn: document.getElementById('registerFormCloseBtn'),
 
    // header toggle
    logo: document.getElementById('logo__js'),
@@ -38,12 +42,13 @@ const refs = {
    header: document.getElementById('header'),
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
+   inputError: document.getElementById('input-error'),
 
    //  feature/FT-10
    searchForm: document.getElementById('form'),
    searchBtn: document.querySelector('.form__btn'),
    galleryList: document.getElementById('gallery-list'),
-  
+
    // pagination
    paginationList: document.querySelector('#js-pagination__list'),
    //    paginationBtn: document.querySelector('.pagination__list'),
