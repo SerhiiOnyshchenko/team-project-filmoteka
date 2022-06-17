@@ -15,7 +15,7 @@ export function openHomePage() {
    refs.btnHome.classList.add('current');
    refs.header.classList.remove('library__background');
 
-   searchTrendFilms((page = 1));
+   searchTrendFilms();
 }
 
 function openMyLibrary() {
