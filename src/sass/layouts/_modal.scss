@@ -4,8 +4,9 @@ font-style: normal;
 font-weight: 500;
 display: flex;
 flex-direction: column;
-padding-top: 40px;
-padding: 40px 16px;
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 48px;
 border-radius: 4px;
 background-color: $secondary-color;
 transform: scale(1.2);
@@ -16,13 +17,18 @@ color: #000000;
    height: 940px;
 }
 @media screen and (min-width: 768px) {
+   padding-top: 40px;
+   padding-bottom: 40px;
    width: 704px;
    height: 552px;
    flex-direction: row;
+   padding-left: 36px;
 }
 @media screen and (min-width: 1024px) {
    width: 814px;
    height: 558px;
+   padding-left: 16px;
+   padding-right: 16px;
 }
 }
 
@@ -54,48 +60,42 @@ right: 16px;
  }
 
   .image-container {
-   
-   // // top: 40px;
-   // left: 16px;
    @media screen and (min-width: 320px) {
       width: 240px;
       height: 357px;
-      // top:48px;
-      // left:20px;
    }
    @media screen and (min-width: 768px) {
       width: 264px;
       height: 373.55px;
-      // top:40px;
-      // left: 36px;
    }
    @media screen and (min-width: 1024px) {
       width: 375px;
       height: 478px;
    }
 }
+.image-container > img {
+   display: block;
+   width: 100%;
+   height:100%;
+   object-fit: cover;
+   border-radius: 5px;
+
+}
 
 .container-context{
-   // position: absolute;
+   box-sizing: border-box;
    display: flex;
    flex-direction: column;
-   // justify-content: space-between;
+   margin-top: 20px;
    @media screen and (min-width: 320px) {
-      // min-height: 500px;
       width: 240px;
-      // top: 425px;
-      // right: 20px;
    }
    @media screen and (min-width: 768px) {
-      // min-height: 472px;
-      // top: 40px;
-      width: 264px;
-      // right: 72px;
+      width: 332px;
+      padding-left: 68px;
    }
    @media screen and (min-width: 1024px) {
       min-height: 407px;
-      // top: 40px;
-      // right: 16px;
       padding-left: 16px;
       width: 407px;
    }
@@ -111,7 +111,6 @@ right: 16px;
 @media screen and (min-width: 1024px) {
    font-size: 30px;
    line-height: 35px;
-  
 }
 }
 
@@ -197,7 +196,6 @@ font-size: 12px;
 line-height: 20px;
 }
 
-
 .btn-container{
    display: flex;
    justify-content: center;
@@ -232,19 +230,14 @@ transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .btn-modal:hover {
    background: #FF6B01;
    color: #FFFFFF;
+   border:none;
 }
 .add-to-watched{
 margin-right: 20px;
-// background: #FF6B01;
-// color: #FFFFFF;
    @media screen and (max-width: 767px) {
       padding-left: 27px;
       padding-right: 27px;
    }
 }
-// .add-to-queue{
-// background: #FFFFFF;
-// border: 1px solid #000000;
-// box-sizing: border-box;
-// }
+
 
