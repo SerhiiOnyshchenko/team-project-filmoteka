@@ -11,5 +11,5 @@ import './js/searchTrendFilms';
 import './js/searchFilmByName';
 import './js/createModalOneFilm';
 import './js/loader';
-
+import './js/trailler';
 

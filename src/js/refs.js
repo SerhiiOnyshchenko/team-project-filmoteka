@@ -58,6 +58,7 @@ const refs = {
 
    //loader
    preloader: document.getElementById('preloader'),
+
 };
 
 export default refs;

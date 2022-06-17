@@ -26,4 +26,8 @@ export function fetchFilmsByName(query, page = 1) {
    return fetchWithErrorHandling(url);
 }
 
-
+export function findTrailer(movie_id) {
+  return fetch(
+    `${BASE_URL}movie/${movie_id}/videos?api_key=${MY_KEY}&language=en-US`
+  ).then(respons => respons.json());
+}
