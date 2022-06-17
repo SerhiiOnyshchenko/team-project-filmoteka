@@ -9,6 +9,7 @@ import './js/pagination';
 import './js/btnScrollUp';
 import './js/searchTrendFilms';
 import './js/searchFilmByName';
+import './js/createModalOneFilm';
 import './js/loader';
 
 
