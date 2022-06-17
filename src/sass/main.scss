@@ -2,14 +2,14 @@
 
 // base styles
 
-@import "./utils/mixins";
-@import "./utils/variables";
-@import "./utils/placeholder";
-@import "./common/reset";
-@import "./utils/animation";
-@import "./common/container";
-@import "./common/general";
-@import "./common/grid-container"; //grid разметка галлереи//
+@import './utils/mixins';
+@import './utils/variables';
+@import './utils/placeholder';
+@import './common/reset';
+@import './utils/animation';
+@import './common/container';
+@import './common/general';
+@import './common/grid-container'; //grid разметка галлереи//
 
 // components
 @import './layouts/btnScrollUp';
@@ -19,7 +19,8 @@
 @import './layouts/footer';
 
 //layouts
-@import "./layouts/modal";
-@import "./layouts/footerModal";
-@import "./layouts/registerLoginForm";
+@import './layouts/modal';
+@import './layouts/footerModal';
+@import './layouts/registerLoginForm';
+@import './layouts/loader';
 @import "./layouts/trailer";

@@ -201,6 +201,7 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
+	margin-bottom: 36px;
 }
 
 .library__btns-list {
@@ -236,28 +237,31 @@
 	border-radius: 5px;
 
 	transition: 200ms;
+	&:hover, &:focus, &:active {
+		
+			background: #ff6b01;
+			border-color: #ff6b01;
+			box-shadow: $box-shadow;
+	}
 }
 
-.library__btn:active {
-	background: #ff6b01;
-	border-color: #ff6b01;
-	box-shadow: $box-shadow;
-}
+
 
 .display-none {
 	display: none;
 }
 
 .visually-hidden {
-	position: absolute;
-	white-space: nowrap;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	border: 0;
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	margin: -1px;
+	// position: absolute;
+	// white-space: nowrap;
+	// width: 1px;
+	// height: 1px;
+	// overflow: hidden;
+	// border: 0;
+	// clip: rect(0 0 0 0);
+	// clip-path: inset(50%);
+	// margin: -1px;
+	opacity: 0;
 }
 
 .header__box-login-logout {
