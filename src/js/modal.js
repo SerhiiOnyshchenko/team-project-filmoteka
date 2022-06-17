@@ -4,14 +4,19 @@ import { fetchLoadMoreFilm } from './services/movies-api';
 refs.galleryList.addEventListener('click', toggleModal);
 
 function toggleModal(evt) {
-   if (!evt.target.parentNode.classList.contains('card')) {
-      return;
+   if (
+      evt.target.parentNode.classList.contains('card') ||
+      evt.target.parentNode.parentNode.classList.contains('card')
+   ) {
+      const movieId =
+         evt.target.parentNode.dataset.id ||
+         evt.target.parentNode.parentNode.dataset.id;
+      loadMoreInfoByModal(movieId);
+      refs.backdrop.classList.remove('is-hidden');
+      window.addEventListener('keydown', closeModalEscKey);
+      refs.btnClose.addEventListener('click', closeModal);
+      refs.backdrop.addEventListener('click', backdropClick);
    }
-   loadMoreInfoByModal(evt);
-   refs.backdrop.classList.remove('is-hidden');
-   window.addEventListener('keydown', closeModalEscKey);
-   refs.btnClose.addEventListener('click', closeModal);
-   refs.backdrop.addEventListener('click', backdropClick);
 }
 
 function closeModal() {
@@ -31,8 +36,8 @@ function backdropClick(evt) {
    }
 }
 
-function loadMoreInfoByModal(evt) {
-   fetchLoadMoreFilm(evt.target.parentNode.dataset.id).then(
+function loadMoreInfoByModal(id) {
+   fetchLoadMoreFilm(id).then(
       ({
          title,
          id,
