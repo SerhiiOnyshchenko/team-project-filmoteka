@@ -49,6 +49,9 @@ const refs = {
 
    //btnScrollUp
    scrollToTopEl: document.querySelector('#scroll-to-top'),
+
+   //loader
+   preloader: document.getElementById('preloader'),
 };
 
 export default refs;
