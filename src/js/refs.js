@@ -10,6 +10,7 @@ const refs = {
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
+   cardMoveDetail: document.getElementById('cardMoveDetail'),
 
    // register lgi form
    signUpButton: document.getElementById('signUpBtn'),
