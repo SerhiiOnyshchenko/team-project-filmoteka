@@ -24,7 +24,7 @@
       -webkit-animation: spin-loader 2s linear infinite;
       animation: spin-loader 2s linear infinite;
    }
-   &.done {
+   &.hide {
       opacity: 0;
       visibility: hidden;
    }
