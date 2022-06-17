@@ -54,6 +54,9 @@ const refs = {
 
    //btnScrollUp
    scrollToTopEl: document.querySelector('#scroll-to-top'),
+   
+      //trailer
+   traillerBtn: document.getElementById('trailer')
 };
 
 export default refs;
