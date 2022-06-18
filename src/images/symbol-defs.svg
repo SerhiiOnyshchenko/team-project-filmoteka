@@ -3,12 +3,6 @@
 <symbol id="icon-hart" viewBox="0 0 34 32">
 <path fill="#ff6b08" style="fill: var(--color1, #ff6b08)" d="M17.231 31.705l-2.412-2.412c-8.96-7.926-14.818-13.268-14.818-19.815 0-5.342 4.135-9.477 9.477-9.477 2.929 0 5.858 1.378 7.754 3.618 1.895-2.24 4.825-3.618 7.754-3.618 5.342 0 9.477 4.135 9.477 9.477 0 6.548-5.858 11.889-14.818 19.815l-2.412 2.412z"></path>
 </symbol>
-<symbol id="icon-arrow-left" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.666" d="M25.334 16h-18.668M16 25.334l-9.334-9.334 9.334-9.334"></path>
-</symbol>
-<symbol id="icon-arrow-right" viewBox="0 0 32 32">
-<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.666" d="M6.666 16h18.668M16 25.334l9.334-9.334-9.334-9.334"></path>
-</symbol>
 <symbol id="icon-film" viewBox="0 0 32 32">
 <path fill="transparent" stroke="#818181" style="stroke: var(--color2, #ff6b08)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M26.427 2.667h-20.853c-1.605 0-2.907 1.301-2.907 2.907v0 20.853c0 1.605 1.301 2.907 2.907 2.907v0h20.853c1.605 0 2.907-1.301 2.907-2.907v0-20.853c0-1.605-1.301-2.907-2.907-2.907v0zM9.333 2.667v26.667M22.667 2.667v26.667M2.667 16h26.667M2.667 9.333h6.667M2.667 22.667h6.667M22.667 22.667h6.667M22.667 9.333h6.667"></path>
 </symbol>
@@ -29,13 +23,6 @@
 <symbol id="icon-scrollup" viewBox="0 0 32 32">
 <path d="M0 16c0 8.837 7.163 16 16 16s16-7.163 16-16-7.163-16-16-16-16 7.163-16 16zM29 16c0 7.18-5.82 13-13 13s-13-5.82-13-13 5.82-13 13-13 13 5.82 13 13z"></path>
 <path d="M22.086 20.914l2.829-2.829-8.914-8.914-8.914 8.914 2.828 2.828 6.086-6.086z"></path>
-</symbol>
-<symbol id="icon-close" viewBox="0 0 32 32">
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 8.533l14.933 14.933"></path>
-<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2.1333" d="M8.533 23.467l14.933-14.933"></path>
-</symbol>
-<symbol id="icon-youtube" viewBox="0 0 20 20">
-<path d="M10 2.3c-9.828 0-10 0.874-10 7.7s0.172 7.7 10 7.7 10-0.874 10-7.7-0.172-7.7-10-7.7zM13.205 10.334l-4.49 2.096c-0.393 0.182-0.715-0.022-0.715-0.456v-3.948c0-0.433 0.322-0.638 0.715-0.456l4.49 2.096c0.393 0.184 0.393 0.484 0 0.668z"></path>
 </symbol>
 </defs>
 </svg>
