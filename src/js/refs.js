@@ -63,6 +63,11 @@ const refs = {
 
    //loader
    preloader: document.getElementById('preloader'),
+
+   //trailer
+   trailerBtn: document.getElementById('trailer'),
+   trailer: document.getElementById('trailer-modal-wrapper'),
+   trailerWrap: document.getElementById('trailer-modal'),
 };
 
 export default refs;
