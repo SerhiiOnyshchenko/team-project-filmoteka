@@ -98,10 +98,6 @@
 	color: $secondary-color;
 }
 
-// .header__icon {
-// 	margin-right: 10px;
-// }
-
 .header__list {
 	display: flex;
 }
@@ -250,21 +246,12 @@
 }
 
 .visually-hidden {
-	// position: absolute;
-	// white-space: nowrap;
-	// width: 1px;
-	// height: 1px;
-	// overflow: hidden;
-	// border: 0;
-	// clip: rect(0 0 0 0);
-	// clip-path: inset(50%);
-	// margin: -1px;
 	opacity: 0;
 }
 
 .header__box-login-logout {
 	position: absolute;
-	bottom: 5px;
+	top: 70px;
 	right: 32px;
 	display: flex;
 	justify-content: end;
@@ -305,6 +292,7 @@
 		border: 1px solid #000;
 		padding: 10px 2px;
 		display: none;
+		z-index: 5;
 		flex-direction: column;
 		justify-content: space-between;
 		transition: $transition;

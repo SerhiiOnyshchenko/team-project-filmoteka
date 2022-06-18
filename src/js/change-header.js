@@ -19,9 +19,9 @@ export function openHomePage() {
 }
 
 function openMyLibrary() {
-   refs.galleryList.innerHTML = '';
    onAuthStateChanged(auth, user => {
       if (user) {
+         refs.galleryList.innerHTML = '';
          refs.header.classList.add('library__background');
          refs.libraryBtns.classList.remove('display-none');
          refs.headerInput.classList.add('display-none');

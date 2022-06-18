@@ -1,8 +1,8 @@
 import './sass/main.scss';
 import './js/services/movies-api';
 import './js/auth/firebaseAPP';
-import './js/footerModal';
 import './js/modal';
+import './js/footerModal';
 import './js/registerLoginForm';
 import './js/change-header';
 import './js/pagination';
