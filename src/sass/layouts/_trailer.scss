@@ -16,3 +16,20 @@
         fill: #f00;
     }
 }
+
+.trailer-modal-wrapper{
+    width: calc(100% - 60px);
+    height: 145px;
+    @media screen and(min-width: 480px) {
+        width: 399px;
+        height: 225px;
+    }
+    @media screen and(min-width: 768px) {
+        width: 658px;
+        height: 370px;
+    }
+    @media screen and(min-width: 1024px) {
+        width: 812px;
+        height: 448px;
+    }
+}
