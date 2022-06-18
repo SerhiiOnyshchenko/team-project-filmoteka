@@ -11,6 +11,7 @@ const refs = {
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
    cardMoveDetail: document.getElementById('cardMoveDetail'),
+   modalMovieBackdrop: document.getElementById('modalMovieBackdrop'),
 
    // register lgi form
    signUpButton: document.getElementById('signUpBtn'),
