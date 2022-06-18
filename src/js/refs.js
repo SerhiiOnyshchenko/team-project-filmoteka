@@ -61,7 +61,8 @@ const refs = {
 
    //trailer
    trailerBtn: document.getElementById('trailer'),
-   trailer: document.getElementById('trailer-modal-wrapper')
+   trailer: document.getElementById('trailer-modal-wrapper'),
+   trailerWrap: document.getElementById('trailer-modal'),
 };
 
 export default refs;

@@ -3,13 +3,14 @@ import { findTrailer } from './services/movies-api';
 
 
 refs.trailerBtn.addEventListener('click', openModal)
+
 function openModal() { 
    refs.trailer.classList.remove('is-hidden');
    refs.bodyScroll.classList.add('is-openn');
    document.addEventListener('keydown', eventKeydown);
 
    refs.trailer.addEventListener('click', backdrop);
-   openTrailer();
+   movieTrailer();
 }
 
 function closeModal() {
@@ -30,7 +31,7 @@ function backdrop(evt) {
    }
 }
 
-export default  movieTrailer = () => {
+const  movieTrailer = () => {
   refs.trailerBtn.addEventListener('click', function (e) {
         openTrailer(Number(e.target.dataset.id));
   })
@@ -39,15 +40,12 @@ export default  movieTrailer = () => {
 function openTrailer(id) {
     findTrailer(id).then(data => {
         console.log(data);
-        const key = data.results[0].key;
-       return  `
-        <div class="trailer-modal-wrapper backdrop is-hidden" id="trailer-modal-wrapper">
-            <iframe width="680" height="415" src="https://www.youtube.com/embed/${key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <button class="close-modal__trailer"></button>
-        </div>`;
+       const key = data.results[0].key;
+       const trailerYouTube = `<iframe  width="680" height="415" src="https://www.youtube.com/embed/${key}" loading = "lazy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support inline frames!</iframe>`;
+       return refs.trailerWrap.insertAdjacentHTML("beforeend", trailerYouTube);
           })
           .catch(error => {
-            `<iframe width="727" height="409" src="https://www.youtube.com/embed/GY8PkikQ8ZE" title="Error 404 not found - The Requested URL was Not Found on This Server" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            refs.trailerWrap.insertAdjacentHTML("beforeend", `<iframe width="727" height="409" src="https://www.youtube.com/embed/GY8PkikQ8ZE" loading = "lazy" title="Error 404 not found - The Requested URL was Not Found on This Server" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>Your browser does not support inline frames!</iframe>`) ;
         });
     }
 
