@@ -54,6 +54,6 @@ function backdropClick(evt) {
 async function renderCardMoveDetail(movieId) {
    const data = await fetchLoadMoreFilm(movieId);
    const img = URL_IMG + data.backdrop_path;
-   refs.modalMovieBackdrop.style.backgroundImage = `url(${img})`;
+   refs.modalMovieBackdrop.style.background = `linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%), url(${img}) center / cover`;
    refs.cardMoveDetail.innerHTML = loadMoreInfoMarkup(data);
 }
