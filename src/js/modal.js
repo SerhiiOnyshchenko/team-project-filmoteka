@@ -1,5 +1,6 @@
 import refs from './refs';
 import { fetchLoadMoreFilm } from './services/movies-api';
+import { loadMoreInfoMarkup } from './markupModal';
 
 export function bodyAddNoScroll() {
    document.body.style.top = `-${window.scrollY}px`;
@@ -22,7 +23,7 @@ function toggleModal(evt) {
       const movieId =
          evt.target.parentNode.dataset.id ||
          evt.target.parentNode.parentNode.dataset.id;
-      loadMoreInfoByModal(movieId);
+      renderCardMoveDetail(movieId);
       refs.backdrop.classList.remove('is-hidden');
       bodyAddNoScroll();
       window.addEventListener('keydown', closeModalEscKey);
@@ -49,30 +50,7 @@ function backdropClick(evt) {
    }
 }
 
-function loadMoreInfoByModal(id) {
-   fetchLoadMoreFilm(id).then(
-      ({
-         title,
-         id,
-         vote_average,
-         vote_count,
-         popularity,
-         original_title,
-         genres,
-         overview,
-         poster_path,
-      }) => {
-         console.log({
-            title,
-            id,
-            vote_average,
-            vote_count,
-            popularity,
-            original_title,
-            genres,
-            overview,
-            poster_path,
-         });
-      }
-   );
+async function renderCardMoveDetail(movieId) {
+   const data = await fetchLoadMoreFilm(movieId);
+   refs.cardMoveDetail.innerHTML = loadMoreInfoMarkup(data);
 }
