@@ -1,76 +1,86 @@
 .gallery {
-	min-height: 70vh;
-	&__list {
-		padding: 20px 0;
+   min-height: 70vh;
+   &__list {
+      padding: 20px 0;
 
-		@media screen and (min-width: 768px) {
-			padding: 60px 0;
-		}
-	}
+      @media screen and (min-width: 768px) {
+         padding: 60px 0;
+      }
+   }
 }
 
 .film-card {
-	min-width: 100%;
-	overflow: hidden;
-	border-radius: 5px;
-	&:hover,
-	&:focus {
-		cursor: pointer;
-	}
+   min-width: 100%;
+   overflow: hidden;
+   border-radius: 5px;
+   border: 1px solid rgba(223, 223, 223, 0.75);
+   transition: $transition;
 
-	&__img-wrap {
-		width: 100%;
-		margin-bottom: 10px;
+   &:hover,
+   &:focus {
+      cursor: pointer;
+      box-shadow: 11px 11px 15px -9px rgba(140, 140, 140, 1);
+   }
 
-		@media screen and (min-width: 320px) {
-			height: 402px;
-		}
+   &__img-wrap {
+      width: 100%;
+      margin-bottom: 10px;
 
-		@media screen and (min-width: 480px) {
-			height: 520px;
-		}
+      @media screen and (min-width: 320px) {
+         height: 402px;
+      }
 
-		@media screen and (min-width: 768px) {
-			height: 455px;
-		}
+      @media screen and (min-width: 480px) {
+         height: 520px;
+      }
 
-		@media screen and (min-width: 1024px) {
-			height: 449px;
-		}
-	}
+      @media screen and (min-width: 768px) {
+         height: 455px;
+      }
 
-	&__img {
-		height: 100%;
-		object-fit: cover;
-		border-radius: 5px;
-		transition: $transition;
-	}
+      @media screen and (min-width: 1024px) {
+         height: 449px;
+      }
+   }
 
-	&__img:hover {
-		transform: scale(1.015);
-	}
+   &__img {
+      height: 100%;
+      object-fit: cover;
 
-	&__title {
-		@include font(500, 12, 16);
-		color: $primary-color;
-		text-transform: uppercase;
-		margin-bottom: 5px;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
+      transition: $transition;
+   }
 
-	&__info {
-		@include font(500, 12, 16);
-		color: $accent-color;
-	}
+   //    &__img:hover {
+   //       transform: scale(1.01);
+   //    }
 
-	&__rating {
-		@include font(500, 12, 14);
-		color: $secondary-color;
+   &__title {
+      @include font(500, 12, 16);
+      color: $primary-color;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      padding: 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+   &__wrap {
+      padding: 0 10px;
+      margin-bottom: 10px;
+   }
 
-		background: $accent-color;
-		border-radius: 5px;
-		padding: 1px 6px;
-	}
+   &__info {
+      @include font(500, 12, 16);
+      color: $accent-color;
+      margin-right: 5px;
+   }
+
+   &__rating {
+      @include font(500, 12, 14);
+      color: $secondary-color;
+
+      background: $accent-color;
+      border-radius: 5px;
+      padding: 1px 6px;
+   }
 }
