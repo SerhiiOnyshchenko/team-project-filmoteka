@@ -1,6 +1,8 @@
 import refs from './refs';
 import { fetchLoadMoreFilm, URL_IMG } from './services/movies-api';
 import { loadMoreInfoMarkup } from './markupModal';
+import getFilmDataForQueueLocaleStorage from './addQueueFilmToLocaleStorage';
+import getFilmDataForWatchedLocaleStorage from './addWatchedFilmToLocaleStorage';
 
 export function bodyAddNoScroll() {
    document.body.style.top = `-${window.scrollY}px`;
@@ -56,4 +58,6 @@ async function renderCardMoveDetail(movieId) {
    const img = URL_IMG + data.backdrop_path;
    refs.modalMovieBackdrop.style.backgroundImage = `url(${img})`;
    refs.cardMoveDetail.innerHTML = loadMoreInfoMarkup(data);
+   getFilmDataForWatchedLocaleStorage(data);
+   getFilmDataForQueueLocaleStorage(data);
 }
