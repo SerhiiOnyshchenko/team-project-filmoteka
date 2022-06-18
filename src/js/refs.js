@@ -65,7 +65,6 @@ const refs = {
    preloader: document.getElementById('preloader'),
 
    //trailer
-   trailerBtn: document.getElementById('trailer'),
    trailer: document.getElementById('trailer-modal-wrapper'),
    trailerWrap: document.getElementById('trailer-modal'),
 };

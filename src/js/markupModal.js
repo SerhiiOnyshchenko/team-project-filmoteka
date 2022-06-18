@@ -22,6 +22,7 @@ export function loadMoreInfoMarkup(data) {
                src=${filmPoster}
                alt="Poster ${title}"
             />
+			<button type="button"  class="trailer__play-btn" data-id="${id}" aria-label="Trailer" id="trailerOpen"></button>
          </div>
          <div class="container-context">
             <div class="top-content">

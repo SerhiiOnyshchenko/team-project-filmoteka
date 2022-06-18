@@ -1,35 +1,31 @@
 .trailer__play-btn {
-    background-color: transparent;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+	// background: url(../images/symbol-defs.svg#icon-youtube);
+	background: rgba(248, 0, 0, 0.7);
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 60px;
+	height: 40px;
+	transition: $transition;
+	&:hover,
+	&:focus {
+		background: #f00;
+	}
 }
 
-.trailer__svg {
-    width: 60px;
-    height: 40px;
-    fill: rgba(248, 0, 0, 0.7);
-    transition: $transition;
-
-    &:hover,
-    &:focus {
-        fill: #f00;
-    }
-}
-
-.trailer-modal-wrapper{
-    width: calc(100% - 60px);
-    height: 145px;
-    @media screen and(min-width: 480px) {
-        width: 399px;
-        height: 225px;
-    }
-    @media screen and(min-width: 768px) {
-        width: 658px;
-        height: 370px;
-    }
-    @media screen and(min-width: 1024px) {
-        width: 812px;
-        height: 448px;
-    }
+.trailer-modal-wrapper {
+	width: calc(100% - 60px);
+	height: 145px;
+	@media screen and(min-width: 480px) {
+		width: 399px;
+		height: 225px;
+	}
+	@media screen and(min-width: 768px) {
+		width: 658px;
+		height: 370px;
+	}
+	@media screen and(min-width: 1024px) {
+		width: 812px;
+		height: 448px;
+	}
 }
