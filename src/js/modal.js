@@ -20,7 +20,7 @@ export function bodyRemoveNoScroll() {
 
 refs.galleryList.addEventListener('click', toggleModal);
 
-function toggleModal(evt) {
+async function toggleModal(evt) {
    if (
       evt.target.parentNode.classList.contains('card') ||
       evt.target.parentNode.parentNode.classList.contains('card')
@@ -28,7 +28,7 @@ function toggleModal(evt) {
       const movieId =
          evt.target.parentNode.dataset.id ||
          evt.target.parentNode.parentNode.dataset.id;
-      renderCardMoveDetail(movieId);
+      await renderCardMoveDetail(movieId);
       refs.backdrop.classList.remove('is-hidden');
       bodyAddNoScroll();
       window.addEventListener('keydown', closeModalEscKey);
@@ -39,6 +39,7 @@ function toggleModal(evt) {
 
 function closeModal() {
    refs.backdrop.classList.add('is-hidden');
+   refs.modalMovieBackdrop.style.backgroundImage = `url(" ")`;
    bodyRemoveNoScroll();
    setTimeout(() => {
       hideAuthorsModal();
@@ -60,6 +61,8 @@ function backdropClick(evt) {
 
 async function renderCardMoveDetail(movieId) {
    const data = await fetchLoadMoreFilm(movieId);
+   const img = URL_IMG + data.backdrop_path;
+   refs.modalMovieBackdrop.style.backgroundImage = `url(${img})`;
    refs.cardMoveDetail.innerHTML = loadMoreInfoMarkup(data);
 }
 

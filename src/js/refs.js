@@ -13,6 +13,7 @@ const refs = {
    cardMoveDetail: document.getElementById('cardMoveDetail'),
    cardMoveAuthors: document.getElementById('cardMoveAuthors'),
    showAuthors: document.getElementById('showAuthors'),
+   modalMovieBackdrop: document.getElementById('modalMovieBackdrop'),
 
    // register lgi form
    signUpButton: document.getElementById('signUpBtn'),
