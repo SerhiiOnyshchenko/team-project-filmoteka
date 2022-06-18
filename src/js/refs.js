@@ -59,6 +59,9 @@ const refs = {
    //loader
    preloader: document.getElementById('preloader'),
 
+   //trailer
+   trailerBtn: document.getElementById('trailer'),
+   trailer: document.getElementById('trailer-modal-wrapper')
 };
 
 export default refs;
