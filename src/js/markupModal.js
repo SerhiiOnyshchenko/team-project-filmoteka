@@ -1,3 +1,5 @@
+import { URL_IMG } from './services/movies-api';
+
 export function loadMoreInfoMarkup(data) {
    const {
       title,
@@ -12,10 +14,12 @@ export function loadMoreInfoMarkup(data) {
    } = data;
 
    const allGanres = genres.map(genre => genre.name).join(', ');
-
+   const filmPoster = poster_path
+      ? URL_IMG + poster_path
+      : 'https://www.reelviews.net/resources/img/default_poster.jpg';
    return `<div class="image-container">
             <img
-               src=${poster_path}
+               src=${filmPoster}
                alt="Poster ${title}"
             />
          </div>
