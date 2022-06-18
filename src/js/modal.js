@@ -1,11 +1,16 @@
 import refs from './refs';
-import { fetchLoadMoreFilm } from './services/movies-api';
+import {
+   fetchLoadMoreFilm,
+   fetchMovieCreditsById,
+   URL_IMG,
+} from './services/movies-api';
 import { loadMoreInfoMarkup } from './markupModal';
 
 export function bodyAddNoScroll() {
    document.body.style.top = `-${window.scrollY}px`;
    document.body.style.position = 'fixed';
 }
+
 export function bodyRemoveNoScroll() {
    const scrollY = document.body.style.top;
    document.body.style.position = '';
@@ -35,6 +40,9 @@ function toggleModal(evt) {
 function closeModal() {
    refs.backdrop.classList.add('is-hidden');
    bodyRemoveNoScroll();
+   setTimeout(() => {
+      hideAuthorsModal();
+   }, 600);
 }
 
 function closeModalEscKey(evt) {
@@ -53,4 +61,43 @@ function backdropClick(evt) {
 async function renderCardMoveDetail(movieId) {
    const data = await fetchLoadMoreFilm(movieId);
    refs.cardMoveDetail.innerHTML = loadMoreInfoMarkup(data);
+}
+
+refs.cardMoveDetail.addEventListener('click', renderAuthors);
+refs.cardMoveAuthors.addEventListener('click', e => {
+   if (e.target.id === 'btnGoBack') {
+      hideAuthorsModal();
+   }
+});
+
+async function renderAuthors(e) {
+   if (e.target.id === 'showAuthors') {
+      const movieId = e.target.dataset.id;
+      const { cast } = await fetchMovieCreditsById(movieId);
+
+      showAuthorsModal();
+      refs.cardMoveAuthors.innerHTML = renderAuthorsList(cast);
+   }
+}
+function renderAuthor({ profile_path, name }) {
+   const imgUrl = profile_path
+      ? URL_IMG + profile_path
+      : 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg';
+   return `<li class="author__item">
+               <img class="author__img" src="${imgUrl}" alt="${name}" width="100"/>
+               <p class="author__title">${name}</p>
+            </li>`;
+}
+function renderAuthorsList(authorsArr) {
+   const arrAuthors = authorsArr.map(author => renderAuthor(author)).join('');
+   return `<button type="button" class="author__btn-go-back" id="btnGoBack">Go back to card</button><ul class="author__grid">${arrAuthors}</ul>`;
+}
+
+function showAuthorsModal() {
+   refs.cardMoveDetail.classList.add('hide-detale');
+   refs.cardMoveAuthors.classList.add('show-author');
+}
+function hideAuthorsModal() {
+   refs.cardMoveDetail.classList.remove('hide-detale');
+   refs.cardMoveAuthors.classList.remove('show-author');
 }

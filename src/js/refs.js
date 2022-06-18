@@ -11,6 +11,8 @@ const refs = {
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
    cardMoveDetail: document.getElementById('cardMoveDetail'),
+   cardMoveAuthors: document.getElementById('cardMoveAuthors'),
+   showAuthors: document.getElementById('showAuthors'),
 
    // register lgi form
    signUpButton: document.getElementById('signUpBtn'),
