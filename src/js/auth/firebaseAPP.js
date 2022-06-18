@@ -17,6 +17,8 @@ import {
    resetFform,
    hideFormLoginRegister,
    showFormLoginRegister,
+   showRegisterError,
+   hideRegisterError,
 } from '../registerLoginForm';
 import refs from '../refs';
 import { getDatabase, ref, set } from 'firebase/database';
@@ -37,23 +39,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-// const googleProvider = new GoogleAuthProvider();
-
-// const addWithGoogle = async () => {
-//    try {
-//       await linkWithRedirect(auth.currentUser, googleProvider);
-//    } catch (error) {
-//       console.log(`There was an error: ${error}`);
-//    }
-// };
-// const loginWithGoogle = async () => {
-//    try {
-//       await signInWithRedirect(auth, googleProvider);
-//    } catch (error) {
-//       console.log(`There was an error: ${error}`);
-//    }
-// };
-
 // Create new account using email/password
 const createAccount = async (displayName, email, password) => {
    try {
@@ -61,11 +46,12 @@ const createAccount = async (displayName, email, password) => {
       await updateProfile(auth.currentUser, {
          displayName,
       });
+      hideRegisterError();
       resetFform();
       hideFormLoginRegister();
    } catch (error) {
-      console.log(`There was an error: ${error}`);
-      showLoginError(error);
+      console.dir(error);
+      showRegisterError(error);
    }
 };
 
@@ -81,7 +67,6 @@ const loginEmailPassword = async (email, password) => {
       resetFform();
       hideFormLoginRegister();
    } catch (error) {
-      console.log(error);
       showLoginError(error);
    }
 };
@@ -123,10 +108,18 @@ refs.registerFormSignIn.addEventListener('submit', e => {
 
 refs.registerFormSignUp.addEventListener('submit', e => {
    e.preventDefault();
-   const displayName = e.target.name.value;
+   const displayName = e.target.name.value.trim();
    const email = e.target.email.value;
    const password = e.target.password.value;
-   createAccount(displayName, email, password);
+   if (!validateEmail(email)) {
+      const error = { message: 'No validate email' };
+      showRegisterError(error);
+   } else if (!displayName) {
+      const error = { message: 'No validate Name' };
+      showRegisterError(error);
+   } else {
+      createAccount(displayName, email, password);
+   }
 });
 
 refs.btnLogoutHeader.addEventListener('click', logout);
@@ -146,3 +139,11 @@ refs.btnMyLibrary.addEventListener('click', () => {
       }
    });
 });
+
+const validateEmail = email => {
+   return String(email)
+      .toLowerCase()
+      .match(
+         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+};

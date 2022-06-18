@@ -10,6 +10,8 @@ const refs = {
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
+   cardMoveDetail: document.getElementById('cardMoveDetail'),
+   modalMovieBackdrop: document.getElementById('modalMovieBackdrop'),
 
    // register lgi form
    signUpButton: document.getElementById('signUpBtn'),
@@ -32,6 +34,7 @@ const refs = {
    loginUser: document.getElementById('loginUser'),
 
    divLoginError: document.getElementById('divLoginError'),
+   divRegisterError: document.getElementById('divRegisterError'),
    lblLoginErrorMessage: document.getElementById('lblLoginErrorMessage'),
    registerFormCloseBtn: document.getElementById('registerFormCloseBtn'),
 
