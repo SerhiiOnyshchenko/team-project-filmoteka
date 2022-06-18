@@ -1,3 +1,7 @@
+
+
+
+
 .header {
 	padding-top: 40px;
 	padding-bottom: 60px;
@@ -355,4 +359,29 @@
 		background: none;
 		color: inherit;
 	}
+}
+
+// DARK MODE
+.mode {
+	background-color: transparent;
+	border: none;
+	@include font(500, 12, 20);
+	text-transform: uppercase;
+	position: relative;
+
+	color: $secondary-color;
+}
+.change {
+	cursor: pointer;
+	border: 1px solid #ff6b01;
+	border-radius: 40%;
+	width: 20px;
+	text-align: center;
+	padding: 5px;
+	margin-left: 8px;
+}
+.dark {
+	background-color: $primary-color;
+	color: $secondary-color;
+	color: #fff;
 }
