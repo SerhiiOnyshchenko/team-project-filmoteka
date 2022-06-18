@@ -1,6 +1,17 @@
 import refs from './refs';
 import { fetchLoadMoreFilm } from './services/movies-api';
 
+export function bodyAddNoScroll() {
+   document.body.style.top = `-${window.scrollY}px`;
+   document.body.style.position = 'fixed';
+}
+export function bodyRemoveNoScroll() {
+   const scrollY = document.body.style.top;
+   document.body.style.position = '';
+   document.body.style.top = '';
+   window.scrollTo(0, parseInt(scrollY || '0') * -1);
+}
+
 refs.galleryList.addEventListener('click', toggleModal);
 
 function toggleModal(evt) {
@@ -13,6 +24,7 @@ function toggleModal(evt) {
          evt.target.parentNode.parentNode.dataset.id;
       loadMoreInfoByModal(movieId);
       refs.backdrop.classList.remove('is-hidden');
+      bodyAddNoScroll();
       window.addEventListener('keydown', closeModalEscKey);
       refs.btnClose.addEventListener('click', closeModal);
       refs.backdrop.addEventListener('click', backdropClick);
@@ -21,6 +33,7 @@ function toggleModal(evt) {
 
 function closeModal() {
    refs.backdrop.classList.add('is-hidden');
+   bodyRemoveNoScroll();
 }
 
 function closeModalEscKey(evt) {

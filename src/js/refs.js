@@ -32,6 +32,7 @@ const refs = {
    loginUser: document.getElementById('loginUser'),
 
    divLoginError: document.getElementById('divLoginError'),
+   divRegisterError: document.getElementById('divRegisterError'),
    lblLoginErrorMessage: document.getElementById('lblLoginErrorMessage'),
    registerFormCloseBtn: document.getElementById('registerFormCloseBtn'),
 

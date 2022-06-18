@@ -1,5 +1,6 @@
 import refs from './refs';
 import { AuthErrorCodes } from 'firebase/auth';
+import { bodyAddNoScroll, bodyRemoveNoScroll } from './modal';
 
 refs.signUpButton.addEventListener('click', () => {
    refs.container.classList.add('right-panel-active');
@@ -26,6 +27,7 @@ export const resetFform = () => {
 
 export const showFormLoginRegister = () => {
    refs.formLoginRegister.classList.remove('is-hidden');
+   bodyAddNoScroll();
    window.addEventListener('keydown', hideFormLoginRegisterByKey);
 };
 const hideFormLoginRegisterByKey = e => {
@@ -36,6 +38,7 @@ const hideFormLoginRegisterByKey = e => {
 };
 export const hideFormLoginRegister = () => {
    refs.formLoginRegister.classList.add('is-hidden');
+   bodyRemoveNoScroll();
 };
 
 export const showApp = () => {
@@ -52,8 +55,26 @@ export const showLoginError = error => {
    refs.divLoginError.style.display = 'block';
    if (error.code == AuthErrorCodes.INVALID_PASSWORD) {
       refs.divLoginError.innerHTML = `Wrong password. Try again.`;
+   } else if (error.code === 'auth/user-not-found') {
+      refs.divLoginError.innerHTML = `User not found.`;
    } else {
       refs.divLoginError.innerHTML = `Error: ${error.message}`;
+   }
+};
+
+export const hideRegisterError = () => {
+   refs.divRegisterError.style.display = 'none';
+   refs.divRegisterError.innerHTML = '';
+};
+
+export const showRegisterError = error => {
+   refs.divRegisterError.style.display = 'block';
+   if (error.code === 'auth/weak-password') {
+      refs.divRegisterError.innerHTML = `Password should be at least 6 characters.`;
+   } else if (error.code === 'auth/email-already-in-use') {
+      refs.divRegisterError.innerHTML = `Email already in use.`;
+   } else {
+      refs.divRegisterError.innerHTML = `Error: ${error.message}`;
    }
 };
 
@@ -62,3 +83,4 @@ export const showLoginState = user => {
 };
 
 hideLoginError();
+hideRegisterError();
