@@ -32,6 +32,7 @@ export function loadMoreInfoMarkup(data) {
                      <p class="option-film-p">Popularity</p>
                      <p class="option-film-p">Original Title</p>
                      <p class="option-film-p">Genre</p>
+                     <p class="option-film-p">Authors</p>
                   </div>
                   <div class="values-film">
                      <p class="option-film-p">
@@ -44,6 +45,7 @@ export function loadMoreInfoMarkup(data) {
                         ${original_title}
                      </p>
                      <p class="option-film-p values-film-lh">${allGanres}</p>
+                     <p class="option-film-p values-film-lh" data-id=${id} id="showAuthors">Show</p>
                   </div>
                </div>
 

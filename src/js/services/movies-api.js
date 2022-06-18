@@ -26,6 +26,11 @@ export function fetchFilmsByName(query, page = 1) {
    return fetchWithErrorHandling(url);
 }
 
+export function fetchMovieCreditsById(id) {
+   return fetchWithErrorHandling(
+      `${BASE_URL}/movie/${id}/credits?api_key=${MY_KEY}&language=en-US`
+   );
+
 export function findTrailer(movie_id) {
    const url =`${BASE_URL}movie/${movie_id}/videos?api_key=${MY_KEY}&language=en-US`
    return fetchWithErrorHandling(url);
