@@ -1,15 +1,27 @@
 .trailer__play-btn {
-	// background: url(../images/symbol-defs.svg#icon-youtube);
-	background: rgba(248, 0, 0, 0.7);
+	background: url('../images/youtube.svg'); 
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	// background: rgba(248, 0, 0, 0.7);
 	position: absolute;
-	bottom: 0;
-	right: 0;
+	bottom: 5px;
+	right: 5px;
 	width: 60px;
 	height: 40px;
+	animation: pulse 1500ms infinite;
 	transition: $transition;
+		@keyframes pulse {
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.1);
+			}
+		}
 	&:hover,
 	&:focus {
-		background: #f00;
+		animation: none;
 	}
 }
 
