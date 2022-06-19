@@ -3,6 +3,7 @@ import gloalVar from './globalConst';
 import { fetchMoviesByPersonId } from './services/movies-api';
 import createFilmCardMarkup from './createFilmCardMarkup';
 import { closeModal } from './modal';
+import { renderBtn } from './pagination';
 
 export async function searchMoviesByAuthor(person_id, page = 1) {
    const { cast } = await fetchMoviesByPersonId(person_id);
@@ -14,6 +15,7 @@ export async function searchMoviesByAuthor(person_id, page = 1) {
    refs.galleryList.innerHTML = showMoviesArray
       .map(createFilmCardMarkup)
       .join('');
+   renderBtn();
 }
 
 refs.cardMoveAuthors.addEventListener('click', e => {
