@@ -1,5 +1,4 @@
 export default function toggleBtnTextAndStyle(btn) {
-   //btnWatched
    if (btn === 'btnWatched') {
       const btnWatched = document.querySelector('.add-to-watched');
 
@@ -14,7 +13,6 @@ export default function toggleBtnTextAndStyle(btn) {
       return;
    }
 
-   //btnQueue
    if (btn === 'btnQueue') {
       const btnQueue = document.querySelector('.add-to-queue');
 

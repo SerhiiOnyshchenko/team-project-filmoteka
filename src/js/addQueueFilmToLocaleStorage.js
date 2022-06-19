@@ -1,6 +1,6 @@
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 
-export default function getFilmDataForQueueLocaleStorage(filmData) {
+export default function addQueueFilmToLocaleStorage(filmData) {
    try {
       queueFilms = [...JSON.parse(localStorage.getItem('queueFilms'))];
    } catch (error) {

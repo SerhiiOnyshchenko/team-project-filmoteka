@@ -1,6 +1,6 @@
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 
-export default function getFilmDataForWatchedLocaleStorage(filmData) {
+export default function addWatchedFilmToLocaleStorage(filmData) {
    try {
       watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
    } catch (error) {
