@@ -363,25 +363,29 @@
 
 // DARK MODE
 .mode {
-	background-color: transparent;
-	border: none;
+	@include displayFlex();
 	@include font(500, 12, 20);
 	text-transform: uppercase;
-	position: relative;
 
 	color: $secondary-color;
 }
 .change {
+	@include displayFlex();
 	cursor: pointer;
 	border: 1px solid #ff6b01;
 	border-radius: 40%;
-	width: 20px;
-	text-align: center;
-	padding: 5px;
+	width: 35px;
+	height: 20px;
 	margin-left: 8px;
+	&:hover,
+	&:focus {
+	background: #ff6b01;
+	border-color: #ff6b01;
+	box-shadow: $box-shadow;
+	}
+	
 }
 .dark {
-	background-color: $primary-color;
+	background-color: #000000af;
 	color: $secondary-color;
-	color: #fff;
 }
