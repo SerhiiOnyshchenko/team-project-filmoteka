@@ -290,12 +290,14 @@
 		border-radius: 10px;
 		border-top-right-radius: 0;
 		border: 1px solid #000;
-		padding: 10px 2px;
 		display: none;
 		z-index: 5;
 		flex-direction: column;
 		justify-content: space-between;
 		transition: $transition;
+		.dark & {
+			background: #bbbbbb;
+		}
 	}
 	&__first-letter {
 		text-transform: uppercase;
@@ -320,10 +322,21 @@
 
 	&__title-hover {
 		@include displayFlex();
+		padding: 10px 5px;
 	}
 
 	&.active-user-menu &__box {
 		display: flex;
+		&:before {
+			content: "";
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: transparent;
+			z-index: -1;
+		}
 	}
 	&.active-user-menu &__title-hover {
 		display: none;
