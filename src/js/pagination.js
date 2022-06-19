@@ -2,6 +2,7 @@ import refs from './refs';
 import { searchTrendFilms } from './searchTrendFilms';
 import { searchFilmByName } from './searchFilmByName';
 import gloalVar from './globalConst';
+import { searchMoviesByAuthor } from './searchMoviesByAuthor';
 
 const iconArrowRight = '&#129130';
 const iconArrowLeft = '&#129128';
@@ -44,6 +45,8 @@ function onBtnClick(e) {
       searchTrendFilms(clickPages);
    } else if (gloalVar.whichTypeMovieSearch === 'search') {
       searchFilmByName(gloalVar.searchText, clickPages);
+   } else if (gloalVar.whichTypeMovieSearch === 'author') {
+      searchMoviesByAuthor(gloalVar.personId, clickPages);
    }
 }
 

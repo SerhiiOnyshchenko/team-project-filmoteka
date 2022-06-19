@@ -9,5 +9,6 @@ import './js/pagination';
 import './js/btnScrollUp';
 import './js/searchTrendFilms';
 import './js/searchFilmByName';
+import './js/searchMoviesByAuthor';
 import './js/loader';
 import './js/trailler';

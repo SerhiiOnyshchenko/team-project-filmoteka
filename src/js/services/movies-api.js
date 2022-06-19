@@ -36,3 +36,8 @@ export function findTrailer(movie_id) {
    const url = `${BASE_URL}movie/${movie_id}/videos?api_key=${MY_KEY}&language=en-US`;
    return fetchWithErrorHandling(url);
 }
+
+export function fetchMoviesByPersonId(person_id) {
+   const url = `${BASE_URL}person/${person_id}/movie_credits?api_key=${MY_KEY}&language=en-US`;
+   return fetchWithErrorHandling(url);
+}
