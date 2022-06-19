@@ -13,6 +13,38 @@ export function loadMoreInfoMarkup(data) {
       poster_path,
    } = data;
 
+   const watchedFilms = localStorage.getItem('watchedFilms');
+   const parsedWatchedFilms = JSON.parse(watchedFilms);
+
+   let isWatched = false;
+
+   if (parsedWatchedFilms) {
+      for (const film of parsedWatchedFilms) {
+         if (film.id === id) {
+            isWatched = true;
+         }
+      }
+   }
+
+   let btnWatchedText = isWatched ? 'Remove from watched' : 'Add to Watched';
+   let btnWatchedStyle = isWatched ? 'btn-checked' : '';
+
+   const queueFilms = localStorage.getItem('queueFilms');
+   const parsedQueueFilms = JSON.parse(queueFilms);
+
+   let isQueue = false;
+
+   if (parsedQueueFilms) {
+      for (const film of parsedQueueFilms) {
+         if (film.id === id) {
+            isQueue = true;
+         }
+      }
+   }
+
+   let btnQueueText = isQueue ? 'Remove from queue' : 'Add to queue';
+   let btnQueueStyle = isQueue ? 'btn-checked' : '';
+
    const allGanres = genres.map(genre => genre.name).join(', ');
    const filmPoster = poster_path
       ? URL_IMG + poster_path
@@ -56,12 +88,12 @@ export function loadMoreInfoMarkup(data) {
                </p>
             </div>
 
-            <div class="btn-container">
-               <button type="button" class="btn-modal add-to-watched data-btn-id=${id}">
-                  add to Watched
+            <div class="btn-container" id="btn-container" >
+               <button type="button" class="${btnWatchedStyle} btn-modal add-to-watched data-btn-id=${id}">
+                  ${btnWatchedText} 
                </button>
-               <button type="button" class="btn-modal add-to-queue data-btn-id=${id}">
-                  add to queue
+               <button type="button" class="${btnQueueStyle} btn-modal add-to-queue data-btn-id=${id}">
+                  ${btnQueueText} 
                </button>
             </div>
          </div>`;
