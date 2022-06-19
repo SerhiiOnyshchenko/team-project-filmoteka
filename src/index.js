@@ -12,3 +12,4 @@ import './js/searchFilmByName';
 import './js/searchMoviesByAuthor';
 import './js/loader';
 import './js/trailler';
+import './js/darkMode';

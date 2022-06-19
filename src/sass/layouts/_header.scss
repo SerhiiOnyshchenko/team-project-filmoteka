@@ -1,3 +1,7 @@
+
+
+
+
 .header {
 	padding-top: 40px;
 	padding-bottom: 60px;
@@ -355,4 +359,33 @@
 		background: none;
 		color: inherit;
 	}
+}
+
+// DARK MODE
+.mode {
+	@include displayFlex();
+	@include font(500, 12, 20);
+	text-transform: uppercase;
+
+	color: $secondary-color;
+}
+.change {
+	@include displayFlex();
+	cursor: pointer;
+	border: 1px solid #ff6b01;
+	border-radius: 40%;
+	width: 35px;
+	height: 20px;
+	margin-left: 8px;
+	&:hover,
+	&:focus {
+	background: #ff6b01;
+	border-color: #ff6b01;
+	box-shadow: $box-shadow;
+	}
+	
+}
+.dark {
+	background-color: #000000af;
+	color: $secondary-color;
 }
