@@ -63,7 +63,10 @@
 		padding: 0 50px;
 	}
 }
-
+.dark .register-form__sign-in,
+.dark .register-form__sign-up {
+	background-color: #505050;
+}
 .register-form__input {
 	color: #000;
 	background-color: #eee;
@@ -95,7 +98,9 @@
 		width: 768px;
 	}
 }
-
+.dark .register-form__box {
+	background-color: #505050;
+}
 .register-form__container {
 	position: absolute;
 	top: 0;
