@@ -1,3 +1,6 @@
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './auth/firebaseAPP';
+import { showFormLoginRegister } from './registerLoginForm';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 let queueFilms = [];
 
@@ -12,29 +15,39 @@ export default function addQueueFilmToLocaleStorage(filmData) {
 
    btnQueue.addEventListener('click', onBtnQueueClick);
    function onBtnQueueClick(e) {
-      if (e.target.classList.contains('btn-checked')) {
-         for (const film of queueFilms) {
-            if (filmData.id === film.id) {
-               const filteredFilm = queueFilms.filter(
-                  film => film.id !== filmData.id
-               );
+      onAuthStateChanged(auth, user => {
+         if (user) {
+            if (e.target.classList.contains('btn-checked')) {
+               for (const film of queueFilms) {
+                  if (filmData.id === film.id) {
+                     const filteredFilm = queueFilms.filter(
+                        film => film.id !== filmData.id
+                     );
 
-               queueFilms = [...filteredFilm];
-               localStorage.setItem('queueFilms', JSON.stringify(queueFilms));
+                     queueFilms = [...filteredFilm];
+                     localStorage.setItem(
+                        'queueFilms',
+                        JSON.stringify(queueFilms)
+                     );
 
-               toggleBtnTextAndStyle('btnQueue');
-               deleteFilmFromWatched(filmData.id);
+                     toggleBtnTextAndStyle('btnQueue');
+                     deleteFilmFromWatched(filmData.id);
 
-               return;
+                     return;
+                  }
+               }
             }
+
+            queueFilms.push(filmData);
+            localStorage.setItem('queueFilms', JSON.stringify(queueFilms));
+
+            toggleBtnTextAndStyle('btnQueue');
+            deleteFilmFromWatched(filmData.id);
+            return;
+         } else {
+            showFormLoginRegister();
          }
-      }
-
-      queueFilms.push(filmData);
-      localStorage.setItem('queueFilms', JSON.stringify(queueFilms));
-
-      toggleBtnTextAndStyle('btnQueue');
-      deleteFilmFromWatched(filmData.id);
+      });
    }
 }
 

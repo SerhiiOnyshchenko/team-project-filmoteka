@@ -4,12 +4,8 @@ import {
    onAuthStateChanged,
    createUserWithEmailAndPassword,
    signInWithEmailAndPassword,
-   GoogleAuthProvider,
    signOut,
    updateProfile,
-   signInWithRedirect,
-   linkWithRedirect,
-   getRedirectResult,
 } from 'firebase/auth';
 import {
    showLoginError,
@@ -21,7 +17,6 @@ import {
    hideRegisterError,
 } from '../registerLoginForm';
 import refs from '../refs';
-import { getDatabase, ref, set } from 'firebase/database';
 import { openHomePage } from './../change-header';
 
 // standart config
@@ -58,11 +53,7 @@ const createAccount = async (displayName, email, password) => {
 // Login using email/password
 const loginEmailPassword = async (email, password) => {
    try {
-      const userCredential = await signInWithEmailAndPassword(
-         auth,
-         email,
-         password
-      );
+      await signInWithEmailAndPassword(auth, email, password);
       hideLoginError();
       resetFform();
       hideFormLoginRegister();
@@ -126,19 +117,6 @@ refs.btnLogoutHeader.addEventListener('click', logout);
 refs.btnLoginHeader.addEventListener('click', showFormLoginRegister);
 
 monitorAuthState();
-
-// test db
-
-refs.btnMyLibrary.addEventListener('click', () => {
-   onAuthStateChanged(auth, user => {
-      if (user) {
-         console.log('open my labary');
-         return;
-      } else {
-         showFormLoginRegister();
-      }
-   });
-});
 
 const validateEmail = email => {
    return String(email)
