@@ -4,9 +4,8 @@ import { searchFilmByName } from './searchFilmByName';
 import gloalVar from './globalConst';
 import { searchMoviesByAuthor } from './searchMoviesByAuthor';
 
-// const iconArrowLeft = '';
 let emptyArray = [];
-let totalPages = 100;
+let totalPages;
 let clickPages = 1;
 
 function pushInArray() {
@@ -82,15 +81,13 @@ function pushInArray() {
    }
 }
 
-function renderBtn() {
+export function renderBtn() {
    emptyArray = [];
+   totalPages = gloalVar.totalPages;
    pushInArray();
 
-   const readyArray = emptyArray.join('');
-   refs.paginationList.innerHTML = '';
-   refs.paginationList.insertAdjacentHTML('afterbegin', readyArray);
+   refs.paginationList.innerHTML = emptyArray.join('');
 }
-renderBtn();
 
 refs.paginationList.addEventListener('click', onBtnClick);
 
