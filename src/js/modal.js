@@ -39,7 +39,7 @@ async function toggleModal(evt) {
    }
 }
 
-function closeModal() {
+export function closeModal() {
    refs.backdrop.classList.add('is-hidden');
    refs.modalMovieBackdrop.style.backgroundImage = `url(" ")`;
    bodyRemoveNoScroll();
@@ -86,12 +86,12 @@ async function renderAuthors(e) {
       refs.cardMoveAuthors.innerHTML = renderAuthorsList(cast);
    }
 }
-function renderAuthor({ profile_path, name }) {
+function renderAuthor({ profile_path, name, id }) {
    const imgUrl = profile_path
       ? URL_IMG + profile_path
       : 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg';
    return `<li class="author__item">
-               <img class="author__img" src="${imgUrl}" alt="${name}" width="100"/>
+               <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100"/>
                <p class="author__title">${name}</p>
             </li>`;
 }
