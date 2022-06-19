@@ -1,7 +1,6 @@
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 
 export default function addWatchedFilmToLocaleStorage(filmData) {
-   let watchedFilms = [];
    try {
       watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
    } catch (error) {
@@ -12,6 +11,8 @@ export default function addWatchedFilmToLocaleStorage(filmData) {
 
    btnWatched.addEventListener('click', onBtnWatchedClick);
    function onBtnWatchedClick(e) {
+      let watchedFilms = [];
+
       if (e.target.classList.contains('btn-checked')) {
          for (const film of watchedFilms) {
             if (filmData.id === film.id) {

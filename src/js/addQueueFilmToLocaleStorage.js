@@ -1,5 +1,4 @@
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
-let queueFilms = [];
 
 export default function addQueueFilmToLocaleStorage(filmData) {
    try {
@@ -12,6 +11,8 @@ export default function addQueueFilmToLocaleStorage(filmData) {
 
    btnQueue.addEventListener('click', onBtnQueueClick);
    function onBtnQueueClick(e) {
+      let queueFilms = [];
+
       if (e.target.classList.contains('btn-checked')) {
          for (const film of queueFilms) {
             if (filmData.id === film.id) {
