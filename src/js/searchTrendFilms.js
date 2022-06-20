@@ -17,4 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const page = window.location.search.split('?')[1].split('=')[1];
       searchTrendFilms(page);
    }
+   if (window.location.pathname === '/') {
+      searchTrendFilms();
+   }
 });
