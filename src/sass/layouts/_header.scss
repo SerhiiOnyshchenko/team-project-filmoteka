@@ -1,7 +1,7 @@
 .header {
 	padding-top: 40px;
 	padding-bottom: 60px;
-
+	box-shadow: 2px 0 10px 5px #bbbbbb;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
@@ -251,7 +251,7 @@
 
 .header__box-login-logout {
 	position: absolute;
-	top: 120px;
+	top: 150px;
 	right: 32px;
 	display: flex;
 	justify-content: end;
