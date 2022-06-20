@@ -3,6 +3,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { showFormLoginRegister } from './registerLoginForm';
 import { auth } from './auth/firebaseAPP';
 import { searchTrendFilms } from './searchTrendFilms';
+import { addBtnMyLibrary } from './createMyLibraryMarkup';
 
 refs.logo.addEventListener('click', openHomePage);
 refs.btnHome.addEventListener('click', openHomePage);
@@ -21,6 +22,7 @@ export function openHomePage() {
 function openMyLibrary() {
    onAuthStateChanged(auth, user => {
       if (user) {
+         addBtnMyLibrary();
          refs.galleryList.innerHTML = '';
          refs.header.classList.add('library__background');
          refs.libraryBtns.classList.remove('display-none');
