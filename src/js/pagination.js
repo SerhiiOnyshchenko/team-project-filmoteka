@@ -3,6 +3,7 @@ import { searchTrendFilms } from './searchTrendFilms';
 import { searchFilmByName } from './searchFilmByName';
 import gloalVar from './globalConst';
 import { searchMoviesByAuthor } from './searchMoviesByAuthor';
+import { searchGenresMovies } from './searchGenresMovies';
 
 let emptyArray = [];
 let totalPages;
@@ -108,6 +109,8 @@ function onBtnClick(e) {
       searchFilmByName(gloalVar.searchText, clickPages);
    } else if (gloalVar.whichTypeMovieSearch === 'author') {
       searchMoviesByAuthor(gloalVar.personId, clickPages);
+   } else if (gloalVar.whichTypeMovieSearch === 'genres') {
+      searchGenresMovies(gloalVar.genre, clickPages);
    }
 }
 

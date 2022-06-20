@@ -48,6 +48,7 @@ const refs = {
    libraryBtns: document.getElementById('header__btns'),
    headerInput: document.getElementById('header__form'),
    inputError: document.getElementById('input-error'),
+   genresList: document.getElementById('genresList'),
 
    //  feature/FT-10
    searchForm: document.getElementById('form'),

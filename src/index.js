@@ -10,6 +10,7 @@ import './js/btnScrollUp';
 import './js/searchTrendFilms';
 import './js/searchFilmByName';
 import './js/searchMoviesByAuthor';
+import './js/searchGenresMovies';
 import './js/loader';
 import './js/trailler';
 import './js/darkMode';
