@@ -133,7 +133,7 @@
 }
 
 .top-content {
-	min-height: 343px;
+	min-height: 340px;
 }
 
 .modal-title {
@@ -216,7 +216,27 @@
 .text-modal {
 	margin-top: 8px;
 	line-height: 20px;
+	// overflow: hidden;
+	// text-overflow: ellipsis;
+	// display: -webkit-box;
+	// -webkit-line-clamp: 10;
+	// -webkit-box-orient: vertical;
+	overflow: hidden;
+	position: relative;
+	height: 220px;
 }
+.text-modal:after {
+	content: "";
+	text-align: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 80%;
+	height: 1.5em;
+	background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
+	pointer-events: none;
+}
+
 
 .btn-container {
 	display: flex;
