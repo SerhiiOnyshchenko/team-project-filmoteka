@@ -19,7 +19,6 @@
       margin-left: 8px;
 
       &--hidden {
-         @extend .pagination__list;
          @media screen and (max-width: 767px) {
             display: none;
          }
@@ -39,16 +38,28 @@
    }
 
    &__btn {
-      border-radius: 5px;
       @include font(500, 12, 16);
       color: $primary-color;
       background-color: transparent;
+      width: 13px;
+      height: 40px;
+      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover,
+      &:focus {
+         color: $accent-color;
+      }
 
       &--current {
+         border-radius: 5px;
          width: 40px;
          height: 40px;
          background-color: $accent-color;
          color: $secondary-color;
+         &:hover,
+         &:focus {
+            color: $secondary-color;
+         }
       }
 
       &--left {
@@ -56,6 +67,12 @@
          border-radius: 5px;
          width: 40px;
          height: 40px;
+         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+         &:hover,
+         &:focus {
+            color: $secondary-color;
+            background-color: $accent-color;
+         }
       }
       &--right {
          @extend .pagination__btn--left;

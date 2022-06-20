@@ -14,63 +14,100 @@ function pushInArray() {
          `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left">&#129128</button></li>`
       );
    }
-   for (let i = 1; i <= totalPages; i += 1) {
-      if (totalPages < 10) {
-         if (i === clickPages) {
-            emptyArray.push(
-               `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
-            );
+   if (window.innerWidth < 768) {
+      for (let i = 1; i <= totalPages; i += 1) {
+         if (totalPages < 6) {
+            if (i === clickPages) {
+               emptyArray.push(
+                  `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
+               );
+            } else {
+               emptyArray.push(
+                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+               );
+            }
          } else {
-            emptyArray.push(
-               `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
-            );
+            if (i === clickPages) {
+               emptyArray.push(
+                  `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
+               );
+            } else if (i > clickPages + 2 || i < clickPages - 2) {
+               if (i < 6 && clickPages < 3) {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               }
+               if (totalPages - 5 < i && clickPages > totalPages - 2) {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               }
+            } else {
+               emptyArray.push(
+                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+               );
+            }
          }
-      } else {
-         if (i === clickPages) {
-            emptyArray.push(
-               `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
-            );
-         } else if (i === 1) {
-            if (clickPages <= 4) {
+      }
+   } else {
+      for (let i = 1; i <= totalPages; i += 1) {
+         if (totalPages < 10) {
+            if (i === clickPages) {
                emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
                );
             } else {
-               emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
-               );
-               emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn">...</button></li>`
-               );
-            }
-         } else if (i === totalPages) {
-            if (clickPages >= totalPages - 3) {
-               emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
-               );
-            } else {
-               emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn">...</button></li>`
-               );
-               emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
-               );
-            }
-         } else if (i > clickPages + 2 || i < clickPages - 2) {
-            if (i < 8 && clickPages < 5) {
-               emptyArray.push(
-                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
-               );
-            }
-            if (totalPages - 7 < i && clickPages > totalPages - 4) {
                emptyArray.push(
                   `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                );
             }
          } else {
-            emptyArray.push(
-               `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
-            );
+            if (i === clickPages) {
+               emptyArray.push(
+                  `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
+               );
+            } else if (i === 1) {
+               if (clickPages <= 4) {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               } else {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+                  emptyArray.push(
+                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn">...</button></li>`
+                  );
+               }
+            } else if (i === totalPages) {
+               if (clickPages >= totalPages - 3) {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               } else {
+                  emptyArray.push(
+                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn">...</button></li>`
+                  );
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               }
+            } else if (i > clickPages + 2 || i < clickPages - 2) {
+               if (i < 8 && clickPages < 5) {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               }
+               if (totalPages - 7 < i && clickPages > totalPages - 4) {
+                  emptyArray.push(
+                     `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+                  );
+               }
+            } else {
+               emptyArray.push(
+                  `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
+               );
+            }
          }
       }
    }
@@ -98,6 +135,7 @@ function onBtnClick(e) {
       renderBtn(totalPages);
       removeClassList();
       addCurrentFromId();
+      scrollUp();
    } else {
       onArrowClick(currentBtn);
    }
@@ -141,4 +179,11 @@ function removeClassList() {
 function addCurrentFromId() {
    let idBtn = document.querySelector(`[data-id="${clickPages}"]`);
    idBtn.classList.add('pagination__btn--current');
+}
+
+function scrollUp() {
+   window.scrollTo({
+      top: 300,
+      behavior: 'smooth',
+   });
 }
