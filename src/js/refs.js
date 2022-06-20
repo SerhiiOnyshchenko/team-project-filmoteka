@@ -10,6 +10,10 @@ const refs = {
    modal: document.querySelector('.modal-content'),
    backdrop: document.querySelector('.backdrop'),
    btnClose: document.querySelector('.btn-close'),
+   cardMoveDetail: document.getElementById('cardMoveDetail'),
+   cardMoveAuthors: document.getElementById('cardMoveAuthors'),
+   showAuthors: document.getElementById('showAuthors'),
+   modalMovieBackdrop: document.getElementById('modalMovieBackdrop'),
 
    // register lgi form
    signUpButton: document.getElementById('signUpBtn'),
@@ -32,6 +36,7 @@ const refs = {
    loginUser: document.getElementById('loginUser'),
 
    divLoginError: document.getElementById('divLoginError'),
+   divRegisterError: document.getElementById('divRegisterError'),
    lblLoginErrorMessage: document.getElementById('lblLoginErrorMessage'),
    registerFormCloseBtn: document.getElementById('registerFormCloseBtn'),
 
@@ -59,6 +64,10 @@ const refs = {
    //loader
    preloader: document.getElementById('preloader'),
    mainLoader: document.getElementById('mainPreloader'),
+
+   //trailer
+   trailer: document.getElementById('trailer-modal-wrapper'),
+   trailerWrap: document.getElementById('trailer-modal'),
 };
 
 export default refs;

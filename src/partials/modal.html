@@ -1,11 +1,14 @@
-<div class="backdrop is-hidden">
+<div class="backdrop is-hidden" id="modalMovieBackdrop">
    <div class="modal-content">
-      <button class="btn-close">&times;</button>
-      <p>
-         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dignissimos
-         excepturi non sint repudiandae doloribus iure assumenda. Repellendus
-         cupiditate neque voluptatum, voluptatibus, labore enim, quisquam
-         consectetur iusto quos fugiat inventore modi!
-      </p>
+      <button type="button" class="btn-close" data-modal-close>
+         <svg class="modal__close-icon">
+            <use href="./images/symbol-defs.svg#icon-close"></use>
+         </svg>
+      </button>
+      <div class="modal-box-detale" id="cardMoveDetail"></div>
+      <div class="modal-box-authors" id="cardMoveAuthors"></div>
    </div>
+</div>
+<div class="backdrop is-hidden" id="trailer-modal-wrapper">
+   <div class="trailer-modal-wrapper" id="trailer-modal"></div>
 </div>

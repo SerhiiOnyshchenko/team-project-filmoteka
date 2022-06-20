@@ -1,9 +1,28 @@
 import refs from './refs';
-import { fetchLoadMoreFilm } from './services/movies-api';
+import {
+   fetchLoadMoreFilm,
+   fetchMovieCreditsById,
+   URL_IMG,
+} from './services/movies-api';
+import { loadMoreInfoMarkup } from './markupModal';
+import addQueueFilmToLocaleStorage from './addQueueFilmToLocaleStorage';
+import addWatchedFilmToLocaleStorage from './addWatchedFilmToLocaleStorage';
+
+export function bodyAddNoScroll() {
+   document.body.style.top = `-${window.scrollY}px`;
+   document.body.style.position = 'fixed';
+}
+
+export function bodyRemoveNoScroll() {
+   const scrollY = document.body.style.top;
+   document.body.style.position = '';
+   document.body.style.top = '';
+   window.scrollTo(0, parseInt(scrollY || '0') * -1);
+}
 
 refs.galleryList.addEventListener('click', toggleModal);
 
-function toggleModal(evt) {
+async function toggleModal(evt) {
    if (
       evt.target.parentNode.classList.contains('card') ||
       evt.target.parentNode.parentNode.classList.contains('card')
@@ -11,16 +30,22 @@ function toggleModal(evt) {
       const movieId =
          evt.target.parentNode.dataset.id ||
          evt.target.parentNode.parentNode.dataset.id;
-      loadMoreInfoByModal(movieId);
+      await renderCardMoveDetail(movieId);
       refs.backdrop.classList.remove('is-hidden');
+      bodyAddNoScroll();
       window.addEventListener('keydown', closeModalEscKey);
       refs.btnClose.addEventListener('click', closeModal);
       refs.backdrop.addEventListener('click', backdropClick);
    }
 }
 
-function closeModal() {
+export function closeModal() {
    refs.backdrop.classList.add('is-hidden');
+   refs.modalMovieBackdrop.style.backgroundImage = `url(" ")`;
+   bodyRemoveNoScroll();
+   setTimeout(() => {
+      hideAuthorsModal();
+   }, 600);
 }
 
 function closeModalEscKey(evt) {
@@ -36,30 +61,50 @@ function backdropClick(evt) {
    }
 }
 
-function loadMoreInfoByModal(id) {
-   fetchLoadMoreFilm(id).then(
-      ({
-         title,
-         id,
-         vote_average,
-         vote_count,
-         popularity,
-         original_title,
-         genres,
-         overview,
-         poster_path,
-      }) => {
-         console.log({
-            title,
-            id,
-            vote_average,
-            vote_count,
-            popularity,
-            original_title,
-            genres,
-            overview,
-            poster_path,
-         });
-      }
-   );
+async function renderCardMoveDetail(movieId) {
+   const data = await fetchLoadMoreFilm(movieId);
+   const img = URL_IMG + data.backdrop_path;
+   refs.modalMovieBackdrop.style.background = `linear-gradient(180deg, #171a24 0%, rgba(23, 26, 36, 0.2) 100%), url(${img}) center / cover`;
+   refs.cardMoveDetail.innerHTML = loadMoreInfoMarkup(data);
+   addWatchedFilmToLocaleStorage(data);
+   addQueueFilmToLocaleStorage(data);
+}
+
+refs.cardMoveDetail.addEventListener('click', renderAuthors);
+refs.cardMoveAuthors.addEventListener('click', e => {
+   if (e.target.id === 'btnGoBack') {
+      hideAuthorsModal();
+   }
+});
+
+async function renderAuthors(e) {
+   if (e.target.id === 'showAuthors') {
+      const movieId = e.target.dataset.id;
+      const { cast } = await fetchMovieCreditsById(movieId);
+
+      showAuthorsModal();
+      refs.cardMoveAuthors.innerHTML = renderAuthorsList(cast);
+   }
+}
+function renderAuthor({ profile_path, name, id }) {
+   const imgUrl = profile_path
+      ? URL_IMG + profile_path
+      : 'https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg';
+   return `<li class="author__item">
+               <img data-personid="${id}" class="author__img" src="${imgUrl}" alt="${name}" width="100"/>
+               <p class="author__title">${name}</p>
+            </li>`;
+}
+function renderAuthorsList(authorsArr) {
+   const arrAuthors = authorsArr.map(author => renderAuthor(author)).join('');
+   return `<button type="button" class="author__btn-go-back" id="btnGoBack">Go back to card</button><ul class="author__grid">${arrAuthors}</ul>`;
+}
+
+function showAuthorsModal() {
+   refs.cardMoveDetail.classList.add('hide-detale');
+   refs.cardMoveAuthors.classList.add('show-author');
+}
+function hideAuthorsModal() {
+   refs.cardMoveDetail.classList.remove('hide-detale');
+   refs.cardMoveAuthors.classList.remove('show-author');
 }

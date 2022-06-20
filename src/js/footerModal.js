@@ -1,10 +1,11 @@
+import { bodyAddNoScroll, bodyRemoveNoScroll } from './modal';
 import refs from './refs';
 
 refs.openModalBtn.addEventListener('click', openModal);
 
 function openModal() {
    refs.footerModal.classList.remove('is-hidden');
-   refs.bodyScroll.classList.add('is-openn');
+   bodyAddNoScroll();
    document.addEventListener('keydown', eventKeydown);
 
    refs.closeModalBtn.addEventListener('click', closeModal);
@@ -13,7 +14,7 @@ function openModal() {
 
 function closeModal() {
    refs.footerModal.classList.add('is-hidden');
-   refs.bodyScroll.classList.remove('is-openn');
+   bodyRemoveNoScroll();
    document.removeEventListener('keydown', eventKeydown);
 }
 

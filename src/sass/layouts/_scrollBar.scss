@@ -1,0 +1,13 @@
+// scrollbar
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $third-color;
+    border-radius: 10px;
+
+    &:hover {
+        background-color: $accent-color;
+    }
+}

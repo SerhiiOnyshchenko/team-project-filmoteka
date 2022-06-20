@@ -15,7 +15,7 @@ export default function createFilmCardMarkup(filmData) {
       }
    }
    const filmGenresString = filmGenres.join(', ');
-   const filmDate = release_date.slice(0, 4);
+   const filmDate = release_date?.slice(0, 4) || '...';
    const filmPoster = poster_path
       ? URL_IMG + poster_path
       : 'https://www.reelviews.net/resources/img/default_poster.jpg';
