@@ -63,6 +63,7 @@ const refs = {
 
    //loader
    preloader: document.getElementById('preloader'),
+   mainLoader: document.getElementById('mainPreloader'),
 
    //trailer
    trailer: document.getElementById('trailer-modal-wrapper'),

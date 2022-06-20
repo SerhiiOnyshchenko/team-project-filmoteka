@@ -11,5 +11,6 @@ import './js/searchTrendFilms';
 import './js/searchFilmByName';
 import './js/searchMoviesByAuthor';
 import './js/loader';
+import './js/mainLoader';
 import './js/trailler';
 import './js/darkMode';
