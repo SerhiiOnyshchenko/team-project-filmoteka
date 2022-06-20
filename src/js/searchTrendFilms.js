@@ -13,5 +13,8 @@ export async function searchTrendFilms(page = 1) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-   searchTrendFilms();
+   if (window.location.pathname === '/popular') {
+      const page = window.location.search.split('?')[1].split('=')[1];
+      searchTrendFilms(page);
+   }
 });
