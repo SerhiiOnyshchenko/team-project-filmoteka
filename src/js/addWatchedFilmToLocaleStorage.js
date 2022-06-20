@@ -4,18 +4,19 @@ import { showFormLoginRegister } from './registerLoginForm';
 import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 
-export default function addWatchedFilmToLocaleStorage(filmData) {
-   let watchedFilms = [];
-   try {
-      watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
-   } catch (error) {
-      watchedFilms = [];
-   }
+let watchedFilms = [];
 
+export default function addWatchedFilmToLocaleStorage(filmData) {
    const btnWatched = document.querySelector('.add-to-watched');
 
    btnWatched.addEventListener('click', throttle(onBtnWatchedClick, 1000));
    function onBtnWatchedClick(e) {
+      try {
+         watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
+      } catch (error) {
+         watchedFilms = [];
+      }
+
       onAuthStateChanged(auth, user => {
          if (user) {
             if (e.target.classList.contains('btn-checked')) {
