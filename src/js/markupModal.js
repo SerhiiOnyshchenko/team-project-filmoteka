@@ -61,24 +61,26 @@ export function loadMoreInfoMarkup(data) {
                <h2 class="modal-title">${title}</h2>
                <div class="option-film">
                   <div class="properties-film">
-                     <p class="option-film-p">Vote / Votes</p>
+                     <p class="option-film-p option-film-p-margin-not">Vote / Votes</p>
                      <p class="option-film-p">Popularity</p>
                      <p class="option-film-p">Original Title</p>
-                     <p class="option-film-p">Genre</p>
-                     <p class="option-film-p">Authors</p>
+                     <p class="option-film-p option-film-p-margin option-film-p-margin-not">Genre</p>
+                     <p class="option-film-p option-film-p-margin-not option-film-p-margin">Authors</p>
                   </div>
                   <div class="values-film">
-                     <p class="option-film-p">
-                        <span class="vote">${vote_average}</span
-                        ><span class="slash"> /</span
-                        ><span class="votes">${vote_count}</span>
+                  <div class="values-film-top">
+                     <p class="option-film-p option-film-p-margin-not">
+                        <span class="vote">${vote_average}</span><span class="slash"> /</span><span class="votes">${vote_count}</span>
                      </p>
                      <p class="option-film-p">${popularity}</p>
-                     <p class="option-film-p values-film-lh">
+                     <p class="option-film-p values-film-lh values-film-size">
                         ${original_title}
                      </p>
-                     <p class="option-film-p values-film-lh">${allGanres}</p>
-                     <p class="option-film-p values-film-lh" data-id=${id} id="showAuthors">Show</p>
+                     <p class="option-film-p option-film-p-width  values-film-lh">${allGanres}</p>
+                     </div>
+                     <div class="values-film-button">
+                     <p class="option-film-p option-film-p-width option-film-p-style values-film-lh" data-id=${id} id="showAuthors">Show</p>
+                     </div>
                   </div>
                </div>
 
