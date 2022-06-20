@@ -8,8 +8,9 @@ function openModal(e) {
       refs.trailer.classList.remove('is-hidden');
       refs.bodyScroll.classList.add('is-openn');
       document.addEventListener('keydown', eventKeydown);
-
+      refs.cardMoveDetail.classList.add('modal-box-detale-trailler');
       refs.trailer.addEventListener('click', backdrop);
+      
       openTrailer(e.target.dataset.id);
    }
 }
@@ -19,6 +20,7 @@ function closeModal() {
    refs.bodyScroll.classList.remove('is-openn');
    document.removeEventListener('keydown', eventKeydown);
    refs.trailerWrap.innerHTML = '';
+   refs.cardMoveDetail.classList.remove('modal-box-detale-trailler');
 }
 
 function eventKeydown(event) {
