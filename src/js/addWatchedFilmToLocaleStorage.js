@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './auth/firebaseAPP';
 import { showFormLoginRegister } from './registerLoginForm';
+import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 
 export default function addWatchedFilmToLocaleStorage(filmData) {
@@ -13,7 +14,7 @@ export default function addWatchedFilmToLocaleStorage(filmData) {
 
    const btnWatched = document.querySelector('.add-to-watched');
 
-   btnWatched.addEventListener('click', onBtnWatchedClick);
+   btnWatched.addEventListener('click', throttle(onBtnWatchedClick, 1000));
    function onBtnWatchedClick(e) {
       onAuthStateChanged(auth, user => {
          if (user) {

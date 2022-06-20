@@ -1,6 +1,7 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './auth/firebaseAPP';
 import { showFormLoginRegister } from './registerLoginForm';
+import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
 let queueFilms = [];
 
@@ -13,7 +14,7 @@ export default function addQueueFilmToLocaleStorage(filmData) {
 
    const btnQueue = document.querySelector('.add-to-queue');
 
-   btnQueue.addEventListener('click', onBtnQueueClick);
+   btnQueue.addEventListener('click', throttle(onBtnQueueClick, 1000));
    function onBtnQueueClick(e) {
       onAuthStateChanged(auth, user => {
          if (user) {
