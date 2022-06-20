@@ -41,3 +41,13 @@ export function fetchMoviesByPersonId(person_id) {
    const url = `${BASE_URL}person/${person_id}/movie_credits?api_key=${MY_KEY}&language=en-US`;
    return fetchWithErrorHandling(url);
 }
+
+export function fetchGenresMovies(genre, page) {
+   window.history.replaceState(
+      {},
+      '',
+      `genres?with_genres=${genre}&page=${page}`
+   );
+   const url = `${BASE_URL}discover/movie?api_key=${MY_KEY}&with_genres=${genre}&page=${page}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false`;
+   return fetchWithErrorHandling(url);
+}
