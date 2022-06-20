@@ -24,6 +24,7 @@
 	pointer-events: initial;
 	transform: scale(1);
 	transition: $transition;
+	z-index: 100;
 }
 
 .is-hidden {
@@ -34,4 +35,3 @@
 .backdrop.is-hidden {
 	transform: scale(1.1);
 }
-
