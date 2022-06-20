@@ -3,19 +3,20 @@ import { auth } from './auth/firebaseAPP';
 import { showFormLoginRegister } from './registerLoginForm';
 import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
+
 let queueFilms = [];
 
 export default function addQueueFilmToLocaleStorage(filmData) {
-   try {
-      queueFilms = [...JSON.parse(localStorage.getItem('queueFilms'))];
-   } catch (error) {
-      queueFilms = [];
-   }
-
    const btnQueue = document.querySelector('.add-to-queue');
 
    btnQueue.addEventListener('click', throttle(onBtnQueueClick, 1000));
    function onBtnQueueClick(e) {
+      try {
+         queueFilms = [...JSON.parse(localStorage.getItem('queueFilms'))];
+      } catch (error) {
+         queueFilms = [];
+      }
+
       onAuthStateChanged(auth, user => {
          if (user) {
             if (e.target.classList.contains('btn-checked')) {
