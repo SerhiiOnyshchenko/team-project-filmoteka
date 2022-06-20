@@ -1,84 +1,84 @@
 .pagination {
-   padding-bottom: 40px;
-   @media screen and (min-width: 768px) {
-      padding-bottom: 60px;
-   }
-   &__hidden {
-      display: none;
-   }
-   &__list {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: -8px;
-      margin-left: -8px;
-   }
+	padding-bottom: 40px;
+	@media screen and (min-width: 768px) {
+		padding-bottom: 60px;
+	}
+	&__hidden {
+		display: none;
+	}
+	&__list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-right: -8px;
+		margin-left: -8px;
+	}
 
-   &__item {
-      margin-right: 8px;
-      margin-left: 8px;
+	&__item {
+		margin-right: 8px;
+		margin-left: 8px;
 
-      &--hidden {
-         @media screen and (max-width: 767px) {
-            display: none;
-         }
-      }
+		&--hidden {
+			@media screen and (max-width: 767px) {
+				display: none;
+			}
+		}
 
-      &--left {
-         margin-right: 20px;
-      }
+		&--left {
+			margin-right: 20px;
+		}
 
-      &--right {
-         margin-left: 20px;
-      }
-      &--current {
-         width: 40px;
-         height: 40px;
-      }
-   }
+		&--right {
+			margin-left: 20px;
+		}
+		&--current {
+			width: 40px;
+			height: 40px;
+		}
+		&:hover .pagination__btn,
+		&:focus .pagination__btn {
+			cursor: pointer;
+			color: $accent-color;
+		}
+		&:hover .pagination__btn--current,
+		&:focus .pagination__btn--current {
+			color: $secondary-color;
+		}
+	}
 
-   &__btn {
-      @include font(500, 12, 16);
-      color: $primary-color;
-      background-color: transparent;
-      width: 13px;
-      height: 40px;
-      transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+	&__btn {
+		@include font(500, 12, 16);
+		color: $primary-color;
+		background-color: transparent;
+		width: 13px;
+		height: 40px;
+		transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-      &:hover,
-      &:focus {
-         color: $accent-color;
-      }
+		&--current {
+			border-radius: 5px;
+			width: 40px;
+			height: 40px;
+			background-color: $accent-color;
+			color: $secondary-color;
+		}
 
-      &--current {
-         border-radius: 5px;
-         width: 40px;
-         height: 40px;
-         background-color: $accent-color;
-         color: $secondary-color;
-         &:hover,
-         &:focus {
-            color: $secondary-color;
-         }
-      }
-
-      &--left {
-         @extend .pagination__list;
-         border-radius: 5px;
-         width: 40px;
-         height: 40px;
-         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-         &:hover,
-         &:focus {
-            color: $secondary-color;
-            background-color: $accent-color;
-         }
-      }
-      &--right {
-         @extend .pagination__btn--left;
-      }
-   }
-   &__icon {
-      @extend .pagination__list;
-   }
+		&--left {
+			@extend .pagination__list;
+			border-radius: 5px;
+			width: 40px;
+			height: 40px;
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+			&:hover,
+			&:focus {
+				color: $secondary-color;
+				background-color: $accent-color;
+			}
+		}
+		&--right {
+			@extend .pagination__btn--left;
+		}
+	}
+	&__icon {
+		@extend .pagination__list;
+	}
 }

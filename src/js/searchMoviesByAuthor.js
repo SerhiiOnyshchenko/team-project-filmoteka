@@ -32,7 +32,10 @@ refs.cardMoveAuthors.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-   if (window.location.pathname === '/author') {
+   if (
+      window.location.pathname === '/author' ||
+      window.location.pathname === '/team-project-filmoteka/author'
+   ) {
       const searchParams = window.location.search.split('?')[1].split('&');
       const personId = searchParams[0].split('=')[1];
       const page = searchParams[1].split('=')[1];
