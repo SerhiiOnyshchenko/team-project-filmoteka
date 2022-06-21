@@ -4,8 +4,7 @@ import { searchFilmByName } from './searchFilmByName';
 import gloalVar from './globalConst';
 import { searchMoviesByAuthor } from './searchMoviesByAuthor';
 import { searchGenresMovies } from './searchGenresMovies';
-import { renderQueueFilms } from './createMyLibraryMarkup';
-import { renderWatchedFilms } from './createMyLibraryMarkup';
+import { renderQueueFilms, renderWatchedFilms } from './createMyLibraryMarkup';
 
 let emptyArray = [];
 let totalPages;
