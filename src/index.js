@@ -16,3 +16,4 @@ import './js/mainLoader';
 import './js/trailler';
 import './js/darkMode';
 import './js/createMyLibraryMarkup';
+import './js/language';

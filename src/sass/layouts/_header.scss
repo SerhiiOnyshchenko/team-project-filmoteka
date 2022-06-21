@@ -378,23 +378,31 @@
 		color: inherit;
 	}
 }
+.ua.user-menu__title-hover{
+	padding-left: 35px;
+}
 
 // DARK MODE
 .mode {
 	@include displayFlex();
 	@include font(500, 12, 20);
 	text-transform: uppercase;
-
 	color: $secondary-color;
+	@media screen and (max-width: 767px) {
+	margin-left: 10px;
+    @include font(400, 8, 16);
+	}
 }
 .change {
 	@include displayFlex();
 	cursor: pointer;
-	border: 1px solid #ff6b01;
+	// border: 1px solid #ff6b01;
 	border-radius: 40%;
-	width: 35px;
-	height: 20px;
-	margin-left: 8px;
+	// width: 35px;
+	// height: 20px;
+	width: 100%;
+	height: 100%;
+	// margin-left: 8px;
 	transition: $transition;
 	&:hover,
 	&:focus {
@@ -406,4 +414,27 @@
 .dark {
 	background-color: #505050;
 	color: $secondary-color;
+}
+// ---LANGUAGE---
+
+.change-container{
+border: 1px solid #ff6b01;
+width: 35px;
+height: 20px;
+border-radius: 40%;
+margin-left: 8px;
+}
+.ua.change-container {
+	width: 80px;
+	height: 25px;
+}
+.dark-mode{
+	@media screen and (max-width: 767px) {
+	width: 32px;
+	}
+}
+.ua.dark-mode{
+	@media screen and (max-width: 767px) {
+		width: 43px;
+		}
 }
