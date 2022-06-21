@@ -3,7 +3,7 @@ import gloalVar from './globalConst';
 import { fetchMoviesByPersonId } from './services/movies-api';
 import createFilmCardMarkup from './createFilmCardMarkup';
 import { closeModal } from './modal';
-import { renderBtn } from './pagination';
+import { renderBtn, scrollUp } from './pagination';
 
 export async function searchMoviesByAuthor(person_id, page = 1) {
    window.history.replaceState(
@@ -21,6 +21,7 @@ export async function searchMoviesByAuthor(person_id, page = 1) {
       .map(createFilmCardMarkup)
       .join('');
    renderBtn();
+   scrollUp();
 }
 
 refs.cardMoveAuthors.addEventListener('click', e => {

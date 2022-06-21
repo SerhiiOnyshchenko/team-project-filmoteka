@@ -189,7 +189,7 @@ function addCurrentFromId() {
    idBtn.classList.add('pagination__btn--current');
 }
 
-function scrollUp() {
+export function scrollUp() {
    window.scrollTo({
       top: 300,
       behavior: 'smooth',

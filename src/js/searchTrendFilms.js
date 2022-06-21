@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
    if (window.location.search === '') {
       searchTrendFilms();
    }
-   console.log(window.location.search);
    const searchParams = window.location.search.split('?')[1].split('&');
    if (searchParams[0] === 'type=popular') {
       const page = searchParams[1].split('=')[1];
