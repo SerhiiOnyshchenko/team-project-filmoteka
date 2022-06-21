@@ -27,7 +27,6 @@ export const resetFform = () => {
 
 export const showFormLoginRegister = () => {
    refs.formLoginRegister.classList.remove('is-hidden');
-   bodyAddNoScroll();
    window.addEventListener('keydown', hideFormLoginRegisterByKey);
 };
 const hideFormLoginRegisterByKey = e => {
@@ -38,7 +37,6 @@ const hideFormLoginRegisterByKey = e => {
 };
 export const hideFormLoginRegister = () => {
    refs.formLoginRegister.classList.add('is-hidden');
-   bodyRemoveNoScroll();
 };
 
 export const showApp = () => {
