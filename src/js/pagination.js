@@ -4,7 +4,7 @@ import { searchFilmByName } from './searchFilmByName';
 import gloalVar from './globalConst';
 import { searchMoviesByAuthor } from './searchMoviesByAuthor';
 import { searchGenresMovies } from './searchGenresMovies';
-import { renderQueueFilms } from './createMyLibraryMarkup';
+import { renderQueueFilms, renderWatchedFilms } from './createMyLibraryMarkup';
 
 let emptyArray = [];
 let totalPages;
@@ -152,6 +152,8 @@ function onBtnClick(e) {
       searchGenresMovies(gloalVar.genre, clickPages);
    } else if (gloalVar.whichTypeMovieSearch === 'queue') {
       renderQueueFilms(clickPages);
+   } else if (gloalVar.whichTypeMovieSearch === 'watched') {
+      renderWatchedFilms(clickPages);
    }
 }
 
