@@ -3,6 +3,7 @@ import createFilmCardMarkup from './createFilmCardMarkup';
 import { fetchFilmsByName } from './services/movies-api';
 import gloalVar from './globalConst';
 import { renderBtn } from './pagination';
+import { deleteActiveClassByGenresBtn } from './searchGenresMovies';
 
 export async function searchFilmByName(query, page = 1) {
    const data = await fetchFilmsByName(query, page);
@@ -18,12 +19,14 @@ export async function searchFilmByName(query, page = 1) {
       refs.inputError.classList.remove('visually-hidden');
    }
    renderBtn(page);
+   deleteActiveClassByGenresBtn();
 }
 
 refs.searchForm.addEventListener('submit', async e => {
    e.preventDefault();
    const query = refs.searchForm.search.value;
    searchFilmByName(query);
+   refs.searchForm.reset();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
    if (searchParams[0] === 'type=search') {
       const query = searchParams[1].split('=')[1];
       const page = searchParams[2].split('=')[1];
-      refs.searchForm.search.value = query;
       searchFilmByName(query, page);
    }
 });

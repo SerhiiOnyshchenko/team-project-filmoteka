@@ -3,6 +3,7 @@ import createFilmCardMarkup from './createFilmCardMarkup';
 import refs from './refs';
 import gloalVar from './globalConst';
 import { renderBtn } from './pagination';
+import { deleteActiveClassByGenresBtn } from './searchGenresMovies';
 
 export async function searchTrendFilms(page = 1) {
    const data = await popularMoviesTrend(page);
@@ -10,6 +11,7 @@ export async function searchTrendFilms(page = 1) {
    gloalVar.totalPages = data.total_pages;
    refs.galleryList.innerHTML = data.results.map(createFilmCardMarkup).join('');
    renderBtn(page);
+   deleteActiveClassByGenresBtn();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
