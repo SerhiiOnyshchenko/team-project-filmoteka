@@ -1,14 +1,13 @@
 .modal-content {
+	margin: auto;
 	position: relative;
 	font-size: 12px;
 
 	@media screen and (min-width: 320px) {
 		min-width: 280px;
-		min-height: 560px;
 	}
 	@media screen and (min-width: 768px) {
 		width: 704px;
-		min-height: 552px;
 	}
 	@media screen and (min-width: 1024px) {
 		width: 814px;
@@ -19,40 +18,17 @@
 	font-weight: 500;
 	display: flex;
 	flex-direction: column;
-	position: fixed;
-	top: 50%;
-	left: 50%;
 	opacity: 1;
 	z-index: 1;
 	padding: 48px 20px 40px;
 	border-radius: 4px;
 	background-color: $secondary-color;
-	transition: $transition;
+	transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
 	color: #000000;
-	transform: translate(-50%, -50%) rotateY(0deg);
-	&::-webkit-scrollbar {
-		width: 5px;
-	}
-
-	&::-webkit-scrollbar-track {
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-		border-radius: 10px;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-	}
-	@media screen and (min-width: 320px) {
-		overflow: auto;
-		overflow-x: hidden;
-		min-width: 280px;
-		height: 560px;
-	}
+	transform: rotateY(0deg);
 	@media screen and (min-width: 768px) {
 		padding: 40px 36px;
 		width: 704px;
-		min-height: 552px;
 		flex-direction: row;
 	}
 	@media screen and (min-width: 1024px) {
@@ -238,14 +214,8 @@
 	border: 1px solid #000000;
 	box-sizing: border-box;
 	transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-	@media screen and (min-width: 320px) {
-		min-width: 110px;
-	}
-	@media screen and (min-width: 768px) {
-		min-width: 165px;
-	}
-	@media screen and (min-width: 1024px) {
-		min-width: 165px;
+	@media screen and (max-width: 768px) {
+		padding: 5px;
 	}
 }
 .btn-modal:hover {
@@ -262,57 +232,29 @@
 
 .add-to-watched {
 	margin-right: 20px;
-	@media screen and (max-width: 767px) {
-		padding-left: 27px;
-		padding-right: 27px;
-	}
 }
 #showAuthors {
 	display: inline-block;
 	color: blue;
-	// text-decoration: underline;
 	cursor: pointer;
 }
 
 .modal-box-authors {
 	font-weight: 500;
 	display: block;
-	position: fixed;
-	top: 50%;
-	left: 50%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 	opacity: 0;
 	z-index: -1;
 	padding: 50px 20px 20px;
 	border-radius: 4px;
-	overflow: auto;
 	background-color: $secondary-color;
-	transition: $transition;
-	transform: translate(-50%, -50%) rotateY(180deg);
-	&::-webkit-scrollbar {
-		width: 5px;
-	}
-
-	&::-webkit-scrollbar-track {
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-		border-radius: 10px;
-	}
-
-	&::-webkit-scrollbar-thumb {
-		border-radius: 10px;
-		-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-	}
-	@media screen and (min-width: 320px) {
-		width: 280px;
-		height: 560px;
-	}
-	@media screen and (min-width: 768px) {
-		width: 704px;
-		height: 560px;
-	}
-	@media screen and (min-width: 1024px) {
-		width: 814px;
-		height: 560px;
-	}
+	transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+	transform: rotateY(180deg);
 }
 .author__grid {
 	display: grid;
@@ -367,16 +309,18 @@
 	}
 }
 .show-author {
-	transition: $transition;
+	transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+	height: auto;
+	overflow: visible;
 	opacity: 1;
 	z-index: 1;
-	transform: translate(-50%, -50%) rotateY(0deg);
+	transform: rotateY(0deg);
 }
 .hide-detale {
-	transition: $transition;
+	transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
 	opacity: 0;
 	z-index: -1;
-	transform: translate(-50%, -50%) rotateY(-180deg);
+	transform: rotateY(-180deg);
 }
 // TEST
 .option-film-container {
