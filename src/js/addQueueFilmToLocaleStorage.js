@@ -3,7 +3,8 @@ import { auth } from './auth/firebaseAPP';
 import { showFormLoginRegister } from './registerLoginForm';
 import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
-import { renderQueueFilms } from './createMyLibraryMarkup';
+import { renderQueueFilms, renderWatchedFilms } from './createMyLibraryMarkup';
+import gloalVar from './globalConst';
 
 let queueFilms = [];
 
@@ -69,8 +70,17 @@ function deleteFilmFromWatched(id) {
             toggleBtnTextAndStyle('btnWatched');
          }
       }
-      if (document.querySelector('.library__background')) {
+      if (
+         document.querySelector('.library__background') &&
+         gloalVar.whichTypeMovieSearch === 'queue'
+      ) {
          renderQueueFilms();
+      }
+      if (
+         document.querySelector('.library__background') &&
+         gloalVar.whichTypeMovieSearch === 'watched'
+      ) {
+         renderWatchedFilms();
       }
    }
 }
