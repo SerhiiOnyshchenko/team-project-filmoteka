@@ -236,13 +236,12 @@
 	border-radius: 5px;
 
 	transition: $transition;
-	// &:hover,
-	// &:focus,
-	// &:active {
-	// 	background: #ff6b01;
-	// 	border-color: #ff6b01;
-	// 	box-shadow: $box-shadow;
-	// }
+	&:hover,
+	&:focus {
+		background: #ff6b01;
+		border-color: #ff6b01;
+		box-shadow: $box-shadow;
+	}
 }
 
 .active-btn {

@@ -15,15 +15,18 @@ export function addBtnMyLibrary() {
     onBtnQueue();
 }
 
-function onBtnWatched(page = 1) {
-    const savedWatched = localStorage.getItem("watchedFilms");
+function onBtnWatched() {
+    btnWatched.classList.add('active-btn');
+    btnQueue.classList.remove('active-btn');
+    renderWatchedFilms(1);
+}
+
+export async function renderWatchedFilms(page = 1) {
+    const savedWatched = await localStorage.getItem("watchedFilms");
     const parsedWatched = JSON.parse(savedWatched);
     gloalVar.whichTypeMovieSearch = 'watched';
     gloalVar.totalPages = Math.ceil(parsedWatched.length / 20);
     const showMoviesArray = parsedWatched.slice((page - 1) * 20, page * 20);
-
-    btnWatched.classList.add('active-btn');
-    btnQueue.classList.remove('active-btn');
     refs.galleryList.innerHTML = showMoviesArray.map(createFilmCardMarkup).join('');
     renderBtn();
 }
