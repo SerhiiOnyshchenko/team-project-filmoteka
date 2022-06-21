@@ -106,6 +106,12 @@
 }
 .header__item {
 	margin-left: 40px;
+	@media screen and (max-width: 425px) {
+		margin-left: 20px;
+		#my-library__js {
+			width: 70px;
+		}
+	}
 }
 .header__btn {
 	background-color: transparent;
