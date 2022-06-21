@@ -27,13 +27,10 @@ refs.searchForm.addEventListener('submit', async e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-   if (
-      window.location.pathname === '/search' ||
-      window.location.pathname === '/team-project-filmoteka/search'
-   ) {
-      const searchParams = window.location.search.split('?')[1].split('&');
-      const query = searchParams[0].split('=')[1];
-      const page = searchParams[1].split('=')[1];
+   const searchParams = window.location.search.split('?')[1].split('&');
+   if (searchParams[0] === 'type=search') {
+      const query = searchParams[1].split('=')[1];
+      const page = searchParams[2].split('=')[1];
       refs.searchForm.search.value = query;
       searchFilmByName(query, page);
    }

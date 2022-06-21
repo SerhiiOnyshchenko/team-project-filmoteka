@@ -13,18 +13,13 @@ export async function searchTrendFilms(page = 1) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-   if (
-      window.location.pathname === '/popular' ||
-      window.location.pathname === '/team-project-filmoteka/popular'
-   ) {
-      const page = window.location.search.split('?')[1].split('=')[1];
-      searchTrendFilms(page);
-   }
-   if (
-      window.location.pathname === '/' ||
-      window.location.pathname === '/team-project-filmoteka/'
-   ) {
-      console.log('/team-project-filmoteka/');
+   if (window.location.search === '') {
       searchTrendFilms();
+   }
+   console.log(window.location.search);
+   const searchParams = window.location.search.split('?')[1].split('&');
+   if (searchParams[0] === 'type=popular') {
+      const page = searchParams[1].split('=')[1];
+      searchTrendFilms(page);
    }
 });

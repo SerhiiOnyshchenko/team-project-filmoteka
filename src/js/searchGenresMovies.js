@@ -21,13 +21,10 @@ refs.genresList.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-   if (
-      window.location.pathname === '/genres' ||
-      window.location.pathname === '/team-project-filmoteka/genres'
-   ) {
-      const searchParams = window.location.search.split('?')[1].split('&');
-      const genre = searchParams[0].split('=')[1];
-      const page = searchParams[1].split('=')[1];
+   const searchParams = window.location.search.split('?')[1].split('&');
+   if (searchParams[0] === 'type=genres') {
+      const genre = searchParams[1].split('=')[1];
+      const page = searchParams[2].split('=')[1];
       searchGenresMovies(genre, page);
    }
 });
