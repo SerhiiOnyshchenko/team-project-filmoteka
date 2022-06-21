@@ -3,6 +3,7 @@ import { auth } from './auth/firebaseAPP';
 import { showFormLoginRegister } from './registerLoginForm';
 import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
+import { renderQueueFilms } from './createMyLibraryMarkup';
 
 let queueFilms = [];
 
@@ -67,6 +68,9 @@ function deleteFilmFromWatched(id) {
             localStorage.setItem('watchedFilms', JSON.stringify(filteredFilm));
             toggleBtnTextAndStyle('btnWatched');
          }
+      }
+      if (document.querySelector('.library__background')) {
+         renderQueueFilms();
       }
    }
 }
