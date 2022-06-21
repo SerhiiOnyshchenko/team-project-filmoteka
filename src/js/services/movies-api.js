@@ -16,7 +16,9 @@ export function fetchLoadMoreFilm(movie_id) {
 }
 
 export function popularMoviesTrend(page = 1) {
-   window.history.replaceState({}, '', `?type=popular&page=${page}`);
+   if (window.location.search !== '') {
+      window.history.replaceState({}, '', `?type=popular&page=${page}`);
+   }
    return fetchWithErrorHandling(
       `${BASE_URL}trending/movie/week?api_key=${MY_KEY}&page=${page}`
    );
