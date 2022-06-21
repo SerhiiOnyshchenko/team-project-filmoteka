@@ -10,7 +10,7 @@ export async function searchGenresMovies(genre, page = 1) {
    gloalVar.whichTypeMovieSearch = 'genres';
    gloalVar.genre = genre;
    refs.galleryList.innerHTML = data.results.map(createFilmCardMarkup).join('');
-   renderBtn();
+   renderBtn(page);
 }
 
 refs.genresList.addEventListener('click', e => {

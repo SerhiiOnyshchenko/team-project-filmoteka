@@ -20,7 +20,7 @@ export async function searchMoviesByAuthor(person_id, page = 1) {
    refs.galleryList.innerHTML = showMoviesArray
       .map(createFilmCardMarkup)
       .join('');
-   renderBtn();
+   renderBtn(page);
    scrollUp();
 }
 

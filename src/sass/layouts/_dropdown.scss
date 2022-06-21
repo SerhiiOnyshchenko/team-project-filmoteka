@@ -26,8 +26,18 @@
 		height: 0;
 		border-left: 15px solid transparent;
 		border-right: 15px solid transparent;
-		border-top: 10px solid rgb(212, 212, 212);
+		border-top: 10px solid $btn-color;
 		background: transparent;
+		&:before {
+			content: "Ganres";
+			position: absolute;
+			top: -20px;
+			left: 50%;
+			font-size: 20px;
+			font-weight: 500;
+			color: $secondary-color;
+			transform: translateX(-50%);
+		}
 	}
 	&__dropdown-content {
 		display: none;
@@ -79,6 +89,9 @@
 }
 .header.library__background .header__dropdown {
 	display: none;
+}
+.dark .header__dropbtn {
+	border-top: 10px solid rgb(212, 212, 212);
 }
 .header__dropdown:hover .header__dropdown-content {
 	display: flex;

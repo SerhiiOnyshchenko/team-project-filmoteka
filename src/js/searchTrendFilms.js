@@ -9,7 +9,7 @@ export async function searchTrendFilms(page = 1) {
    gloalVar.whichTypeMovieSearch = 'trend';
    gloalVar.totalPages = data.total_pages;
    refs.galleryList.innerHTML = data.results.map(createFilmCardMarkup).join('');
-   renderBtn();
+   renderBtn(page);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -17,7 +17,7 @@ export async function searchFilmByName(query, page = 1) {
    } else {
       refs.inputError.classList.remove('visually-hidden');
    }
-   renderBtn();
+   renderBtn(page);
 }
 
 refs.searchForm.addEventListener('submit', async e => {

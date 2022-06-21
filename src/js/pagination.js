@@ -8,18 +8,18 @@ import { renderQueueFilms, renderWatchedFilms } from './createMyLibraryMarkup';
 
 let emptyArray = [];
 let totalPages;
-let clickPages = 1;
+let clickPage = 1;
 
 function pushInArray() {
-   if (clickPages > 1) {
+   if (clickPage > 1) {
       emptyArray.push(
-         `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left">&#129128</button></li>`
+         `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left">&#129128;</button></li>`
       );
    }
    if (window.innerWidth < 768) {
       for (let i = 1; i <= totalPages; i += 1) {
          if (totalPages < 6) {
-            if (i === clickPages) {
+            if (i === clickPage) {
                emptyArray.push(
                   `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
                );
@@ -29,17 +29,17 @@ function pushInArray() {
                );
             }
          } else {
-            if (i === clickPages) {
+            if (i === clickPage) {
                emptyArray.push(
                   `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
                );
-            } else if (i > clickPages + 2 || i < clickPages - 2) {
-               if (i < 6 && clickPages < 3) {
+            } else if (i > clickPage + 2 || i < clickPage - 2) {
+               if (i < 6 && clickPage < 3) {
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
                }
-               if (totalPages - 5 < i && clickPages > totalPages - 2) {
+               if (totalPages - 5 < i && clickPage > totalPages - 2) {
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
@@ -54,7 +54,7 @@ function pushInArray() {
    } else {
       for (let i = 1; i <= totalPages; i += 1) {
          if (totalPages < 10) {
-            if (i === clickPages) {
+            if (i === clickPage) {
                emptyArray.push(
                   `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
                );
@@ -64,12 +64,12 @@ function pushInArray() {
                );
             }
          } else {
-            if (i === clickPages) {
+            if (i === clickPage) {
                emptyArray.push(
                   `<li class="pagination__item"><button class="pagination__btn pagination__btn--current" data-id="${i}">${i}</button></li>`
                );
             } else if (i === 1) {
-               if (clickPages <= 4) {
+               if (clickPage <= 4) {
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
@@ -82,7 +82,7 @@ function pushInArray() {
                   );
                }
             } else if (i === totalPages) {
-               if (clickPages >= totalPages - 3) {
+               if (clickPage >= totalPages - 3) {
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
@@ -94,13 +94,13 @@ function pushInArray() {
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
                }
-            } else if (i > clickPages + 2 || i < clickPages - 2) {
-               if (i < 8 && clickPages < 5) {
+            } else if (i > clickPage + 2 || i < clickPage - 2) {
+               if (i < 8 && clickPage < 5) {
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
                }
-               if (totalPages - 7 < i && clickPages > totalPages - 4) {
+               if (totalPages - 7 < i && clickPage > totalPages - 4) {
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
@@ -113,16 +113,17 @@ function pushInArray() {
          }
       }
    }
-   if (clickPages < totalPages) {
+   if (clickPage < totalPages) {
       emptyArray.push(
-         `<li class="pagination__item--right"><button class="pagination__btn--right js-pagination__btn--right">&#129130</button></li>`
+         `<li class="pagination__item--right"><button class="pagination__btn--right js-pagination__btn--right">&#129130;</button></li>`
       );
    }
 }
 
-export function renderBtn() {
+export function renderBtn(page = clickPage) {
    emptyArray = [];
    totalPages = gloalVar.totalPages;
+   clickPage = Number(page);
    pushInArray();
 
    refs.paginationList.innerHTML = emptyArray.join('');
@@ -133,27 +134,25 @@ refs.paginationList.addEventListener('click', onBtnClick);
 function onBtnClick(e) {
    const currentBtn = e.target;
    if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
-      clickPages = Number(currentBtn.dataset.id);
-      renderBtn(totalPages);
-      removeClassList();
-      addCurrentFromId();
+      clickPage = Number(currentBtn.dataset.id);
       scrollUp();
    } else {
       onArrowClick(currentBtn);
+      scrollUp();
    }
 
    if (gloalVar.whichTypeMovieSearch === 'trend') {
-      searchTrendFilms(clickPages);
+      searchTrendFilms(clickPage);
    } else if (gloalVar.whichTypeMovieSearch === 'search') {
-      searchFilmByName(gloalVar.searchText, clickPages);
+      searchFilmByName(gloalVar.searchText, clickPage);
    } else if (gloalVar.whichTypeMovieSearch === 'author') {
-      searchMoviesByAuthor(gloalVar.personId, clickPages);
+      searchMoviesByAuthor(gloalVar.personId, clickPage);
    } else if (gloalVar.whichTypeMovieSearch === 'genres') {
-      searchGenresMovies(gloalVar.genre, clickPages);
+      searchGenresMovies(gloalVar.genre, clickPage);
    } else if (gloalVar.whichTypeMovieSearch === 'queue') {
-      renderQueueFilms(clickPages);
+      renderQueueFilms(clickPage);
    } else if (gloalVar.whichTypeMovieSearch === 'watched') {
-      renderWatchedFilms(clickPages);
+      renderWatchedFilms(clickPage);
    }
 }
 
@@ -162,31 +161,13 @@ function onArrowClick(button) {
       button.nodeName === 'BUTTON' &&
       button.className === 'pagination__btn--right js-pagination__btn--right'
    ) {
-      clickPages += 1;
-      renderBtn(totalPages);
-      removeClassList();
-      addCurrentFromId();
+      clickPage += 1;
    } else if (
       button.nodeName === 'BUTTON' &&
       button.className === 'pagination__btn--left js-pagination__btn--left'
    ) {
-      clickPages -= 1;
-      renderBtn(totalPages);
-      removeClassList();
-      addCurrentFromId();
+      clickPage -= 1;
    }
-}
-
-function removeClassList() {
-   const current = document.querySelector('.pagination__btn--current');
-   if (current) {
-      current.classList.remove('pagination__btn--current');
-   }
-}
-
-function addCurrentFromId() {
-   let idBtn = document.querySelector(`[data-id="${clickPages}"]`);
-   idBtn.classList.add('pagination__btn--current');
 }
 
 export function scrollUp() {
