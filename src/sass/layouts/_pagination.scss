@@ -63,6 +63,9 @@
 		}
 
 		&--left {
+			background-image: url(./../images/arrow-left.svg);
+			background-repeat: no-repeat;
+			background-position: center;
 			@extend .pagination__list;
 			border-radius: 5px;
 			width: 40px;
@@ -75,6 +78,9 @@
 			}
 		}
 		&--right {
+			background-image: url(./../images/arrow-right.svg);
+			background-repeat: no-repeat;
+			background-position: center;
 			@extend .pagination__btn--left;
 		}
 	}

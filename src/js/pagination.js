@@ -13,7 +13,7 @@ let clickPage = 1;
 function pushInArray() {
    if (clickPage > 1) {
       emptyArray.push(
-         `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left">&#129128;</button></li>`
+         `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left"></button></li>`
       );
    }
    if (window.innerWidth < 768) {
@@ -115,7 +115,7 @@ function pushInArray() {
    }
    if (clickPage < totalPages) {
       emptyArray.push(
-         `<li class="pagination__item--right"><button class="pagination__btn--right js-pagination__btn--right">&#129130;</button></li>`
+         `<li class="pagination__item--right"><button class="pagination__btn--right js-pagination__btn--right"></button></li>`
       );
    }
 }

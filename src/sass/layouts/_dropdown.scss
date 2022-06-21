@@ -29,11 +29,11 @@
 		border-top: 10px solid $btn-color;
 		background: transparent;
 		&:before {
-			content: "Ganres";
+			content: "GENRES";
 			position: absolute;
 			top: -20px;
 			left: 50%;
-			font-size: 20px;
+			font-size: 18px;
 			font-weight: 500;
 			color: $secondary-color;
 			transform: translateX(-50%);
