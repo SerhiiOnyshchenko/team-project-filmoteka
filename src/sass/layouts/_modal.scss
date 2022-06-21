@@ -61,7 +61,7 @@
 		padding: 40px 16px;
 	}
 }
-.modal-content > .modal-box-detale-trailler{
+.modal-content > .modal-box-detale-trailler {
 	opacity: 0;
 }
 .dark .modal-box-detale,
@@ -89,7 +89,6 @@
 }
 .dark .modal__close-icon {
 	fill: #ffffff;
-
 }
 .btn-close:hover > .modal__close-icon {
 	fill: #ff6b01;
@@ -175,7 +174,7 @@
 	padding-top: 1px;
 	padding-bottom: 1px;
 }
-.dark .votes{
+.dark .votes {
 	color: #000000;
 }
 
@@ -197,7 +196,6 @@
 }
 
 .text-modal {
-<<<<<<< Updated upstream
 	margin-top: 8px;
 	line-height: 20px;
 	overflow: hidden;
@@ -216,32 +214,8 @@
 	background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
 	pointer-events: none;
 }
-=======
-	// margin-top: 8px;
-	// line-height: 20px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: -webkit-box;
-	-webkit-line-clamp: 10;
-	-webkit-box-orient: vertical;
-	// overflow: hidden;
-	// position: relative;
-	// height: 220px;
-}
-// .text-modal:after {
-// 	content: "";
-// 	text-align: right;
-// 	position: absolute;
-// 	bottom: 0;
-// 	right: 0;
-// 	width: 80%;
-// 	height: 1.5em;
-// 	background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
-// 	pointer-events: none;
-// }
->>>>>>> Stashed changes
 
-.dark .text-modal:after{
+.dark .text-modal:after {
 	background: linear-gradient(to right, rgba(255, 255, 255, 0), #505050 100%);
 }
 
@@ -405,13 +379,13 @@
 	transform: translate(-50%, -50%) rotateY(-180deg);
 }
 // TEST
-.option-film-container{
+.option-film-container {
 	display: flex;
 }
-.option-film-container:not(:last-child){
-margin-bottom: 8px;
+.option-film-container:not(:last-child) {
+	margin-bottom: 8px;
 }
-.option-film-left{
+.option-film-left {
 	min-width: 72px;
 	margin-right: 39px;
 	height: 100%;
@@ -421,36 +395,35 @@ margin-bottom: 8px;
 		margin-right: 83px;
 	}
 }
-.dark .option-film-left{
-	color: #D3D3D3
+.dark .option-film-left {
+	color: #d3d3d3;
 }
-.option-film-right{
-	line-height:14px;
+.option-film-right {
+	line-height: 14px;
 }
-.option-film-right-line-height{
-	line-height:18px;
+.option-film-right-line-height {
+	line-height: 18px;
 }
-.show-style{
+.show-style {
 	width: 50px;
 	height: 25px;
-    background-color: #D3D3D3;
+	background-color: #d3d3d3;
 	border-radius: 8px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.show-style:hover{
+.show-style:hover {
 	background-color: #ff6b01;
 	transform: scale(1.1);
 	box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.15);
 }
-.dark .show-style:hover{
+.dark .show-style:hover {
 	box-shadow: 1px 6px 6px rgba(255, 255, 255, 0.15);
 }
-.option-film-left-style{
+.option-film-left-style {
 	display: flex;
 	align-items: center;
 	height: 25px;
 }
-
