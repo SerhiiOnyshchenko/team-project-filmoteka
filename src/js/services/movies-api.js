@@ -16,7 +16,7 @@ export function fetchLoadMoreFilm(movie_id) {
 }
 
 export function popularMoviesTrend(page = 1) {
-   if (window.location.search !== '') {
+   if (window.location.search !== '' || page !== 1) {
       window.history.replaceState({}, '', `?type=popular&page=${page}`);
    }
    return fetchWithErrorHandling(
