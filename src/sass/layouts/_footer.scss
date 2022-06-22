@@ -43,9 +43,24 @@
 			}
 		}
 	}
-}
-
-
-	.by{
-		margin-right: 4px;
+	.footer-text-mrbottom {
+		@media screen and (max-width: 469px) {
+			margin-bottom: 10px;
+		}
 	}
+	.footer-text-mrleft {
+		margin-left: 5px;
+
+     .footer-link {
+         cursor: pointer;
+         color: $third-color;
+         text-decoration: underline;
+         transition: $transition;
+         &:hover,
+         &:focus {
+            color: $accent-color;
+         }
+      }
+   }
+
+}
