@@ -5,22 +5,22 @@ import { auth } from './auth/firebaseAPP';
 import { searchTrendFilms } from './searchTrendFilms';
 import { addBtnMyLibrary } from './createMyLibraryMarkup';
 
-refs.logo.addEventListener('click', clickLogo);
+refs.logo.addEventListener('click', openHomePage);
 refs.btnHome.addEventListener('click', openHomePage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
-export function clickLogo() {
-   if (refs.btnHome.classList.contains('current')) {
-      refs.logo.removeAttribute('href');
-   }
-   openHomePage();
-}
+// export function clickLogo() {
+//    if (refs.btnHome.classList.contains('current')) {
+//       refs.logo.removeAttribute('href');
+//    }
+//    openHomePage();
+// }
 
 export function openHomePage() {
    if (refs.btnHome.classList.contains('current')) {
       return;
    }
-   refs.logo.setAttribute('href', '');
+   // refs.logo.setAttribute('href', '');
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');
@@ -33,7 +33,7 @@ function openMyLibrary() {
    onAuthStateChanged(auth, user => {
       if (user) {
          addBtnMyLibrary();
-         refs.logo.setAttribute('href', '');
+         // refs.logo.setAttribute('href', '');
          refs.galleryList.innerHTML = '';
          refs.header.classList.add('library__background');
          refs.libraryBtns.classList.remove('display-none');
