@@ -17,6 +17,7 @@ export async function searchTrendFilms(page = 1) {
 document.addEventListener('DOMContentLoaded', () => {
    if (window.location.search === '') {
       searchTrendFilms();
+      return;
    }
    const searchParams = window.location.search.split('?')[1].split('&');
    if (searchParams[0] === 'type=popular') {

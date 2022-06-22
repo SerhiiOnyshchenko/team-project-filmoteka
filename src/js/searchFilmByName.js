@@ -37,6 +37,9 @@ refs.searchForm.addEventListener('submit', async e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+   if (window.location.search === '') {
+      return;
+   }
    const searchParams = window.location.search.split('?')[1].split('&');
    if (searchParams[0] === 'type=search') {
       const query = searchParams[1].split('=')[1];

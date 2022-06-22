@@ -31,6 +31,9 @@ refs.genresList.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+   if (window.location.search === '') {
+      return;
+   }
    const searchParams = window.location.search.split('?')[1].split('&');
    if (searchParams[0] === 'type=genres') {
       const genre = searchParams[1].split('=')[1];
