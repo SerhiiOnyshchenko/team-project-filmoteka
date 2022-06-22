@@ -31,10 +31,10 @@ export async function renderWatchedFilms(page = 1) {
       refs.galleryList.innerHTML = showMoviesArray
          .map(createFilmCardMarkup)
          .join('');
-      renderBtn(page);
    } else {
-      refs.paginationList.classList.add('is-hidden');
+      gloalVar.totalPages = 1;
    }
+   renderBtn(page);
 }
 
 function onBtnQueue() {
@@ -53,8 +53,8 @@ export async function renderQueueFilms(page = 1) {
       refs.galleryList.innerHTML = showMoviesArray
          .map(createFilmCardMarkup)
          .join('');
-      renderBtn(page);
    } else {
-      refs.paginationList.classList.add('is-hidden');
+      gloalVar.totalPages = 1;
    }
+   renderBtn(page);
 }
