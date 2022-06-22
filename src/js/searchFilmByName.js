@@ -27,7 +27,7 @@ refs.searchForm.addEventListener('submit', async e => {
    const query = refs.searchForm.search.value.trim();
    if (query.length > 0) {
    searchFilmByName(query);
-   // refs.searchForm.reset();
+   refs.searchForm.reset();
    }
    
   
@@ -42,9 +42,3 @@ document.addEventListener('DOMContentLoaded', () => {
    }
 });
 
-// setTimeout(prefillSearch, 100)
-
-// export function prefillSearch() {
-//    const query = location.search.match(/(?<=(\?|&)query=)[^&]+/)?.[0]
-//    refs.headerInput.value = query;
-// }
