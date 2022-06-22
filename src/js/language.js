@@ -1,9 +1,9 @@
-const btnUa = document.querySelector(".ua");
-const btnEn = document.querySelector(".en");
-const mode = document.querySelector(".mode");
-const change = document.querySelector(".change");
-const darkMode = document.querySelector(".dark-mode");
-const changeContainer = document.querySelector(".change-container");
+const btnUa = document.querySelector('.ua');
+const btnEn = document.querySelector('.en');
+const mode = document.querySelector('.mode');
+const change = document.querySelector('.change');
+const darkMode = document.querySelector('.dark-mode');
+const changeContainer = document.querySelector('.change-container');
 const btnHome = document.getElementById('home__js');
 const myLibrary = document.getElementById('my-library__js');
 const formInput = document.querySelector('.form__input');
@@ -11,9 +11,11 @@ const formLabel = document.querySelector('.form__label');
 const dropbtn = document.querySelector('.header__dropbtn');
 const userMenuTitleHover = document.querySelector('.user-menu__title-hover');
 const userMenuList = document.querySelector('.user-menu__list');
-const headerDropdownContent = document.querySelector('.header__dropdown-content');
+const headerDropdownContent = document.querySelector(
+   '.header__dropdown-content'
+);
 const footerTextMrbottom = document.querySelector('.footer-text-mrbottom');
-const footerTextMrleft = document.querySelector('.footer-text-mrleft');
+const footerTextMrleft = document.querySelector('#developed');
 const footerLink = document.querySelector('.footer-link');
 const by = document.querySelector('.by');
 const inputError = document.querySelector('.input-error');
@@ -105,7 +107,7 @@ btnEn.addEventListener('click', en);
 
 
  function ua (){
-   btnEn.disabled = false;
+    btnEn.disabled = false;
     btnUa.disabled =true;
     localStorage.setItem('language', 'ua');
     btnHome.textContent = "ДОДОМУ";
@@ -115,8 +117,7 @@ btnEn.addEventListener('click', en);
     class="form__input"
     type="text"
     name="search"
-    placeholder="Пошук..."
-    />`
+    placeholder="Пошук..."/>`
     dropbtn.classList.add('ua');
     darkMode.classList.add('ua');
     darkMode.textContent = '';
@@ -241,8 +242,7 @@ function en () {
     localStorage.setItem('language', 'en');
     btnHome.textContent = "HOME";
     myLibrary.textContent = "MY LIBRARY"
-    formLabel.innerHTML = `
-    <input
+    formLabel.innerHTML = `<input
     class="form__input"
     type="text"
     name="search"
@@ -365,6 +365,3 @@ function en () {
         change.textContent = "OFF";
         } 
 }
-
-
-

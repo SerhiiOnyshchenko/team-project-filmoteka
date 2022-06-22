@@ -5,22 +5,25 @@ import { auth } from './auth/firebaseAPP';
 import { searchTrendFilms } from './searchTrendFilms';
 import { addBtnMyLibrary } from './createMyLibraryMarkup';
 
-refs.logo.addEventListener('click', openHomePage);
-refs.btnHome.addEventListener('click', openHomePage);
+refs.logo.addEventListener('click', checkedPage);
+refs.btnHome.addEventListener('click', checkedPage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
-// export function clickLogo() {
-//    if (refs.btnHome.classList.contains('current')) {
-//       refs.logo.removeAttribute('href');
-//    }
-//    openHomePage();
-// }
-
-export function openHomePage() {
-   if (refs.btnHome.classList.contains('current')) {
+function checkedPage(e) {
+   e.preventDefault();
+   if (window.location.search === '') {
       return;
    }
-   // refs.logo.setAttribute('href', '');
+   const searchParams = window.location.search.split('?')[1].split('&');
+   if (
+      searchParams[0] === 'type=popular' &&
+      searchParams[1].split('=')[1] === '1'
+   ) {
+      return;
+   }
+   openHomePage();
+}
+export function openHomePage() {
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');
@@ -32,8 +35,8 @@ export function openHomePage() {
 function openMyLibrary() {
    onAuthStateChanged(auth, user => {
       if (user) {
+         window.history.replaceState({}, '', '?myLibrary');
          addBtnMyLibrary();
-         // refs.logo.setAttribute('href', '');
          refs.galleryList.innerHTML = '';
          refs.header.classList.add('library__background');
          refs.libraryBtns.classList.remove('display-none');
@@ -67,3 +70,13 @@ const closeMenuEscKey = e => {
       window.removeEventListener('keydown', closeMenuEscKey);
    }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+   if (window.location.search === '') {
+      return;
+   }
+   const searchParams = window.location.search.split('?')[1].split('&');
+   if (searchParams[0] === 'myLibrary') {
+      openMyLibrary();
+   }
+});

@@ -22,7 +22,7 @@
 	opacity: 1;
 	visibility: visible;
 	pointer-events: initial;
-	overflow: scroll;
+	overflow-y: scroll;
 	transform: scale(1);
 	transition: $transition;
 	z-index: 100;
