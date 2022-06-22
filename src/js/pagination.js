@@ -14,7 +14,7 @@ function pushInArray() {
    if (totalPages < 2) {
       return;
    }
-   if (clickPages > 1) {
+   if (clickPage > 1) {
       emptyArray.push(
          `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left" aria-label="pagination left"></button></li>`
       );
@@ -81,7 +81,7 @@ function pushInArray() {
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
                   emptyArray.push(
-                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn">...</button></li>`
+                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
                   );
                }
             } else if (i === totalPages) {
@@ -91,7 +91,7 @@ function pushInArray() {
                   );
                } else {
                   emptyArray.push(
-                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn">...</button></li>`
+                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
                   );
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
@@ -139,11 +139,12 @@ function onBtnClick(e) {
    if (
       currentBtn.classList.contains('pagination__btn--current') ||
       currentBtn.classList.contains('pagination__item') ||
-      currentBtn.classList.contains('pagination__list')
+      currentBtn.classList.contains('pagination__list') ||
+      currentBtn.classList.contains('pagination__btn--none')
    ) {
       return;
    } else if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
-      clickPages = Number(currentBtn.dataset.id);
+      clickPage = Number(currentBtn.dataset.id);
       scrollUp();
    } else {
       onArrowClick(currentBtn);
