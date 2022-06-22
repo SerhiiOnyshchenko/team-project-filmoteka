@@ -2,29 +2,28 @@
 
 // base styles
 
-@import "./utils/mixins";
-@import "./utils/variables";
-@import "./utils/placeholder";
-@import "./common/reset";
-@import "./utils/animation";
-@import "./common/container";
-@import "./common/general";
-@import "./common/grid-container"; //grid разметка галлереи//
+@import './utils/mixins';
+@import './utils/variables';
+@import './utils/placeholder';
+@import './common/reset';
+@import './utils/animation';
+@import './common/container';
+@import './common/general';
+@import './common/grid-container'; //grid разметка галлереи//
 
 // components
-@import "./layouts/btnScrollUp";
-@import "./layouts/header";
-@import "./layouts/dropdown";
-@import "./layouts/gallery";
-@import "./layouts/pagination";
-@import "./layouts/footer";
-@import "./layouts/trailer";
+@import './layouts/btnScrollUp';
+@import './layouts/header';
+@import './layouts/dropdown';
+@import './layouts/gallery';
+@import './layouts/pagination';
+@import './layouts/footer';
+@import './layouts/trailer';
 
 //layouts
-@import "./layouts/modal";
-@import "./layouts/footerModal";
-@import "./layouts/registerLoginForm";
-@import "./layouts/loader";
+@import './layouts/modal';
+@import './layouts/footerModal';
+@import './layouts/registerLoginForm';
+@import './layouts/loader';
 @import './layouts/mainLoader';
-@import "./layouts/_scrollBar";
-
+@import './layouts/_scrollBar';
