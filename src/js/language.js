@@ -11,7 +11,12 @@ const formLabel = document.querySelector('.form__label');
 const dropbtn = document.querySelector('.header__dropbtn');
 const userMenuTitleHover = document.querySelector('.user-menu__title-hover');
 const userMenuList = document.querySelector('.user-menu__list');
-const headerDropdownContent = document.querySelector('.header__dropdown-content')
+const headerDropdownContent = document.querySelector('.header__dropdown-content');
+// const footerText = document.querySelector('.footer-wraper')
+const footerTextMrbottom = document.querySelector('.footer-text-mrbottom');
+const footerTextMrleft = document.querySelector('.footer-text-mrleft');
+const footerLink = document.querySelector('.footer-link');
+const by = document.querySelector('.by');
 
 console.log(btnUa);
 console.log(btnEn);
@@ -19,6 +24,7 @@ console.log(mode);
 console.log(change);
 console.log(darkMode);
 console.log(changeContainer);
+
 
 localStorage.setItem('language', 'en');
 btnEn.disabled = true;
@@ -72,6 +78,10 @@ btnUa.addEventListener('click',() =>{
     <div class="header__dropdown-btn" data-genre="53">Трилер</div>
     <div class="header__dropdown-btn" data-genre="10752">Воєнний фільм</div>
     <div class="header__dropdown-btn" data-genre="37">Ве́стерн</div>`
+    footerTextMrbottom.innerHTML = '&#169; 2022 | Всі права захищені |'
+    footerTextMrleft.textContent = 'Розроблено з';
+    by.textContent = '';
+    footerLink.textContent = 'Студентами GoIT';
  if (localStorage.getItem('mode') === 'dark'){
 changeContainer.classList.add('ua');
 darkMode.textContent = "ТЕМНИЙ РЕЖИМ:";
@@ -133,6 +143,10 @@ btnEn.addEventListener('click',() =>{
  <div class="header__dropdown-btn" data-genre="53">Thriller</div>
  <div class="header__dropdown-btn" data-genre="10752">War</div>
  <div class="header__dropdown-btn" data-genre="37">Western</div>`
+ footerTextMrbottom.innerHTML = '&#169; 2022 |>&#169; 2022 | All Rights Reserved |';
+ footerTextMrleft.textContent = 'Developed with';
+ by.textContent = `by`;
+ footerLink.textContent = 'GoIT Students';
     if (localStorage.getItem('mode') === 'dark'){
         changeContainer.classList.remove('ua');
         darkMode.textContent = "Dark mode:";
