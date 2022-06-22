@@ -24,9 +24,13 @@ export async function searchFilmByName(query, page = 1) {
 
 refs.searchForm.addEventListener('submit', async e => {
    e.preventDefault();
-   const query = refs.searchForm.search.value;
+   const query = refs.searchForm.search.value.trim();
+   if (query.length > 0) {
    searchFilmByName(query);
    refs.searchForm.reset();
+   }
+   
+  
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,3 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
       searchFilmByName(query, page);
    }
 });
+
