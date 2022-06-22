@@ -391,17 +391,21 @@
 
 // DARK MODE
 .mode {
-	@include displayFlex();
+	
 	@include font(500, 12, 20);
 	text-transform: uppercase;
 	color: $secondary-color;
-	@media screen and (max-width: 480px) {
-		@include font(400, 8, 16);
-	}
+
 	@media screen and (max-width: 767px) {
 	margin-left: 10px;
     @include font(400, 10, 16);
 	}
+
+	@media screen and (min-width: 768px) {
+		@include displayFlex();
+	}
+		
+	
 }
 .change {
 	@include displayFlex();
@@ -412,6 +416,7 @@
 	// height: 20px;
 	width: 100%;
 	height: 100%;
+	padding: 5px;
 	// margin-left: 8px;
 	transition: $transition;
 	&:hover,
@@ -434,17 +439,48 @@ height: 20px;
 border-radius: 40%;
 margin-left: 8px;
 }
-.ua.change-container {
-	width: 80px;
-	height: 25px;
+// .ua.change-container {
+// 	width: 80px;
+// 	height: 25px;
+// }
+// .dark-mode{
+	// @media screen and (max-width: 767px) {
+	// width: 32px;
+	// }
+// }
+// .ua.dark-mode{
+// 	@media screen and (max-width: 767px) {
+// 		width: 43px;
+// 		}
+// }
+
+.en {
+	margin-left: 10px;
 }
-.dark-mode{
+
+.lang--btn {
+	@include displayFlex();
+	cursor: pointer;
+	font: inherit;
+	min-width: 35px;
+	min-height: 25px;
+	border-radius: 40%;
+	background-color: $secondary-color;
+	color: $primary-color;
+	transition: $transition;
+	justify-content: center;
+	align-items: center;
+	@include displayFlex();
+	@include font(500, 12, 20);
+	text-transform: uppercase;
 	@media screen and (max-width: 767px) {
-	width: 32px;
+	margin-left: 10px;
+    @include font(400, 10, 16);
 	}
-}
-.ua.dark-mode{
-	@media screen and (max-width: 767px) {
-		width: 43px;
-		}
+	&:hover,
+	&:focus {
+		
+		border-color: #ff6b01;
+		box-shadow: $box-shadow;
+	}
 }
