@@ -10,6 +10,9 @@ refs.btnHome.addEventListener('click', openHomePage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
 export function openHomePage() {
+   if (refs.btnHome.classList.contains('current')) {
+      return;
+   }
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');
