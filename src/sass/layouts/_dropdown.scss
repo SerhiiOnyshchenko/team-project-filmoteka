@@ -7,6 +7,9 @@
 		margin-bottom: 130px;
 	}
 	@media screen and (min-width: 768px) {
+		margin-bottom: 40px;
+	}
+	@media screen and (min-width: 1024px) {
 		margin-bottom: 0;
 	}
 	&__dropdown {
@@ -105,6 +108,9 @@
 		height: 148px;
 	}
 	@media screen and (min-width: 768px) {
+		height: 122px;
+	}
+	@media screen and (min-width: 1024px) {
 		height: 88px;
 	}
 }
