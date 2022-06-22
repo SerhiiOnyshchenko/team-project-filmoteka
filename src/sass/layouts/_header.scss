@@ -388,9 +388,12 @@
 	@include font(500, 12, 20);
 	text-transform: uppercase;
 	color: $secondary-color;
+	@media screen and (max-width: 480px) {
+		@include font(400, 8, 16);
+	}
 	@media screen and (max-width: 767px) {
 	margin-left: 10px;
-    @include font(400, 8, 16);
+    @include font(400, 10, 16);
 	}
 }
 .change {

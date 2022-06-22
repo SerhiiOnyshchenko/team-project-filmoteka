@@ -21,7 +21,7 @@
 	&-heart-icon {
 		fill: $accent-color;
 		margin-right: 10px;
-		margin-left: 10px;
+		margin-left: 11px;
 
 		animation: pulse 1500ms infinite;
 		transition: $transition;
@@ -50,17 +50,16 @@
 	}
 	.footer-text-mrleft {
 		margin-left: 5px;
-
-     .footer-link {
-         cursor: pointer;
-         color: $third-color;
-         text-decoration: underline;
-         transition: $transition;
-         &:hover,
-         &:focus {
-            color: $accent-color;
-         }
-      }
    }
-
+   .footer-link {
+	margin-left: 4px;
+	cursor: pointer;
+	color: $third-color;
+	text-decoration: underline;
+	transition: $transition;
+	&:hover,
+	&:focus {
+	   color: $accent-color;
+	}
+ }
 }

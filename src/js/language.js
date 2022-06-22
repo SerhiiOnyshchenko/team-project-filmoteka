@@ -12,11 +12,33 @@ const dropbtn = document.querySelector('.header__dropbtn');
 const userMenuTitleHover = document.querySelector('.user-menu__title-hover');
 const userMenuList = document.querySelector('.user-menu__list');
 const headerDropdownContent = document.querySelector('.header__dropdown-content');
-// const footerText = document.querySelector('.footer-wraper')
 const footerTextMrbottom = document.querySelector('.footer-text-mrbottom');
 const footerTextMrleft = document.querySelector('.footer-text-mrleft');
 const footerLink = document.querySelector('.footer-link');
 const by = document.querySelector('.by');
+const inputError = document.querySelector('.input-error');
+const watched = document.getElementById('watched');
+const queue = document.getElementById('queue');
+const btnLoginHeader = document.getElementById('btnLoginHeader');
+const changePassword = document.getElementById('changePassword');
+const Setting = document.getElementById('setting');
+const btnLogoutHeader = document.getElementById('btnLogoutHeader');
+const SignIn = document.getElementById('SignIn');
+const txtEmailLogin = document.getElementById('txtEmailLogin');
+const txtPasswordLogin = document.getElementById('txtPasswordLogin');
+const registerFormLink = document.querySelector('.register-form__link');
+const btnLoginBtn = document.getElementById('btnLoginBtn');
+const HelloFriend = document.getElementById('HelloFriend');
+const HelloFriendText = document.getElementById('HelloFriendText');
+const signUpBtn = document.getElementById('signUpBtn');
+const WelcomeBack = document.getElementById('WelcomeBack');
+const WelcomeBackText = document.getElementById('WelcomeBackText');
+const signInBtn = document.getElementById('signInBtn');
+const createAccount = document.getElementById('createAccount');
+const txtNameRegister = document.getElementById('txtNameRegister');
+const txtEmailRegister = document.getElementById('txtEmailRegister');
+const txtPasswordRegister = document.getElementById('txtPasswordRegister');
+const btnSignUpBtn = document.getElementById('btnSignUpBtn');
 
 console.log(btnUa);
 console.log(btnEn);
@@ -24,6 +46,7 @@ console.log(mode);
 console.log(change);
 console.log(darkMode);
 console.log(changeContainer);
+
 
 
 localStorage.setItem('language', 'en');
@@ -41,25 +64,15 @@ btnUa.addEventListener('click',() =>{
     class="form__input"
     type="text"
     name="search"
-    placeholder="Поїхали!"
+    placeholder="Пошук..."
     />`
     dropbtn.classList.add('ua');
     darkMode.classList.add('ua');
     userMenuTitleHover.textContent = 'Портфоліо та налаштування'
     userMenuTitleHover.classList.add('ua');
-    userMenuList.innerHTML =
-    `<li class="user-menu__item" id="userMenuName"></li>
-    <li class="user-menu__item">Змінити пароль</li>
-    <li class="user-menu__item">Налаштування</li>
-    <li class="user-menu__item user-menu__item--btn">
-       <button
-          id="btnLogoutHeader"
-          class="user-menu__btn-logout"
-          type="button"
-       >
-       Вийти
-       </button>
-    </li>`
+    changePassword.textContent = 'Змінити пароль';
+    Setting.textContent = 'Налаштування';
+    btnLogoutHeader.textContent = 'Вийти';
     headerDropdownContent.innerHTML = 
     `<div class="header__dropdown-btn" data-genre="28">Екшен </div>
     <div class="header__dropdown-btn" data-genre="12">Пригоди</div>
@@ -80,8 +93,28 @@ btnUa.addEventListener('click',() =>{
     <div class="header__dropdown-btn" data-genre="37">Ве́стерн</div>`
     footerTextMrbottom.innerHTML = '&#169; 2022 | Всі права захищені |'
     footerTextMrleft.textContent = 'Розроблено з';
-    by.textContent = '';
+    by.textContent = 'by';
     footerLink.textContent = 'Студентами GoIT';
+    inputError.textContent ='Результат пошуку не вдалий. Введіть правильну назву фільму.';
+    watched.textContent = 'ПЕРЕГЛЯНУТІ';
+    queue.textContent = 'В ЧЕРЗІ';
+    btnLoginHeader.textContent = 'УВІЙТИ';
+    SignIn.textContent = 'Увійти';
+    txtEmailLogin.placeholder="Пошта";
+    txtPasswordLogin.placeholder = "Пароль";
+    registerFormLink.textContent = "Забули свій пароль?"
+    btnLoginBtn.textContent = "Увійти";
+    HelloFriend.textContent = "Привіт друже!"
+    HelloFriendText.textContent = "Введіть свої особисті дані та почніть подорож разом з нами";
+    signUpBtn.textContent = "Зареєструватися";
+    WelcomeBack.textContent = "Ласкаво просимо!";
+    WelcomeBackText.textContent = "Для того, щоб приєднатися до нас, будь ласка, увійдіть, використовуючи свою особисту інформацію";
+    signInBtn.textContent = "Увійти";
+    createAccount.textContent = "Створити обліковий запис";
+    txtNameRegister.placeholder="Ім'я";
+    txtEmailRegister.placeholder="Пошта";
+    txtPasswordRegister.placeholder="Пароль";
+    btnSignUpBtn.textContent = "Зареєструватися";
  if (localStorage.getItem('mode') === 'dark'){
 changeContainer.classList.add('ua');
 darkMode.textContent = "ТЕМНИЙ РЕЖИМ:";
@@ -112,19 +145,9 @@ btnEn.addEventListener('click',() =>{
  darkMode.classList.remove('ua');
  userMenuTitleHover.textContent = 'Portfolio and setting'
  userMenuTitleHover.classList.remove('ua');
- userMenuList.innerHTML =
- `<li class="user-menu__item" id="userMenuName"></li>
- <li class="user-menu__item">Change password</li>
- <li class="user-menu__item">Setting</li>
- <li class="user-menu__item user-menu__item--btn">
-    <button
-       id="btnLogoutHeader"
-       class="user-menu__btn-logout"
-       type="button"
-    >
-       Logout
-    </button>
- </li>`
+ changePassword.textContent = 'Change password';
+ Setting.textContent = 'Setting';
+ btnLogoutHeader.textContent = 'Logout';
  headerDropdownContent.innerHTML = 
  `<div class="header__dropdown-btn" data-genre="28">Action</div>
  <div class="header__dropdown-btn" data-genre="12">Adventure</div>
@@ -143,10 +166,30 @@ btnEn.addEventListener('click',() =>{
  <div class="header__dropdown-btn" data-genre="53">Thriller</div>
  <div class="header__dropdown-btn" data-genre="10752">War</div>
  <div class="header__dropdown-btn" data-genre="37">Western</div>`
- footerTextMrbottom.innerHTML = '&#169; 2022 |>&#169; 2022 | All Rights Reserved |';
+ footerTextMrbottom.innerHTML = '&#169; 2022 | &#169; 2022 | All Rights Reserved |';
  footerTextMrleft.textContent = 'Developed with';
  by.textContent = `by`;
  footerLink.textContent = 'GoIT Students';
+ inputError.textContent ='Search result not successful. Enter the correct movie name.';
+ watched.textContent = 'watched';
+ queue.textContent = 'queue';
+ btnLoginHeader.textContent = 'Login';
+ SignIn.textContent = 'Sign in';
+ txtEmailLogin.placeholder="Email";
+ txtPasswordLogin.placeholder = "Password";
+ registerFormLink.textContent = "Forgot your password?";
+ btnLoginBtn.textContent = "Sign In";
+ HelloFriend.textContent = "Hello, Friend!";
+ HelloFriendText.textContent = "Enter your personal details and start journey with us";
+ signUpBtn.textContent = "Sign Up";
+ WelcomeBack.textContent = "Welcome Back!";
+ WelcomeBackText.textContent = "To keep connected with us please login with your personal info";
+ signInBtn.textContent = "Sign In";
+ createAccount.textContent = "Create Account";
+ txtNameRegister.placeholder="Name";
+ txtEmailRegister.placeholder="Email";
+ txtPasswordRegister.placeholder="Password";
+ btnSignUpBtn.textContent = "Sign Up";
     if (localStorage.getItem('mode') === 'dark'){
         changeContainer.classList.remove('ua');
         darkMode.textContent = "Dark mode:";
