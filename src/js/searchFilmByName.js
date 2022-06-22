@@ -7,30 +7,33 @@ import { deleteActiveClassByGenresBtn } from './searchGenresMovies';
 
 export async function searchFilmByName(query, page = 1) {
    const data = await fetchFilmsByName(query, page);
-   gloalVar.totalPages = data.total_pages;
-   gloalVar.whichTypeMovieSearch = 'search';
-   gloalVar.searchText = query;
    if (data.results.length) {
+      window.history.replaceState(
+         {},
+         '',
+         `?type=search&query=${query}&page=${page}`
+      );
+      gloalVar.totalPages = data.total_pages;
+      gloalVar.whichTypeMovieSearch = 'search';
+      gloalVar.searchText = query;
       refs.inputError.classList.add('visually-hidden');
       refs.galleryList.innerHTML = data.results
          .map(createFilmCardMarkup)
          .join('');
+      renderBtn(page);
+      deleteActiveClassByGenresBtn();
    } else {
       refs.inputError.classList.remove('visually-hidden');
    }
-   renderBtn(page);
-   deleteActiveClassByGenresBtn();
 }
 
 refs.searchForm.addEventListener('submit', async e => {
    e.preventDefault();
    const query = refs.searchForm.search.value.trim();
    if (query.length > 0) {
-   searchFilmByName(query);
-   refs.searchForm.reset();
+      searchFilmByName(query);
+      refs.searchForm.reset();
    }
-   
-  
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,4 +44,3 @@ document.addEventListener('DOMContentLoaded', () => {
       searchFilmByName(query, page);
    }
 });
-

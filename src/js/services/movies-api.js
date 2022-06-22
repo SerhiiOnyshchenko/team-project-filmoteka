@@ -25,11 +25,6 @@ export function popularMoviesTrend(page = 1) {
 }
 
 export function fetchFilmsByName(query, page = 1) {
-   window.history.replaceState(
-      {},
-      '',
-      `?type=search&query=${query}&page=${page}`
-   );
    const url = `${BASE_URL}search/movie?api_key=${MY_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`;
    return fetchWithErrorHandling(url);
 }
