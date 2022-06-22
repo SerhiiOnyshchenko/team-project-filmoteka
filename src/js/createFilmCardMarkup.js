@@ -2,8 +2,15 @@ import { URL_IMG } from './services/movies-api';
 import genresA from './db/dbListGenres';
 
 export default function createFilmCardMarkup(filmData) {
-   const { poster_path, genre_ids, id, title, release_date, vote_average, genres } =
-      filmData;
+   const {
+      poster_path,
+      genre_ids,
+      id,
+      title,
+      release_date,
+      vote_average,
+      genres,
+   } = filmData;
    const genresArr = genres?.map(({ id }) => id) || [];
    const filmGenresId = genre_ids?.slice(0, 3) || genresArr;
    const filmGenres = [];
@@ -14,7 +21,12 @@ export default function createFilmCardMarkup(filmData) {
          }
       }
    }
+
+   if (filmGenres.length > 2) {
+      filmGenres[filmGenres.length - 1] = 'Others';
+   }
    const filmGenresString = filmGenres.join(', ');
+
    const filmDate = release_date?.slice(0, 4) || '...';
    const filmPoster = poster_path
       ? URL_IMG + poster_path

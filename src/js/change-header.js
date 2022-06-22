@@ -9,13 +9,23 @@ refs.logo.addEventListener('click', openHomePage);
 refs.btnHome.addEventListener('click', openHomePage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
+// export function clickLogo() {
+//    if (refs.btnHome.classList.contains('current')) {
+//       refs.logo.removeAttribute('href');
+//    }
+//    openHomePage();
+// }
+
 export function openHomePage() {
+   if (refs.btnHome.classList.contains('current')) {
+      return;
+   }
+   // refs.logo.setAttribute('href', '');
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');
    refs.btnHome.classList.add('current');
    refs.header.classList.remove('library__background');
-
    searchTrendFilms();
 }
 
@@ -23,6 +33,7 @@ function openMyLibrary() {
    onAuthStateChanged(auth, user => {
       if (user) {
          addBtnMyLibrary();
+         // refs.logo.setAttribute('href', '');
          refs.galleryList.innerHTML = '';
          refs.header.classList.add('library__background');
          refs.libraryBtns.classList.remove('display-none');

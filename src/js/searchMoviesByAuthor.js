@@ -33,6 +33,9 @@ refs.cardMoveAuthors.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+   if (window.location.search === '') {
+      return;
+   }
    const searchParams = window.location.search.split('?')[1].split('&');
    if (searchParams[0] === 'type=author') {
       const personId = searchParams[1].split('=')[1];

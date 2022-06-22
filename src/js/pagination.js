@@ -11,9 +11,12 @@ let totalPages;
 let clickPage = 1;
 
 function pushInArray() {
+   if (totalPages < 2) {
+      return;
+   }
    if (clickPage > 1) {
       emptyArray.push(
-         `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left">&#129128;</button></li>`
+         `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left" aria-label="pagination left"></button></li>`
       );
    }
    if (window.innerWidth < 768) {
@@ -78,7 +81,7 @@ function pushInArray() {
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
                   emptyArray.push(
-                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn">...</button></li>`
+                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
                   );
                }
             } else if (i === totalPages) {
@@ -88,7 +91,7 @@ function pushInArray() {
                   );
                } else {
                   emptyArray.push(
-                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn">...</button></li>`
+                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
                   );
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
@@ -115,7 +118,7 @@ function pushInArray() {
    }
    if (clickPage < totalPages) {
       emptyArray.push(
-         `<li class="pagination__item--right"><button class="pagination__btn--right js-pagination__btn--right">&#129130;</button></li>`
+         `<li class="pagination__item--right"><button class="pagination__btn--right js-pagination__btn--right" aria-label="pagination right"></button></li>`
       );
    }
 }
@@ -133,7 +136,14 @@ refs.paginationList.addEventListener('click', onBtnClick);
 
 function onBtnClick(e) {
    const currentBtn = e.target;
-   if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
+   if (
+      currentBtn.classList.contains('pagination__btn--current') ||
+      currentBtn.classList.contains('pagination__item') ||
+      currentBtn.classList.contains('pagination__list') ||
+      currentBtn.classList.contains('pagination__btn--none')
+   ) {
+      return;
+   } else if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
       clickPage = Number(currentBtn.dataset.id);
       scrollUp();
    } else {
