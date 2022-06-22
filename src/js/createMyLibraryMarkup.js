@@ -68,12 +68,8 @@ export async function renderQueueFilms(page = 1) {
 }
 
 function templateTextEmptyLibrary() {
-   refs.galleryList.innerHTML = '<p>There are no movies in your library</p>';
-   // refs.galleryList.innerHTML = '<img src="./images/library/camera/camera.webp" alt="template"/>';
+   refs.galleryList.innerHTML = '<p>There are not movies in your library</p>';
    refs.galleryList.style.fontSize = '24px';
    refs.galleryList.style.textAlign = 'center';
    refs.galleryList.classList.remove('grid-container');
-   // refs.containerMy.style.width = '100%';
-   // refs.containerMy.style.color = '#ffffff';
-   // refs.galleryList.classList.add('my-library-template');
 }
