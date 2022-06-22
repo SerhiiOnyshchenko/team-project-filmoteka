@@ -24,6 +24,9 @@ export async function searchFilmByName(query, page = 1) {
       deleteActiveClassByGenresBtn();
    } else {
       refs.inputError.classList.remove('visually-hidden');
+      setTimeout(() => {
+         refs.inputError.classList.add('visually-hidden');
+      }, 4000);
    }
 }
 
