@@ -1,12 +1,17 @@
 .language-container{
     display: flex;
+    color: #000;
 }
 
 
 
 
 .language{
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    // display: block;
     width: 20px;
     height: 20px;
     background-color: #fff;
