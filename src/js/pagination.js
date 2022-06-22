@@ -10,6 +10,9 @@ let totalPages;
 let clickPages = 1;
 
 function pushInArray() {
+   if (totalPages < 2) {
+      return;
+   }
    if (clickPages > 1) {
       emptyArray.push(
          `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left">&#129128</button></li>`
@@ -131,9 +134,14 @@ refs.paginationList.addEventListener('click', onBtnClick);
 
 function onBtnClick(e) {
    const currentBtn = e.target;
-   if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
+   if (
+      currentBtn.classList.contains('pagination__btn--current') ||
+      currentBtn.classList.contains('pagination__item') ||
+      currentBtn.classList.contains('pagination__list')
+   ) {
+      return;
+   } else if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
       clickPages = Number(currentBtn.dataset.id);
-      renderBtn(totalPages);
       removeClassList();
       addCurrentFromId();
       scrollUp();
