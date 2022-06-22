@@ -39,13 +39,60 @@ const txtNameRegister = document.getElementById('txtNameRegister');
 const txtEmailRegister = document.getElementById('txtEmailRegister');
 const txtPasswordRegister = document.getElementById('txtPasswordRegister');
 const btnSignUpBtn = document.getElementById('btnSignUpBtn');
+const comand = document.querySelector('.comand');
+const serhiiTitle = document.getElementById('serhiiTitle');
+const serhiiText = document.getElementById('serhiiText');
+const anastasiiaTitle = document.getElementById('anastasiiaTitle');
+const anastasiiaText= document.getElementById('anastasiiaText');
+const dmitriyTitle = document.getElementById('dmitriyTitle');
+const dmitriyText = document.getElementById('dmitriyText');
+const illiaTitle = document.getElementById('illiaTitle');
+const illiaText = document.getElementById('illiaText');
+const maksymTitle = document.getElementById('maksymTitle');
+const maksymText = document.getElementById('maksymText');
+const vladTitle = document.getElementById('vladTitle');
+const vladText= document.getElementById('vladText');
+const vladimirTitle = document.getElementById('vladimirTitle');
+const vladimirText = document.getElementById('vladimirText');
+const nataliaTitle = document.getElementById('nataliaTitle');
+const nataliaText = document.getElementById('nataliaText');
+const dmitriy2Title = document.getElementById('dmitriy2Title');
+const dmitriy2Text = document.getElementById('dmitriy2Text');
 
-console.log(btnUa);
-console.log(btnEn);
-console.log(mode);
-console.log(change);
-console.log(darkMode);
-console.log(changeContainer);
+console.log(serhiiTitle);
+console.log(serhiiText);
+
+console.log(anastasiiaTitle);
+
+console.log(anastasiiaText);
+
+console.log(dmitriyTitle);
+
+console.log(dmitriyText);
+
+console.log(illiaTitle);
+
+console.log(illiaText);
+
+console.log(maksymTitle);
+
+console.log(maksymText);
+
+console.log(vladTitle);
+
+console.log(vladText);
+
+console.log(vladimirTitle);
+
+console.log(vladimirText);
+
+console.log(nataliaTitle);
+
+console.log(nataliaText);
+
+console.log(dmitriy2Title);
+
+console.log(dmitriy2Text);
 
 
 
@@ -115,6 +162,34 @@ btnUa.addEventListener('click',() =>{
     txtEmailRegister.placeholder="Пошта";
     txtPasswordRegister.placeholder="Пароль";
     btnSignUpBtn.textContent = "Зареєструватися";
+    comand.textContent = "Наша команда";
+    serhiiTitle.textContent ="Сергій";
+    serhiiText.textContent = "Тімлід";
+   
+    anastasiiaTitle.textContent = "Анастасія";
+    anastasiiaText.textContent = "Скрам ";
+   
+    dmitriyTitle.textContent = "Дмитро";
+    dmitriyText.textContent = "Розробник ";
+   
+    illiaTitle.textContent = "Ілля";
+    illiaText.textContent = "Розробник ";
+   
+    maksymTitle.textContent = "Максим";
+    maksymText.textContent = "Розробник ";
+   
+    vladTitle.textContent = "Влад";
+    vladText.textContent = "Розробник ";
+   
+    vladimirTitle.textContent = "Володимир";
+    vladimirText.textContent = "Розробник ";
+   
+    nataliaTitle.textContent = "Наталія";
+    nataliaText.textContent = "Розробник ";
+   
+    dmitriy2Title.textContent = "Дмитро";
+    dmitriy2Text.textContent = "Розробник ";
+
  if (localStorage.getItem('mode') === 'dark'){
 changeContainer.classList.add('ua');
 darkMode.textContent = "ТЕМНИЙ РЕЖИМ:";
@@ -190,6 +265,33 @@ btnEn.addEventListener('click',() =>{
  txtEmailRegister.placeholder="Email";
  txtPasswordRegister.placeholder="Password";
  btnSignUpBtn.textContent = "Sign Up";
+ comand.textContent = "Our Team";
+ serhiiTitle.textContent ="Serhii";
+ serhiiText.textContent = "Team Lead";
+
+ anastasiiaTitle.textContent = "Anastasiia";
+ anastasiiaText.textContent = "Scrum";
+
+ dmitriyTitle.textContent = "Dmitriy";
+ dmitriyText.textContent = "Developer";
+
+ illiaTitle.textContent = "Illia";
+ illiaText.textContent = "Developer";
+
+ maksymTitle.textContent = "Maksym";
+ maksymText.textContent = "Developer";
+
+ vladTitle.textContent = "Vlad";
+ vladText.textContent = "Developer";
+
+ vladimirTitle.textContent = "Vladimir";
+ vladimirText.textContent = "Developer";
+
+ nataliaTitle.textContent = "Natalia";
+ nataliaText.textContent = "Developer";
+
+ dmitriy2Title.textContent = "Dmitriy";
+ dmitriy2Text.textContent = "Developer";
     if (localStorage.getItem('mode') === 'dark'){
         changeContainer.classList.remove('ua');
         darkMode.textContent = "Dark mode:";
