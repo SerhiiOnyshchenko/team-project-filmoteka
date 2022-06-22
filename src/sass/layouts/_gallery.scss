@@ -89,3 +89,12 @@
    cursor: pointer;
    box-shadow: 0px 0px 12px 0px $secondary-color;
 }
+
+.camera-template {
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   background-image: url("../images/library/camera-template/camera.webp");
+   text-align: center;
+   font-size: 32px;
+}
