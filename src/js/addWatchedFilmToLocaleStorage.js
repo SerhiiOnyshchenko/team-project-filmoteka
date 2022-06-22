@@ -3,19 +3,22 @@ import { auth } from './auth/firebaseAPP';
 import { showFormLoginRegister } from './registerLoginForm';
 import throttle from 'lodash.throttle';
 import toggleBtnTextAndStyle from './toggleBtnTextAndStyle';
+import { renderQueueFilms, renderWatchedFilms } from './createMyLibraryMarkup';
+import gloalVar from './globalConst';
+
+let watchedFilms = [];
 
 export default function addWatchedFilmToLocaleStorage(filmData) {
-   let watchedFilms = [];
-   try {
-      watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
-   } catch (error) {
-      watchedFilms = [];
-   }
-
    const btnWatched = document.querySelector('.add-to-watched');
 
    btnWatched.addEventListener('click', throttle(onBtnWatchedClick, 1000));
    function onBtnWatchedClick(e) {
+      try {
+         watchedFilms = [...JSON.parse(localStorage.getItem('watchedFilms'))];
+      } catch (error) {
+         watchedFilms = [];
+      }
+
       onAuthStateChanged(auth, user => {
          if (user) {
             if (e.target.classList.contains('btn-checked')) {
@@ -66,6 +69,18 @@ function deleteFilmFromQueue(id) {
             localStorage.setItem('queueFilms', JSON.stringify(filteredFilm));
             toggleBtnTextAndStyle('btnQueue');
          }
+      }
+      if (
+         document.querySelector('.library__background') &&
+         gloalVar.whichTypeMovieSearch === 'queue'
+      ) {
+         renderQueueFilms();
+      }
+      if (
+         document.querySelector('.library__background') &&
+         gloalVar.whichTypeMovieSearch === 'watched'
+      ) {
+         renderWatchedFilms();
       }
    }
 }

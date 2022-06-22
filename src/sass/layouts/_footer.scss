@@ -3,9 +3,7 @@
 }
 
 .footer-wraper {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	@include displayFlex();
 	padding-top: 30px;
 	padding-bottom: 30px;
 

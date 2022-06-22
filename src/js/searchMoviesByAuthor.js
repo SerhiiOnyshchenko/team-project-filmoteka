@@ -3,13 +3,13 @@ import gloalVar from './globalConst';
 import { fetchMoviesByPersonId } from './services/movies-api';
 import createFilmCardMarkup from './createFilmCardMarkup';
 import { closeModal } from './modal';
-import { renderBtn } from './pagination';
+import { renderBtn, scrollUp } from './pagination';
 
 export async function searchMoviesByAuthor(person_id, page = 1) {
    window.history.replaceState(
       {},
       '',
-      `author?person_id=${person_id}&page=${page}`
+      `?type=author&person_id=${person_id}&page=${page}`
    );
    const { cast } = await fetchMoviesByPersonId(person_id);
    gloalVar.personId = person_id;
@@ -20,7 +20,8 @@ export async function searchMoviesByAuthor(person_id, page = 1) {
    refs.galleryList.innerHTML = showMoviesArray
       .map(createFilmCardMarkup)
       .join('');
-   renderBtn();
+   renderBtn(page);
+   scrollUp();
 }
 
 refs.cardMoveAuthors.addEventListener('click', e => {
@@ -32,10 +33,13 @@ refs.cardMoveAuthors.addEventListener('click', e => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-   if (window.location.pathname === '/author') {
-      const searchParams = window.location.search.split('?')[1].split('&');
-      const personId = searchParams[0].split('=')[1];
-      const page = searchParams[1].split('=')[1];
+   if (window.location.search === '') {
+      return;
+   }
+   const searchParams = window.location.search.split('?')[1].split('&');
+   if (searchParams[0] === 'type=author') {
+      const personId = searchParams[1].split('=')[1];
+      const page = searchParams[2].split('=')[1];
       searchMoviesByAuthor(personId, page);
    }
 });

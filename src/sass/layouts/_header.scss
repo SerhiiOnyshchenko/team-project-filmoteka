@@ -106,6 +106,12 @@
 }
 .header__item {
 	margin-left: 40px;
+	@media screen and (max-width: 425px) {
+		margin-left: 20px;
+		#my-library__js {
+			width: 70px;
+		}
+	}
 }
 .header__btn {
 	background-color: transparent;
@@ -179,6 +185,7 @@
 	position: relative;
 	bottom: 0;
 	right: 13px;
+	z-index: 5;
 }
 
 .form__input:focus-within {
@@ -237,12 +244,17 @@
 
 	transition: $transition;
 	&:hover,
-	&:focus,
-	&:active {
+	&:focus {
 		background: #ff6b01;
 		border-color: #ff6b01;
 		box-shadow: $box-shadow;
 	}
+}
+
+.active-btn {
+	background: #ff6b01;
+	border-color: #ff6b01;
+	box-shadow: $box-shadow;
 }
 
 .display-none {

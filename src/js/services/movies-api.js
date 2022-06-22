@@ -16,14 +16,15 @@ export function fetchLoadMoreFilm(movie_id) {
 }
 
 export function popularMoviesTrend(page = 1) {
-   window.history.replaceState({}, '', `popular?page=${page}`);
+   if (window.location.search !== '') {
+      window.history.replaceState({}, '', `?type=popular&page=${page}`);
+   }
    return fetchWithErrorHandling(
       `${BASE_URL}trending/movie/week?api_key=${MY_KEY}&page=${page}`
    );
 }
 
 export function fetchFilmsByName(query, page = 1) {
-   window.history.replaceState({}, '', `search?query=${query}&page=${page}`);
    const url = `${BASE_URL}search/movie?api_key=${MY_KEY}&language=en-US&query=${query}&page=${page}&include_adult=false`;
    return fetchWithErrorHandling(url);
 }
@@ -48,7 +49,7 @@ export function fetchGenresMovies(genre, page) {
    window.history.replaceState(
       {},
       '',
-      `genres?with_genres=${genre}&page=${page}`
+      `?type=genres&with_genres=${genre}&page=${page}`
    );
    const url = `${BASE_URL}discover/movie?api_key=${MY_KEY}&with_genres=${genre}&page=${page}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false`;
    return fetchWithErrorHandling(url);

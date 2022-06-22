@@ -75,7 +75,6 @@ const logout = async () => {
 const monitorAuthState = async () => {
    onAuthStateChanged(auth, user => {
       if (user) {
-         console.log(user);
          refs.loginUser.innerHTML = '';
          refs.btnLoginHeader.style.display = 'none';
          refs.userMenu.style.display = 'flex';

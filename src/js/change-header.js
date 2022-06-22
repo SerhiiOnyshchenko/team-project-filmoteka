@@ -3,12 +3,16 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { showFormLoginRegister } from './registerLoginForm';
 import { auth } from './auth/firebaseAPP';
 import { searchTrendFilms } from './searchTrendFilms';
+import { addBtnMyLibrary } from './createMyLibraryMarkup';
 
 refs.logo.addEventListener('click', openHomePage);
 refs.btnHome.addEventListener('click', openHomePage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
 export function openHomePage() {
+   if (refs.btnHome.classList.contains('current')) {
+      return;
+   }
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');
@@ -21,6 +25,7 @@ export function openHomePage() {
 function openMyLibrary() {
    onAuthStateChanged(auth, user => {
       if (user) {
+         addBtnMyLibrary();
          refs.galleryList.innerHTML = '';
          refs.header.classList.add('library__background');
          refs.libraryBtns.classList.remove('display-none');
