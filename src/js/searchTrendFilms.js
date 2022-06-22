@@ -25,3 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
       searchTrendFilms(page);
    }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+   const arrBackdrop = document.querySelectorAll('.backdrop');
+   arrBackdrop.forEach(back => (back.style.display = 'flex'));
+});
