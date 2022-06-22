@@ -9,6 +9,9 @@ export async function searchGenresMovies(genre, page = 1) {
    gloalVar.totalPages = data.total_pages;
    gloalVar.whichTypeMovieSearch = 'genres';
    gloalVar.genre = genre;
+   if (!refs.galleryList.classList.contains('grid-container')) {
+      refs.galleryList.classList.add('grid-container');
+   }
    refs.galleryList.innerHTML = data.results.map(createFilmCardMarkup).join('');
    renderBtn(page);
 }

@@ -24,15 +24,19 @@ function onBtnWatched() {
 export async function renderWatchedFilms(page = 1) {
    const savedWatched = await localStorage.getItem('watchedFilms');
    const parsedWatched = JSON.parse(savedWatched);
-   if (savedWatched) {
+   if (!parsedWatched || parsedWatched.length === 0) {
+      gloalVar.totalPages = 1;
+      templateTextEmptyLibrary();
+   } else {
       gloalVar.whichTypeMovieSearch = 'watched';
       gloalVar.totalPages = Math.ceil(parsedWatched.length / 20);
       const showMoviesArray = parsedWatched.slice((page - 1) * 20, page * 20);
+      if (!refs.galleryList.classList.contains('grid-container')) {
+         refs.galleryList.classList.add('grid-container');
+      }
       refs.galleryList.innerHTML = showMoviesArray
          .map(createFilmCardMarkup)
          .join('');
-   } else {
-      gloalVar.totalPages = 1;
    }
    renderBtn(page);
 }
@@ -46,15 +50,30 @@ function onBtnQueue() {
 export async function renderQueueFilms(page = 1) {
    const savedQueue = await localStorage.getItem('queueFilms');
    const parsedQueue = JSON.parse(savedQueue);
-   if (savedQueue) {
+   if (!parsedQueue || parsedQueue.length === 0) {
+      gloalVar.totalPages = 1;
+      templateTextEmptyLibrary();
+   } else {
       gloalVar.whichTypeMovieSearch = 'queue';
       gloalVar.totalPages = Math.ceil(parsedQueue.length / 20);
       const showMoviesArray = parsedQueue.slice((page - 1) * 20, page * 20);
+      if (!refs.galleryList.classList.contains('grid-container')) {
+         refs.galleryList.classList.add('grid-container');
+      }
       refs.galleryList.innerHTML = showMoviesArray
          .map(createFilmCardMarkup)
          .join('');
-   } else {
-      gloalVar.totalPages = 1;
    }
    renderBtn(page);
+}
+
+function templateTextEmptyLibrary() {
+   refs.galleryList.innerHTML = '<p>There are no movies in your library</p>';
+   // refs.galleryList.innerHTML = '<img src="./images/library/camera/camera.webp" alt="template"/>';
+   refs.galleryList.style.fontSize = '24px';
+   refs.galleryList.style.textAlign = 'center';
+   refs.galleryList.classList.remove('grid-container');
+   // refs.containerMy.style.width = '100%';
+   // refs.containerMy.style.color = '#ffffff';
+   // refs.galleryList.classList.add('my-library-template');
 }
