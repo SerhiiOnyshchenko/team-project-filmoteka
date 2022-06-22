@@ -114,3 +114,15 @@
 		height: 88px;
 	}
 }
+.ua.header__dropbtn{
+	&:before {
+		content: "Жанри";
+		position: absolute;
+		top: -20px;
+		left: 50%;
+		font-size: 20px;
+		font-weight: 500;
+		color: $secondary-color;
+		transform: translateX(-50%);
+	}
+}

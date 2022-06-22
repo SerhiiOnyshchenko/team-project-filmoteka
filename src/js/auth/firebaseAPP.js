@@ -81,6 +81,15 @@ const monitorAuthState = async () => {
          refs.firstLetter.innerHTML = user.displayName.slice(0, 1);
          refs.userMenuName.innerHTML = user.displayName.toUpperCase();
       } else {
+
+         // if(localStorage.getItem("language") === "ua"){
+         //    // refs.loginUser.innerHTML = `Ви не ввійшли в систему.`;
+         //    refs.loginUser.textContent = "Ви не ввійшли в систему.";
+         // }
+         // else{
+         //    refs.loginUser.innerHTML = `You're not logged in.`;
+         //    refs.loginUser.textContent = "You're not logged in.";
+         // }
          refs.loginUser.innerHTML = `You're not logged in.`;
          refs.btnLoginHeader.style.display = 'block';
          refs.userMenu.style.display = 'none';
