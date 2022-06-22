@@ -11,7 +11,10 @@ let totalPages;
 let clickPage = 1;
 
 function pushInArray() {
-   if (clickPage > 1) {
+   if (totalPages < 2) {
+      return;
+   }
+   if (clickPages > 1) {
       emptyArray.push(
          `<li class="pagination__item--left"><button class="pagination__btn--left js-pagination__btn--left" aria-label="pagination left"></button></li>`
       );
@@ -133,8 +136,14 @@ refs.paginationList.addEventListener('click', onBtnClick);
 
 function onBtnClick(e) {
    const currentBtn = e.target;
-   if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
-      clickPage = Number(currentBtn.dataset.id);
+   if (
+      currentBtn.classList.contains('pagination__btn--current') ||
+      currentBtn.classList.contains('pagination__item') ||
+      currentBtn.classList.contains('pagination__list')
+   ) {
+      return;
+   } else if (currentBtn.nodeName === 'BUTTON' && currentBtn.dataset.id) {
+      clickPages = Number(currentBtn.dataset.id);
       scrollUp();
    } else {
       onArrowClick(currentBtn);
