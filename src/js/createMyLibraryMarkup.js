@@ -24,12 +24,16 @@ function onBtnWatched() {
 export async function renderWatchedFilms(page = 1) {
    const savedWatched = await localStorage.getItem('watchedFilms');
    const parsedWatched = JSON.parse(savedWatched);
-   gloalVar.whichTypeMovieSearch = 'watched';
-   gloalVar.totalPages = Math.ceil(parsedWatched.length / 20);
-   const showMoviesArray = parsedWatched.slice((page - 1) * 20, page * 20);
-   refs.galleryList.innerHTML = showMoviesArray
-      .map(createFilmCardMarkup)
-      .join('');
+   if (savedWatched) {
+      gloalVar.whichTypeMovieSearch = 'watched';
+      gloalVar.totalPages = Math.ceil(parsedWatched.length / 20);
+      const showMoviesArray = parsedWatched.slice((page - 1) * 20, page * 20);
+      refs.galleryList.innerHTML = showMoviesArray
+         .map(createFilmCardMarkup)
+         .join('');
+   } else {
+      gloalVar.totalPages = 1;
+   }
    renderBtn(page);
 }
 
@@ -42,11 +46,15 @@ function onBtnQueue() {
 export async function renderQueueFilms(page = 1) {
    const savedQueue = await localStorage.getItem('queueFilms');
    const parsedQueue = JSON.parse(savedQueue);
-   gloalVar.whichTypeMovieSearch = 'queue';
-   gloalVar.totalPages = Math.ceil(parsedQueue.length / 20);
-   const showMoviesArray = parsedQueue.slice((page - 1) * 20, page * 20);
-   refs.galleryList.innerHTML = showMoviesArray
-      .map(createFilmCardMarkup)
-      .join('');
+   if (savedQueue) {
+      gloalVar.whichTypeMovieSearch = 'queue';
+      gloalVar.totalPages = Math.ceil(parsedQueue.length / 20);
+      const showMoviesArray = parsedQueue.slice((page - 1) * 20, page * 20);
+      refs.galleryList.innerHTML = showMoviesArray
+         .map(createFilmCardMarkup)
+         .join('');
+   } else {
+      gloalVar.totalPages = 1;
+   }
    renderBtn(page);
 }
