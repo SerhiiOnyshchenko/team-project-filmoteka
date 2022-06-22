@@ -5,11 +5,11 @@ import { auth } from './auth/firebaseAPP';
 import { searchTrendFilms } from './searchTrendFilms';
 import { addBtnMyLibrary } from './createMyLibraryMarkup';
 
-refs.logo.addEventListener('click', openHomePage);
-refs.btnHome.addEventListener('click', openHomePage);
+refs.logo.addEventListener('click', checkedPage);
+refs.btnHome.addEventListener('click', checkedPage);
 refs.btnMyLibrary.addEventListener('click', openMyLibrary);
 
-export function openHomePage(e) {
+function checkedPage(e) {
    e.preventDefault();
    if (window.location.search === '') {
       return;
@@ -21,6 +21,9 @@ export function openHomePage(e) {
    ) {
       return;
    }
+   openHomePage();
+}
+export function openHomePage() {
    refs.libraryBtns.classList.add('display-none');
    refs.headerInput.classList.remove('display-none');
    refs.btnMyLibrary.classList.remove('current');

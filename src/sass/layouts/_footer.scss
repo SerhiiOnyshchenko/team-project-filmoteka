@@ -44,22 +44,22 @@
 		}
 	}
 	.footer-text-mrbottom {
-		@media screen and (max-width: 469px) {
+		@media screen and (max-width: 769px) {
 			margin-bottom: 10px;
 		}
 	}
 	.footer-text-mrleft {
 		margin-left: 5px;
-   }
-   .footer-link {
-	margin-left: 4px;
-	cursor: pointer;
-	color: $third-color;
-	text-decoration: underline;
-	transition: $transition;
-	&:hover,
-	&:focus {
-	   color: $accent-color;
 	}
- }
+	.footer-link {
+		margin-left: 4px;
+		cursor: pointer;
+		color: $third-color;
+		text-decoration: underline;
+		transition: $transition;
+		&:hover,
+		&:focus {
+			color: $accent-color;
+		}
+	}
 }
