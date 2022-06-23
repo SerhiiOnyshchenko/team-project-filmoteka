@@ -17,10 +17,6 @@ export async function searchMoviesByAuthor(person_id, page = 1) {
    gloalVar.totalPages = Math.ceil(cast.length / 20);
 
    const showMoviesArray = cast.slice((page - 1) * 20, page * 20);
-   if (!refs.galleryList.classList.contains('grid-container')) {
-      refs.galleryList.classList.add('grid-container');
-      refs.mainSection.classList.remove('camera-template');
-   }
    refs.galleryList.innerHTML = showMoviesArray
       .map(createFilmCardMarkup)
       .join('');

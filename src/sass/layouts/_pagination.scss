@@ -10,50 +10,41 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-right: -8px;
-		margin-left: -8px;
 	}
 
 	&__item {
-		margin-right: 8px;
-		margin-left: 8px;
-
+		border-radius: 5px;
+		border: 1px solid transparent;
+		color: $primary-color;
+		transition: $transition;
+		&:hover,
+		&:focus {
+			border: 1px solid $accent-color;
+			cursor: pointer;
+			color: $accent-color;
+		}
 		&--hidden {
 			@media screen and (max-width: 767px) {
 				display: none;
 			}
 		}
-
-		&--left {
-			margin-right: 20px;
-		}
-
-		&--right {
-			margin-left: 20px;
-		}
 		&--current {
 			width: 40px;
 			height: 40px;
-		}
-		&:hover .pagination__btn,
-		&:focus .pagination__btn {
-			cursor: pointer;
-			color: $accent-color;
-		}
-		&:hover .pagination__btn--current,
-		&:focus .pagination__btn--current {
-			color: $secondary-color;
 		}
 	}
 
 	&__btn {
 		@include font(500, 12, 16);
-		color: $primary-color;
+		color: inherit;
 		background-color: transparent;
-		width: 13px;
+		width: 40px;
 		height: 40px;
-		transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
+		&--none {
+			width: 16px;
+			color: $primary-color;
+			cursor: auto;
+		}
 		&--current {
 			border-radius: 5px;
 			width: 40px;

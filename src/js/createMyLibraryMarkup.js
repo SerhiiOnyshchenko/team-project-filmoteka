@@ -31,10 +31,7 @@ export async function renderWatchedFilms(page = 1) {
       gloalVar.whichTypeMovieSearch = 'watched';
       gloalVar.totalPages = Math.ceil(parsedWatched.length / 20);
       const showMoviesArray = parsedWatched.slice((page - 1) * 20, page * 20);
-      if (!refs.galleryList.classList.contains('grid-container')) {
-         refs.galleryList.classList.add('grid-container');
-         refs.mainSection.classList.remove('camera-template');
-      }
+      galleryNotEmpty();
       refs.galleryList.innerHTML = showMoviesArray
          .map(createFilmCardMarkup)
          .join('');
@@ -47,7 +44,12 @@ function onBtnQueue() {
    btnQueue.classList.add('active-btn');
    renderQueueFilms(1);
 }
-
+export function galleryNotEmpty() {
+   if (!refs.galleryList.classList.contains('grid-container')) {
+      refs.galleryList.classList.add('grid-container');
+      refs.mainSection.classList.remove('camera-template');
+   }
+}
 export async function renderQueueFilms(page = 1) {
    const savedQueue = await localStorage.getItem('queueFilms');
    const parsedQueue = JSON.parse(savedQueue);
@@ -70,7 +72,8 @@ export async function renderQueueFilms(page = 1) {
 }
 
 function templateTextEmptyLibrary() {
-   refs.galleryList.innerHTML = '<p id="myLibraryTemplateText">There are not movies in your library</p>';
+   refs.galleryList.innerHTML =
+      '<p id="myLibraryTemplateText">There are not movies in your library</p>';
    refs.galleryList.classList.remove('grid-container');
    if (refs.btnMyLibrary.classList.contains('current')) {
       refs.mainSection.classList.add('camera-template');

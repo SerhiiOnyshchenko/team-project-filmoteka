@@ -29,24 +29,20 @@ export function loadMoreInfoMarkup(data) {
    // let btnWatchedText = isWatched ? 'Remove from watched' : 'Add to Watched';
    let btnWatchedStyle = isWatched ? 'btn-checked' : '';
 
-   let btnWatchedText = "";
+   let btnWatchedText = '';
 
-   if(isWatched){
-      if(localStorage.getItem('language') === 'ua'){
-          btnWatchedText = 'Видалити з переглянутого';
-      }
-      else{
+   if (isWatched) {
+      if (localStorage.getItem('language') === 'ua') {
+         btnWatchedText = 'Видалити з переглянутого';
+      } else {
          btnWatchedText = 'Remove from watched';
       }
-   } else{
-      
-      if(localStorage.getItem('language') === 'ua'){
-          btnWatchedText = 'Додати до переглянутого';
-      }
-      else{
+   } else {
+      if (localStorage.getItem('language') === 'ua') {
+         btnWatchedText = 'Додати до переглянутого';
+      } else {
          btnWatchedText = 'Add to Watched';
       }
-
    }
 
    const queueFilms = localStorage.getItem('queueFilms');
@@ -62,28 +58,24 @@ export function loadMoreInfoMarkup(data) {
       }
    }
 
-   let btnQueueText = "";
+   let btnQueueText = '';
 
    // let btnQueueText = isQueue ? 'Remove from queue' : 'Add to queue';
    let btnQueueStyle = isQueue ? 'btn-checked' : '';
-   if(isQueue){
-      if(localStorage.getItem('language') === 'ua'){
+   if (isQueue) {
+      if (localStorage.getItem('language') === 'ua') {
          btnQueueText = 'Видалити з черги';
+      } else {
+         btnQueueText = 'Remove from queue';
       }
-      else{
-         btnQueueText =  'Remove from queue';
-      }
-   } else{
-      
-      if(localStorage.getItem('language') === 'ua'){
+   } else {
+      if (localStorage.getItem('language') === 'ua') {
          btnQueueText = 'Додати до черги';
-      }
-      else{
+      } else {
          btnQueueText = 'Add to queue';
       }
-
    }
-
+   const isLanguageUA = localStorage.getItem('language') === 'ua';
    const allGanres = genres.map(genre => genre.name).join(', ');
    const filmPoster = poster_path
       ? URL_IMG + poster_path
@@ -100,33 +92,43 @@ export function loadMoreInfoMarkup(data) {
       <h2 class="modal-title">${title}</h2>
       <div class="option-film">
        <div class="option-film-container">
-         <p class="option-film-left">Vote / Votes</p>
+         <p class="option-film-left">${
+            isLanguageUA ? 'Рейтинг' : 'Vote / Votes'
+         }</p>
          <p class="option-film-right">
             <span class="vote">${vote_average}</span><span class="slash"> /</span><span class="votes">${vote_count}</span>
          </p>
       </div>
       <div class="option-film-container">
-         <p class="option-film-left">Popularity</p>
+         <p class="option-film-left">${
+            isLanguageUA ? 'Популярність' : 'Popularity'
+         }</p>
          <p class="option-film-right">${popularity}</p>
       </div>
       <div class="option-film-container">
-         <p class="option-film-left">Original Title</p>
+         <p class="option-film-left">${
+            isLanguageUA ? 'Оригінальна назва' : 'Original Title'
+         }</p>
          <p class="option-film-right option-film-right-line-height">
             ${original_title}
          </p>
       </div>
       <div class="option-film-container">
-         <p class="option-film-left">Genre</p>  
+         <p class="option-film-left">${isLanguageUA ? 'Жанр' : 'Genre'}</p>  
          <p class="option-film-right option-film-right-line-height">${allGanres}</p>
       </div>
       <div class="option-film-container">
-         <p  class="option-film-left option-film-left-style">Authors</p>
+         <p  class="option-film-left option-film-left-style">${
+            isLanguageUA ? 'Автори' : 'Authors'
+         }</p>
          <div class="show-style">
-         <p class="option-film-right option-film-right-style" data-id=${id} id="showAuthors">SHOW</p>
+         <p class="option-film-right option-film-right-style" data-id=${id} id="showAuthors">${
+      isLanguageUA ? 'ПОКАЗАТИ' : 'SHOW'
+   }</p>
          </div>
       </div>
       </div>
-      <h3 class="title-modal">About</h3>
+      <h3 class="title-modal">${isLanguageUA ? 'Про фільм' : 'About'}About</h3>
       <p class="text-modal">
          ${overview}
       </p>
@@ -142,7 +144,6 @@ export function loadMoreInfoMarkup(data) {
    </div>
 </div>`;
 }
-
 
 // `<div class="image-container">
 // <img
@@ -172,7 +173,7 @@ export function loadMoreInfoMarkup(data) {
 //       </p>
 //    </div>
 //    <div class="option-film-container">
-//       <p class="option-film-left ua">Жанр</p>  
+//       <p class="option-film-left ua">Жанр</p>
 //       <p class="option-film-right option-film-right-line-height">${allGanres}</p>
 //    </div>
 //    <div class="option-film-container">
@@ -190,10 +191,10 @@ export function loadMoreInfoMarkup(data) {
 
 // <div class="btn-container" id="btn-container" >
 //    <button type="button" class="${btnWatchedStyle} btn-modal add-to-watched data-btn-id=${id}">
-//       ${btnWatchedText} 
+//       ${btnWatchedText}
 //    </button>
 //    <button type="button" class="${btnQueueStyle} btn-modal add-to-queue data-btn-id=${id}">
-//       ${btnQueueText} 
+//       ${btnQueueText}
 //    </button>
 // </div>
 // </div>`;

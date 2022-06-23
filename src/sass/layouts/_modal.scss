@@ -234,6 +234,7 @@
 	margin-right: 20px;
 }
 #showAuthors {
+	padding: 5px;
 	display: inline-block;
 	color: blue;
 	cursor: pointer;
@@ -330,8 +331,7 @@
 	margin-bottom: 8px;
 }
 .option-film-left {
-	min-width: 72px;
-	margin-right: 39px;
+	width: 130px;
 	height: 100%;
 	line-height: 16px;
 	color: #8c8c8c;
@@ -343,14 +343,14 @@
 	color: #d3d3d3;
 }
 .option-film-right {
+	width: -webkit-fill-available;
 	line-height: 14px;
 }
 .option-film-right-line-height {
 	line-height: 18px;
 }
 .show-style {
-	width: 50px;
-	height: 25px;
+	// padding: 5px;
 	background-color: #d3d3d3;
 	border-radius: 8px;
 	display: flex;

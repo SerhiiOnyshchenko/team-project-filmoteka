@@ -81,7 +81,7 @@ function pushInArray() {
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`
                   );
                   emptyArray.push(
-                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
+                     `<li class="pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
                   );
                }
             } else if (i === totalPages) {
@@ -91,7 +91,7 @@ function pushInArray() {
                   );
                } else {
                   emptyArray.push(
-                     `<li class="pagination__item pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
+                     `<li class="pagination__item--hidden"><button class="pagination__btn pagination__btn--none">...</button></li>`
                   );
                   emptyArray.push(
                      `<li class="pagination__item"><button class="pagination__btn" data-id="${i}">${i}</button></li>`

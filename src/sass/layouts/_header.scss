@@ -385,27 +385,24 @@
 		color: inherit;
 	}
 }
-.ua.user-menu__title-hover{
+.ua.user-menu__title-hover {
 	padding-left: 35px;
 }
 
 // DARK MODE
 .mode {
-	
 	@include font(500, 12, 20);
 	text-transform: uppercase;
 	color: $secondary-color;
 
 	@media screen and (max-width: 767px) {
-	margin-left: 10px;
-    @include font(400, 10, 16);
+		margin-left: 10px;
+		@include font(400, 10, 16);
 	}
 
 	@media screen and (min-width: 768px) {
 		@include displayFlex();
 	}
-		
-	
 }
 .change {
 	@include displayFlex();
@@ -432,32 +429,17 @@
 }
 // ---LANGUAGE---
 
-.change-container{
-border: 1px solid #ff6b01;
-width: 35px;
-height: 20px;
-border-radius: 40%;
-margin-left: 8px;
+.change-container {
+	border: 1px solid #ff6b01;
+	width: 35px;
+	height: 20px;
+	border-radius: 40%;
+	margin-left: 8px;
 }
-// .ua.change-container {
-// 	width: 80px;
-// 	height: 25px;
-// }
-// .dark-mode{
-	// @media screen and (max-width: 767px) {
-	// width: 32px;
-	// }
-// }
-// .ua.dark-mode{
-// 	@media screen and (max-width: 767px) {
-// 		width: 43px;
-// 		}
-// }
 
 .en {
 	margin-left: 10px;
 }
-
 .lang--btn {
 	@include displayFlex();
 	cursor: pointer;
@@ -465,8 +447,6 @@ margin-left: 8px;
 	min-width: 35px;
 	min-height: 25px;
 	border-radius: 40%;
-	background-color: $secondary-color;
-	color: $primary-color;
 	transition: $transition;
 	justify-content: center;
 	align-items: center;
@@ -474,12 +454,11 @@ margin-left: 8px;
 	@include font(500, 12, 20);
 	text-transform: uppercase;
 	@media screen and (max-width: 767px) {
-	margin-left: 10px;
-    @include font(400, 10, 16);
+		margin-left: 10px;
+		@include font(400, 10, 16);
 	}
 	&:hover,
 	&:focus {
-		
 		border-color: #ff6b01;
 		box-shadow: $box-shadow;
 	}
