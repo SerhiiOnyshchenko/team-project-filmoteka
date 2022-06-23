@@ -69,6 +69,7 @@ const refs = {
    trailer: document.getElementById('trailer-modal-wrapper'),
    trailerWrap: document.getElementById('trailer-modal'),
    mainSection: document.querySelector('main'),
+   langBtn: document.querySelector('.lang--btn.en'),
 };
 
 export default refs;

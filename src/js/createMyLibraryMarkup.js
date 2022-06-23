@@ -72,8 +72,13 @@ export async function renderQueueFilms(page = 1) {
 }
 
 function templateTextEmptyLibrary() {
-   refs.galleryList.innerHTML =
+   if (refs.langBtn.classList.contains('active-btn')) {
+      refs.galleryList.innerHTML =
       '<p id="myLibraryTemplateText">There are not movies in your library</p>';
+   } else {
+      refs.galleryList.innerHTML =
+      '<p id="myLibraryTemplateText">У вашій бібліотеці немає фільмів</p>';
+   }
    refs.galleryList.classList.remove('grid-container');
    if (refs.btnMyLibrary.classList.contains('current')) {
       refs.mainSection.classList.add('camera-template');
