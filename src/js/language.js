@@ -149,6 +149,7 @@ function ua() {
     <div class="header__dropdown-btn" data-genre="53">Трилер</div>
     <div class="header__dropdown-btn" data-genre="10752">Воєнний фільм</div>
     <div class="header__dropdown-btn" data-genre="37">Ве́стерн</div>`;
+   footerTextMrbottom.classList.add('footer-text-mrbottom--ua');
    footerTextMrbottom.innerHTML = '&#169; 2022 | Всі права захищені |';
    footerTextMrleft.textContent = 'Розроблено з';
    by.textContent = '';
@@ -298,8 +299,8 @@ function en() {
  <div class="header__dropdown-btn" data-genre="53">Thriller</div>
  <div class="header__dropdown-btn" data-genre="10752">War</div>
  <div class="header__dropdown-btn" data-genre="37">Western</div>`;
-   footerTextMrbottom.innerHTML =
-      '&#169; 2022 | &#169; 2022 | All Rights Reserved |';
+   footerTextMrbottom.classList.remove('footer-text-mrbottom--ua');
+   footerTextMrbottom.innerHTML = '&#169; 2022 | All Rights Reserved |';
    footerTextMrleft.textContent = 'Developed with';
    by.textContent = `by`;
    footerLink.textContent = 'GoIT Students';

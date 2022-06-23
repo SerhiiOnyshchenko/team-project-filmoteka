@@ -44,7 +44,7 @@
 		}
 	}
 	.footer-text-mrbottom {
-		@media screen and (max-width: 769px) {
+		@media screen and (max-width: 474px) {
 			margin-bottom: 10px;
 		}
 	}
@@ -61,5 +61,10 @@
 		&:focus {
 			color: $accent-color;
 		}
+	}
+}
+.footer-text-mrbottom.footer-text-mrbottom--ua {
+	@media screen and (max-width: 769px) {
+		margin-bottom: 10px;
 	}
 }
