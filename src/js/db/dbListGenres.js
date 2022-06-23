@@ -44,5 +44,4 @@ if (localStorage.getItem('language') === 'ua') {
       { id: 37, name: 'Western' },
    ];
 }
-console.log(genres);
 export default genres;
