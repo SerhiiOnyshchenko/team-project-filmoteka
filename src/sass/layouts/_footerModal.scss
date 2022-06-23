@@ -49,8 +49,11 @@
 .comand {
 	@include font(500, 24, 16);
 	color: #0b0b0b;
-	letter-spacing: .3em;
+	letter-spacing: 0.3em;
 	margin-bottom: 20px;
+	@media screen and(min-width: 768px) {
+		letter-spacing: 0.2em;
+	}
 }
 .comand-list {
 	display: flex;
@@ -66,12 +69,12 @@
 	margin: 20px;
 	border-radius: 4px;
 	-webkit-box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.5);
-		box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.5);
 
 	&:not(:last-child) {
 		margin-bottom: 0px;
 	}
-	&:hover{
+	&:hover {
 		box-shadow: $box-shadow;
 	}
 	&:hover .comand-item-card-action {
@@ -110,7 +113,7 @@
 
 .comand-title {
 	@include font(500, 16, 14);
-	letter-spacing: .1em;
+	letter-spacing: 0.1em;
 	margin-bottom: 10px;
 }
 
@@ -143,24 +146,22 @@
 	transition: $transition;
 	padding: 10px 10px 58px;
 	@media screen and(min-width:1024px) {
-			
-		}
+	}
 }
-.comand-item-card-item{
+.comand-item-card-item {
 	padding-left: 10px;
 	margin-bottom: 15px;
 	@media screen and(min-width: 480px) {
-			&:not(:last-child) {
-				margin-bottom: 30px;
-			}
-		}
-	@media screen and(min-width: 1024px) {
-		&:not(:last-child){
-		margin-bottom: 10px;
-		padding: 0;
+		&:not(:last-child) {
+			margin-bottom: 30px;
 		}
 	}
-	
+	@media screen and(min-width: 1024px) {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+			padding: 0;
+		}
+	}
 }
 .comand-item-card-text {
 	font-size: 12px;
@@ -168,12 +169,11 @@
 	letter-spacing: 0.03em;
 	color: #fff;
 	@media screen and(min-width:480px) {
-			font-size: 14px;
-			line-height: 1.55em;
-		}
+		font-size: 14px;
+		line-height: 1.55em;
+	}
 	@media screen and(min-width:1024px) {
 		font-size: 9px;
 		line-height: 1.05em;
-		
 	}
 }
