@@ -4,21 +4,11 @@ modeText.addEventListener('click', function () {
    if (document.body.classList.contains('dark')) {
       document.body.classList.remove('dark');
       localStorage.setItem('mode', !'dark');
-      if(localStorage.getItem('language') === 'ua'){
-         modeText.innerHTML = "ВИМКНЕНО";
-      }
-      else{
-         modeText.innerHTML = 'OFF';
-      }
+      modeText.innerHTML = 'OFF';
    } else {
       document.body.classList.add('dark');
       localStorage.setItem('mode', 'dark');
-      if(localStorage.getItem('language') === 'ua'){
-         modeText.innerHTML = "УВІМКНЕНО"; 
-      }
-      else{
-         modeText.innerHTML = 'ON';
-      }
+      modeText.innerHTML = 'ON';
    }
 });
 
@@ -26,4 +16,3 @@ if (localStorage.getItem('mode') === 'dark') {
    document.body.classList.add('dark');
    modeText.innerHTML = 'ON';
 }
-

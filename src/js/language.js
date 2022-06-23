@@ -392,13 +392,4 @@ function en() {
    comandItemCardText28.textContent =
       'When going to each page, draw the appropriate part of the movies';
    comandItemCardText29.textContent = 'PAGINATION LAYOUT';
-   if (localStorage.getItem('mode') === 'dark') {
-      changeContainer.classList.remove('ua');
-      darkMode.textContent = 'Dark mode:';
-      change.textContent = 'ON';
-   } else {
-      changeContainer.classList.remove('ua');
-      darkMode.textContent = 'Dark mode:';
-      change.textContent = 'OFF';
-   }
 }

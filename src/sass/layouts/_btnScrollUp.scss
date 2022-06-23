@@ -4,7 +4,9 @@
 	right: 25px;
 	fill: $third-color;
 	background-color: transparent;
-
+	@media screen and (max-width: 360px) {
+		bottom: 45px;
+	}
 	cursor: pointer;
 	visibility: visible;
 	opacity: 1;

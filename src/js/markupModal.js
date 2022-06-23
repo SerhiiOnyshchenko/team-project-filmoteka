@@ -128,7 +128,7 @@ export function loadMoreInfoMarkup(data) {
          </div>
       </div>
       </div>
-      <h3 class="title-modal">${isLanguageUA ? 'Про фільм' : 'About'}About</h3>
+      <h3 class="title-modal">${isLanguageUA ? 'Про фільм' : 'About'}</h3>
       <p class="text-modal">
          ${overview}
       </p>
@@ -144,57 +144,3 @@ export function loadMoreInfoMarkup(data) {
    </div>
 </div>`;
 }
-
-// `<div class="image-container">
-// <img
-//    src=${filmPoster}
-//    alt="Poster ${title}"
-// />
-// <button type="button"  class="trailer__play-btn" data-id="${id}" aria-label="Trailer" id="trailerOpen"></button>
-// </div>
-// <div class="container-context">
-// <div class="top-content">
-//    <h2 class="modal-title">${title}</h2>
-//    <div class="option-film">
-//     <div class="option-film-container">
-//       <p class="option-film-left ua">Рейтинг</p>
-//       <p class="option-film-right">
-//          <span class="vote">${vote_average}</span><span class="slash"> /</span><span class="votes">${vote_count}</span>
-//       </p>
-//    </div>
-//    <div class="option-film-container">
-//       <p class="option-film-left ua">Популярність</p>
-//       <p class="option-film-right">${popularity}</p>
-//    </div>
-//    <div class="option-film-container">
-//       <p class="option-film-left ua">Оригінальна назва</p>
-//       <p class="option-film-right option-film-right-line-height">
-//          ${original_title}
-//       </p>
-//    </div>
-//    <div class="option-film-container">
-//       <p class="option-film-left ua">Жанр</p>
-//       <p class="option-film-right option-film-right-line-height">${allGanres}</p>
-//    </div>
-//    <div class="option-film-container">
-//       <p  class="option-film-left option-film-left-style ua">Автори</p>
-//       <div class="show-style">
-//       <p class="option-film-right option-film-right-style ua" data-id=${id} id="showAuthors">ПОКАЗАТИ</p>
-//       </div>
-//    </div>
-//    </div>
-//    <h3 class="title-modal">ПРО ФІЛЬМ</h3>
-//    <p class="text-modal">
-//       ${overview}
-//    </p>
-// </div>
-
-// <div class="btn-container" id="btn-container" >
-//    <button type="button" class="${btnWatchedStyle} btn-modal add-to-watched data-btn-id=${id}">
-//       ${btnWatchedText}
-//    </button>
-//    <button type="button" class="${btnQueueStyle} btn-modal add-to-queue data-btn-id=${id}">
-//       ${btnQueueText}
-//    </button>
-// </div>
-// </div>`;
