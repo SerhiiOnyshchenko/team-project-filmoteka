@@ -49,10 +49,10 @@
 .comand {
 	@include font(500, 24, 16);
 	color: #0b0b0b;
-	letter-spacing: 0.3em;
+	letter-spacing: 0.2em;
 	margin-bottom: 20px;
 	@media screen and(min-width: 768px) {
-		letter-spacing: 0.2em;
+		letter-spacing: 0.3em;
 	}
 }
 .comand-list {
