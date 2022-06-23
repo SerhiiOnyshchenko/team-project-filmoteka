@@ -21,9 +21,9 @@ export default function createFilmCardMarkup(filmData) {
          }
       }
    }
-
+   const isLanguageUA = localStorage.getItem('language') === 'ua';
    if (filmGenres.length > 2) {
-      filmGenres[filmGenres.length - 1] = 'Others';
+      filmGenres[filmGenres.length - 1] = isLanguageUA ? 'Інші' : 'Others';
    }
    const filmGenresString = filmGenres.join(', ');
 
