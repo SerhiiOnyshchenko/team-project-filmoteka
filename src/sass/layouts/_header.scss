@@ -271,20 +271,30 @@
 }
 .header__box-login-logout {
 	position: absolute;
-	top: 150px;
+	top: auto;
 	right: 32px;
 	display: flex;
 	justify-content: end;
 	align-items: center;
 	color: $secondary-color;
+	
+	&>span{
+		font-size: 11px;
+	}
+	@media screen and(min-width: 480px) {
+		top: 150px;
+		&>span {
+				font-size: 14px;
+			}
+	}
 }
 .header__btn-login {
 	text-align: center;
 	text-transform: uppercase;
 	border: 1px solid #fff;
 	@include displayFlex();
-	margin-left: 20px;
-	padding: 10px;
+	margin-left: 7px;
+	padding: 3px 6px;
 	border-radius: 5px;
 	color: $secondary-color;
 	background: $header-shadow;
@@ -293,6 +303,10 @@
 	&:focus {
 		background: $btn-color;
 		cursor: pointer;
+	}
+	@media screen and(min-width: 480px) {
+		margin-left: 20px;
+		// padding: 10px;
 	}
 }
 
