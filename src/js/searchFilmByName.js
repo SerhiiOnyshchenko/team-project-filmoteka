@@ -17,6 +17,10 @@ export async function searchFilmByName(query, page = 1) {
       gloalVar.whichTypeMovieSearch = 'search';
       gloalVar.searchText = query;
       refs.inputError.classList.add('visually-hidden');
+      if (!refs.galleryList.classList.contains('grid-container')) {
+         refs.galleryList.classList.add('grid-container');
+         refs.mainSection.classList.remove('camera-template');
+      }
       refs.galleryList.innerHTML = data.results
          .map(createFilmCardMarkup)
          .join('');
